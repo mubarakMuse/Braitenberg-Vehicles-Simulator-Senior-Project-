@@ -84,6 +84,11 @@ class EntityFactory {
   */
   Pose SetPoseRandomly();
 
+  /**
+  * @brief An attempt to have diffrent sized entities .
+  */
+  double SetRadiusRandomly();
+
   /* Factory tracks the number of created entities. There is no accounting for
    * the destruction of entities */
   int entity_count_{0};

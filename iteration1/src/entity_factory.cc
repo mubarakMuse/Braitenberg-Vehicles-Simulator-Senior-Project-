@@ -66,7 +66,7 @@ Obstacle* EntityFactory::CreateObstacle() {
   obstacle->set_type(kObstacle);
   obstacle->set_color(OBSTACLE_COLOR);
   obstacle->set_pose(SetPoseRandomly());
-  obstacle->set_radius(OBSTACLE_RADIUS);
+  obstacle->set_radius(SetRadiusRandomly());
   ++entity_count_;
   ++obstacle_count_;
   obstacle->set_id(obstacle_count_);
@@ -89,6 +89,11 @@ Pose EntityFactory::SetPoseRandomly() {
   // Dividing arena into 19x14 grid. Each grid square is 50x50
   return {static_cast<double>((30 + (random() % 19) * 50)),
         static_cast<double>((30 + (random() % 14) * 50))};
+}
+
+double EntityFactory::SetRadiusRandomly() {
+  return random()%30;
+
 }
 
 NAMESPACE_END(csci3081);
