@@ -72,6 +72,11 @@ class MotionHandlerRobot : public MotionHandler {
    */
   void TurnLeft() override;
 
+  /**
+   * @brief stop the entity to be at zero velocity.
+   */
+  void Stop() override; 
+
  private:
   double clamp_vel(double vel);
 };

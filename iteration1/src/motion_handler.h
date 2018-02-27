@@ -91,6 +91,11 @@ class MotionHandler {
   virtual void TurnLeft() {}
 
   /**
+   * @brief stop the entity to be at zero velocity.
+   */
+  virtual void Stop() {}
+
+  /**
    * @brief Getter method for the maximum speed of entity.
    */
   double get_max_speed() const { return max_speed_; }
