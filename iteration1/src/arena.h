@@ -152,6 +152,15 @@ class Arena {
    */
   void UpdateEntitiesTimestep();
 
+   /**
+   * @brief Update the game status to win or loss.
+   *
+   * Check if the robots lives is zero or less after each collison
+   * future to check if robot touched all bases
+   * 
+   */
+  void UpdateGameStatus();
+
   std::vector<class ArenaEntity *> get_entities() const { return entities_; }
 
   double get_x_dim() { return x_dim_; }
@@ -159,6 +168,7 @@ class Arena {
 
   int get_game_status() const { return game_status_; }
   void set_game_status(int status) { game_status_ = status; }
+
 
  private:
   // Dimensions of graphics window inside which entities must operate

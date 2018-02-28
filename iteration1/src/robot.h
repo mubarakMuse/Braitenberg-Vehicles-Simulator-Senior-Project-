@@ -104,7 +104,7 @@ class Robot : public ArenaMobileEntity {
   * @brief Function called when robot loose alife
   */
   void lose_A_Life(){ // added for priorty 1
-    lives_ = lives_ -  2;
+    lives_ = lives_ - 1;
   }
 
   MotionHandlerRobot get_motion_handler() { return motion_handler_; }
