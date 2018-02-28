@@ -70,7 +70,8 @@
   { 400, 400 }
 #define BASE_COLOR \
   { 255, 0, 0 }
-
+#define BASE_COLOR_POST_COLLISION \
+  { 255, 255, 0 }
 // obstacle
 #define OBSTACLE_POSITION \
   { 200, 200 }

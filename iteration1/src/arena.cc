@@ -75,6 +75,7 @@ void Arena::UpdateGameStatus() { // added for priorty 1
   if (robot_->get_lives() <= 0){
           set_game_status(LOST);
         }
+
 }
 void Arena::UpdateEntitiesTimestep() {
   /*
@@ -110,8 +111,17 @@ void Arena::UpdateEntitiesTimestep() {
       if (IsColliding(ent1, ent2)) {
         AdjustEntityOverlap(ent1, ent2);
         robot_->HandleCollision(ent2->get_type(), ent2);
-        robot_->lose_A_Life();
-        UpdateGameStatus();
+        if (ent2->get_type() == kObstacle){
+          robot_->lose_A_Life();
+          UpdateGameStatus();
+        }
+        if (ent2->get_type() == kBase){
+          // if (ent2->IsCaptured()){ // not captured yet
+          //   ent2->set_captured(true);
+          // }
+           ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1
+        }
+       
       }
     }
   }
