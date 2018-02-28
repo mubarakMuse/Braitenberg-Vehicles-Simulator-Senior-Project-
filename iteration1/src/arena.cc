@@ -29,7 +29,7 @@ Arena::Arena(const struct arena_params *const params)
       mobile_entities_(),
       game_status_(PLAYING) {
   AddRobot();
-  AddEntity(kBase, 3); // changed this 3
+  AddEntity(kBase, params->n_bases); // changed this 3
   AddEntity(kObstacle, params->n_obstacles); // changed the params to 4
 }
 
@@ -75,6 +75,9 @@ void Arena::UpdateGameStatus() { // added for priorty 1
   if (robot_->get_lives() <= 0){
           set_game_status(LOST);
         }
+  if (num_Bases_coloidedWith == 3){
+    set_game_status(WON);
+  }
 
 }
 void Arena::UpdateEntitiesTimestep() {
@@ -106,6 +109,7 @@ void Arena::UpdateEntitiesTimestep() {
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
     */
+
     for (auto &ent2 : entities_) {
       if (ent2 == ent1) { continue; }
       if (IsColliding(ent1, ent2)) {
@@ -116,10 +120,10 @@ void Arena::UpdateEntitiesTimestep() {
           UpdateGameStatus();
         }
         if (ent2->get_type() == kBase){
-          // if (ent2->IsCaptured()){ // not captured yet
-          //   ent2->set_captured(true);
-          // }
+          // Bases collieded with
+          num_Bases_coloidedWith ++;
            ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1
+           UpdateGameStatus();
         }
        
       }
