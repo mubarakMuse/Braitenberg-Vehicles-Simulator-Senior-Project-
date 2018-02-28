@@ -100,6 +100,13 @@ class Robot : public ArenaMobileEntity {
 
   void set_lives(int l) { lives_ = l; }
 
+  /**
+  * @brief Function called when robot loose alife
+  */
+  void lose_A_Life(){ // added for priorty 1
+    lives_ = lives_ -  2;
+  }
+
   MotionHandlerRobot get_motion_handler() { return motion_handler_; }
 
   MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }

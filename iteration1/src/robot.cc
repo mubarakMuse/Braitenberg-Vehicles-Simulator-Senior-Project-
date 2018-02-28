@@ -50,7 +50,7 @@ void Robot::Reset() {
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
   sensor_touch_->HandleCollision(object_type, object);
-  motion_handler_.Stop();// stop the car right away
+  motion_handler_.Stop();// stop the car right away. added for priorty.
 }
 
 void Robot::IncreaseSpeed() {

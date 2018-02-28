@@ -93,6 +93,7 @@ void Arena::UpdateEntitiesTimestep() {
     if (kUndefined != wall) {
       AdjustWallOverlap(ent1, wall);
       robot_->HandleCollision(wall);
+      robot_->lose_A_Life();
     }
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
