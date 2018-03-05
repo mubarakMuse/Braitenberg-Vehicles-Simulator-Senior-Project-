@@ -49,6 +49,50 @@ class Obstacle : public ArenaMobileEntity {
   std::string get_name() const override {
     return "Obstacle" + std::to_string(get_id());
   }
+  /**
+   * @brief Reset the Robot to a newly constructed state (needed for reset
+   * button to work in GUI).
+   */
+  void Reset() override;
+
+  /**
+   * @brief Update the Robot's position and velocity after the specified
+   * duration has passed.
+   *
+   * @param dt The # of timesteps that have elapsed since the last update.
+   */
+  void TimestepUpdate(unsigned int dt) override;
+
+
+  /**
+   * @brief Handles the collision by setting the sensor to activated.
+   */
+  void HandleCollision(EntityType object_type, ArenaEntity * object = NULL);
+
+  /**
+   * @brief Command that comes from the controller, then is passed to handler.
+   */
+  void IncreaseSpeed();
+
+  /**
+  * @brief Command that comes from the controller, then is passed to handler.
+  */
+  void DecreaseSpeed();
+
+  /**
+  * @brief Command that comes from the controller, then is passed to handler.
+  */
+  void TurnRight();
+
+  /**
+  * @brief Command that comes from the controller, then is passed to handler.
+  */
+  void TurnLeft();
+
+  MotionHandlerRobot get_motion_handler() { return motion_handler_; }
+
+  MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }
+
    private:
   // Manages pose and wheel velocities that change with time and collisions.
   MotionHandlerRobot motion_handler_;
