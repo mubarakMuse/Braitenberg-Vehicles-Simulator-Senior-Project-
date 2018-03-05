@@ -29,8 +29,8 @@ Arena::Arena(const struct arena_params *const params)
       mobile_entities_(),
       game_status_(PLAYING) {
   AddRobot();
-  AddEntity(kBase, params->n_bases); // changed this 3
-  AddEntity(kObstacle, params->n_obstacles); // changed the params to 4
+  AddEntity(kBase, 3); // changed this 3 i need  to us params 
+  AddEntity(kObstacle, 3); // changed the params to 4
 }
 
 Arena::~Arena() {
@@ -71,7 +71,7 @@ void Arena::AdvanceTime(double dt) {
   } /* for(i..) */
 } /* AdvanceTime() */
 
-void Arena::UpdateGameStatus() { // added for priorty 1
+void Arena::UpdateGameStatus() { // added for priorty 1 
   if (robot_->get_lives() <= 0){
           set_game_status(LOST);
         }

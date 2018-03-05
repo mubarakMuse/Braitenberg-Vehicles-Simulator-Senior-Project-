@@ -156,7 +156,7 @@ class Arena {
    * @brief Update the game status to win or loss.
    *
    * Check if the robots lives is zero or less after each collison
-   * future to check if robot touched all bases
+   * or check if robot touched all bases
    * 
    */
   void UpdateGameStatus();
