@@ -11,7 +11,7 @@
  * Includes
  ******************************************************************************/
 #include <string>
-
+#include "src/params.h"
 #include "src/arena_immobile_entity.h"
 #include "src/common.h"
 #include "src/entity_type.h"
@@ -70,7 +70,12 @@ class Base : public ArenaImmobileEntity {
   /**
    * @brief Setter for captured_, which is the state of the base
    */
-  void set_captured(bool state) { captured_ = state; }
+ void set_captured(bool state) { 
+  captured_ = state;
+  if (IsCaptured()){
+    set_color(BASE_COLOR_POST_COLLISION);
+  } 
+ }
 
 private:
   bool captured_;

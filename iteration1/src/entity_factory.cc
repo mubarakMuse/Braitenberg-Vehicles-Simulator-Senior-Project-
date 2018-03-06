@@ -92,7 +92,7 @@ Pose EntityFactory::SetPoseRandomly() {
 }
 
 double EntityFactory::SetRadiusRandomly() {
-  return random()%30;
+  return (random()%41)+10;
 
 }
 

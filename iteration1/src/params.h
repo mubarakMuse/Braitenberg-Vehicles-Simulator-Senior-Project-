@@ -21,8 +21,8 @@
  */
 
 // graphics
-#define X_DIM 800
-#define Y_DIM 700
+#define X_DIM 1024
+#define Y_DIM 768
 #define TEXT_BOX_WIDTH 50
 #define GUI_MENU_WIDTH 180
 #define GUI_MENU_GAP 10

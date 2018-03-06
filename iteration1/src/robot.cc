@@ -47,6 +47,7 @@ void Robot::Reset() {
   motion_handler_.set_max_speed(ROBOT_MAX_SPEED);
   motion_handler_.set_max_angle(ROBOT_MAX_ANGLE);
   sensor_touch_->Reset();
+  set_lives(9);
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {

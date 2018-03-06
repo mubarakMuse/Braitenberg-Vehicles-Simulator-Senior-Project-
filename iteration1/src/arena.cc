@@ -131,9 +131,7 @@ void Arena::UpdateEntitiesTimestep() {
           UpdateGameStatus();
         }
         if (ent2->get_type() == kBase && ent1->get_type() == kRobot){
-          // Bases collieded with
-          num_Bases_coloidedWith ++;
-          ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
+          //ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
           dynamic_cast<Base *> (ent2)->set_captured(true);
           UpdateGameStatus();
         }
