@@ -77,6 +77,8 @@ class Arena {
    */
   void AcceptCommand(Communication com);
 
+  void NewGame();
+
   /**
    * @brief Reset all entities in Arena.
    */

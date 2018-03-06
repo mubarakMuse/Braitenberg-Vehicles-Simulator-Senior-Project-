@@ -28,11 +28,9 @@ NAMESPACE_BEGIN(csci3081);
  ******************************************************************************/
 
 /**
- * @brief Class managing a Robot's speed and heading angle based
+ * @brief Class managing a Robot's and obstacle's speed and heading angle based
  * on collisions and user inputs.
  *
- * Currently, both wheels are always going at maximum speed, and
- * cannot be controlled independently.
  */
 class MotionHandlerRobot : public MotionHandler {
  public:

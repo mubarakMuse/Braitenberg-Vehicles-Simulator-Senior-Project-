@@ -50,19 +50,18 @@ class Obstacle : public ArenaMobileEntity {
     return "Obstacle" + std::to_string(get_id());
   }
   /**
-   * @brief Reset the Robot to a newly constructed state (needed for reset
+   * @brief Reset the onstacle to a newly constructed state (needed for reset
    * button to work in GUI).
    */
   void Reset() override;
 
   /**
-   * @brief Update the Robot's position and velocity after the specified
+   * @brief Update the Obstacle's position and velocity after the specified
    * duration has passed.
    *
    * @param dt The # of timesteps that have elapsed since the last update.
    */
   void TimestepUpdate(unsigned int dt) override;
-
 
   /**
    * @brief Handles the collision by setting the sensor to activated.
@@ -93,7 +92,7 @@ class Obstacle : public ArenaMobileEntity {
 
   MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }
 
-   private:
+  private:
   // Manages pose and wheel velocities that change with time and collisions.
   MotionHandlerRobot motion_handler_;
   // Calculates changes in pose based on elapsed time and wheel velocities.

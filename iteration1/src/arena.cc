@@ -42,6 +42,7 @@ Arena::~Arena() {
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
+
 void Arena::AddRobot() {
   robot_ = dynamic_cast<Robot *>(factory_->CreateEntity(kRobot));
   entities_.push_back(robot_);

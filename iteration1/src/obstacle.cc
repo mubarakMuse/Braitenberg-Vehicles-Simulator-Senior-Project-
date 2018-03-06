@@ -21,7 +21,7 @@ NAMESPACE_BEGIN(csci3081);
 Obstacle::Obstacle():
 	motion_handler_(this),
     motion_behavior_(this){
-  motion_handler_.set_velocity(10, 10); //
+  motion_handler_.set_velocity(5, 5); // obstacles being to move that fast at first
   set_color(OBSTACLE_COLOR);
   set_pose(OBSTACLE_POSITION);
   set_radius(OBSTACLE_RADIUS);
@@ -33,31 +33,27 @@ Obstacle::Obstacle():
 void Obstacle::TimestepUpdate(unsigned int dt) {
   // Update heading as indicated by touch sensor
   motion_handler_.UpdateVelocity();
-  if (random()%26 == 0){ // randomly changing the heading so the obtsacle can bounce around
+  if (random()%10 == 0){ // randomly changing the heading so the obtsacle can move around
   	RelativeChangeHeading(+10);
   }
-  
-
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_.get_velocity());
-
   // Reset Sensor for next cycle
   sensor_touch_->Reset();
 } /* TimestepUpdate() */
 
 void Obstacle::Reset() {
-  set_pose(ROBOT_INIT_POS);
-  motion_handler_.set_max_speed(ROBOT_MAX_SPEED);
-  motion_handler_.set_max_angle(ROBOT_MAX_ANGLE);
+  set_pose(OBSTACLE_POSITION);
+  motion_handler_.set_max_speed(OBSTACLE_MAX_SPEED);
+  motion_handler_.set_max_angle(OBSTACLE_MAX_ANGLE);
   sensor_touch_->Reset();
 } /* Reset() */
 
 void Obstacle::HandleCollision(EntityType object_type, ArenaEntity * object) {
   sensor_touch_->HandleCollision(object_type, object);
-  WheelVelocity temp  = motion_handler_.get_velocity();
-  //std::cout<<"HandleCollision\n";
-  motion_handler_.Stop();// stop the car right away. added for priorty.
-  motion_handler_.set_velocity(temp);
+  WheelVelocity currentVelocity = motion_handler_.get_velocity(); // to maintain the speed it was moving at 
+  motion_handler_.Stop(); // stop the obstacle when it collides with something 
+  motion_handler_.set_velocity(currentVelocity);
 }
 
 void Obstacle::IncreaseSpeed() {
