@@ -110,31 +110,34 @@ void Arena::UpdateEntitiesTimestep() {
     if (kUndefined != wall) {
       AdjustWallOverlap(ent1, wall);
       ent1->HandleCollision(wall,NULL);
-      //robot_->lose_A_Life();
+      if (ent1->get_type() == kRobot){
+        robot_->lose_A_Life();
       UpdateGameStatus();
+      }
+      
     }
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
     */
 
-    // for (auto &ent2 : entities_) {
-    //   if (ent2 == ent1) { continue; }
-    //   if (IsColliding(ent1, ent2)) {
-    //     AdjustEntityOverlap(ent1, ent2);
-    //     robot_->HandleCollision(ent2->get_type(), ent2);
-    //     if (ent2->get_type() == kObstacle){
-    //       robot_->lose_A_Life();
-    //       UpdateGameStatus();
-    //     }
-    //     if (ent2->get_type() == kBase){
-    //       // Bases collieded with
-    //       num_Bases_coloidedWith ++;
-    //        ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1
-    //        UpdateGameStatus();
-    //     }
+    for (auto &ent2 : entities_) {
+      if (ent2 == ent1) { continue; }
+      if (IsColliding(ent1, ent2)) {
+        AdjustEntityOverlap(ent1, ent2);
+        ent1->HandleCollision(ent2->get_type(), ent2);
+        if (ent2->get_type() == kObstacle && ent1->get_type() == kRobot){
+          robot_->lose_A_Life();
+          UpdateGameStatus();
+        }
+        if (ent2->get_type() == kBase){
+          // Bases collieded with
+          num_Bases_coloidedWith ++;
+          ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1
+          UpdateGameStatus();
+        }
        
-    //   }
-    // }
+      }
+    }
   }
 }  // UpdateEntitiesTimestep()
 
