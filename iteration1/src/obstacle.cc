@@ -21,7 +21,7 @@ NAMESPACE_BEGIN(csci3081);
 Obstacle::Obstacle():
 	motion_handler_(this),
     motion_behavior_(this){
-  motion_handler_.set_velocity(1, 1); //
+  motion_handler_.set_velocity(10, 10); //
   set_color(OBSTACLE_COLOR);
   set_pose(OBSTACLE_POSITION);
   set_radius(OBSTACLE_RADIUS);
@@ -33,6 +33,10 @@ Obstacle::Obstacle():
 void Obstacle::TimestepUpdate(unsigned int dt) {
   // Update heading as indicated by touch sensor
   motion_handler_.UpdateVelocity();
+  if (random()%26 == 0){ // randomly changing the heading so the obtsacle can bounce around
+  	RelativeChangeHeading(+10);
+  }
+  
 
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_.get_velocity());
@@ -49,7 +53,7 @@ void Obstacle::Reset() {
 } /* Reset() */
 
 void Obstacle::HandleCollision(EntityType object_type, ArenaEntity * object) {
-   sensor_touch_->HandleCollision(object_type, object);
+  sensor_touch_->HandleCollision(object_type, object);
   WheelVelocity temp  = motion_handler_.get_velocity();
   //std::cout<<"HandleCollision\n";
   motion_handler_.Stop();// stop the car right away. added for priorty.
