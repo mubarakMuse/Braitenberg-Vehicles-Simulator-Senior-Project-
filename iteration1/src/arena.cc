@@ -75,7 +75,10 @@ void Arena::AdvanceTime(double dt) {
     return;
   }
   for (size_t i = 0; i < 1; ++i) {
-    UpdateEntitiesTimestep();
+    if (game_status_ == PLAYING){
+      UpdateEntitiesTimestep();
+    }
+    //UpdateEntitiesTimestep();
   } /* for(i..) */
 } /* AdvanceTime() */
 
