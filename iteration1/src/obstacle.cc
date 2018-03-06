@@ -43,7 +43,7 @@ void Obstacle::TimestepUpdate(unsigned int dt) {
 } /* TimestepUpdate() */
 
 void Obstacle::Reset() {
-  set_pose(OBSTACLE_POSITION);
+  set_pose(SetPoseRandomly());
   motion_handler_.set_max_speed(OBSTACLE_MAX_SPEED);
   motion_handler_.set_max_angle(OBSTACLE_MAX_ANGLE);
   sensor_touch_->Reset();

@@ -78,6 +78,12 @@ class ArenaEntity {
    */
   virtual void Reset() {}
 
+  Pose SetPoseRandomly() {
+  // Dividing arena into 19x14 grid. Each grid square is 50x50
+  return {static_cast<double>((30 + (random() % 19) * 50)),
+        static_cast<double>((30 + (random() % 14) * 50))};
+}
+
   /**
    * @brief Get the name of the entity for visualization and for debugging.
    *

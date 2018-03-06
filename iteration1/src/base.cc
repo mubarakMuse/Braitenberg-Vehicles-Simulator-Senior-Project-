@@ -9,6 +9,7 @@
  ******************************************************************************/
 #include "src/base.h"
 #include "src/params.h"
+#include "src/arena_entity.h"
 
 /*******************************************************************************
  * Namespaces
@@ -29,7 +30,7 @@ Base::Base() : ArenaImmobileEntity(), captured_(false) {
  * Member Functions
  ******************************************************************************/
 void Base::Reset() {
-  set_pose(BASE_INIT_POS);
+  set_pose(SetPoseRandomly());
 } /* Reset */
 
 NAMESPACE_END(csci3081);
