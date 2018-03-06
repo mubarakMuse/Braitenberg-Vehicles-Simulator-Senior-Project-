@@ -72,6 +72,8 @@ Communication Controller::ConvertComm(Communication com) {
     case (kPlay) :
     case (kPause) :
     case (kNewGame) : 
+    return kReset;
+    break;
     default: return kNone;
   }
 }
