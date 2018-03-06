@@ -129,7 +129,7 @@ void Arena::UpdateEntitiesTimestep() {
           robot_->lose_A_Life();
           UpdateGameStatus();
         }
-        if (ent2->get_type() == kBase){
+        if (ent2->get_type() == kBase && ent1->get_type() == kRobot){
           // Bases collieded with
           num_Bases_coloidedWith ++;
           ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1

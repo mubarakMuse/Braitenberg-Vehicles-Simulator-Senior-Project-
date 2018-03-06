@@ -58,9 +58,17 @@ void Controller::AcceptCommunication(Communication com) {
 Communication Controller::ConvertComm(Communication com) {
   switch (com) {
     case (kKeyUp) :
+    return kIncreaseSpeed;
+    break;
     case (kKeyDown) :
+    return kDecreaseSpeed;
+    break;
     case (kKeyLeft) :
+    return kTurnLeft;
+    break; 
     case (kKeyRight) :
+    return kTurnRight;
+    break; 
     case (kPlay) :
     case (kPause) :
     case (kNewGame) : 
