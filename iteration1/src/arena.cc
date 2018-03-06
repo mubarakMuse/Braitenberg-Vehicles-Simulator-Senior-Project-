@@ -51,14 +51,14 @@ void Arena::AddRobot() {
 
 void Arena::AddEntity(EntityType type, int quantity) {
   for (int i = 0; i < quantity; i++) {
-    if (type == kObstacle){ // making obstacles mobile
-     obstacle_ = dynamic_cast<Obstacle *>(factory_->CreateEntity(kObstacle));
-  entities_.push_back(obstacle_);
-  mobile_entities_.push_back(obstacle_);
+    if (type == kObstacle){ // making obstacles mobile adding them to the mobeil entity vector
+      obstacle_ = dynamic_cast<Obstacle *>(factory_->CreateEntity(kObstacle));
+      entities_.push_back(obstacle_);
+      mobile_entities_.push_back(obstacle_);
     }
     else {
-    entities_.push_back(factory_->CreateEntity(type));
-  }
+      entities_.push_back(factory_->CreateEntity(type)); // if its a base or something else
+    }
   }
 }
 
@@ -133,7 +133,8 @@ void Arena::UpdateEntitiesTimestep() {
         if (ent2->get_type() == kBase && ent1->get_type() == kRobot){
           // Bases collieded with
           num_Bases_coloidedWith ++;
-          ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1
+          ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
+          dynamic_cast<Base *> (ent2)->set_captured(true);
           UpdateGameStatus();
         }
        

@@ -77,8 +77,6 @@ class Arena {
    */
   void AcceptCommand(Communication com);
 
-  void NewGame();
-
   /**
    * @brief Reset all entities in Arena.
    */
@@ -171,7 +169,7 @@ class Arena {
   int get_game_status() const { return game_status_; }
   void set_game_status(int status) { game_status_ = status; }
   
-   // Bases collieded with
+   // Bases collieded with to calc losses
   int num_Bases_coloidedWith;
 
 
@@ -186,7 +184,7 @@ class Arena {
   // Robot is special. It's also stored in the entity vectors.
   Robot *robot_{nullptr};
 
-// Robot is special. It's also stored in the entity vectors.
+// obstacle object in order to store it in the mobiile entites correclty.
   Obstacle *obstacle_{nullptr};
 
   // All entities mobile and immobile.

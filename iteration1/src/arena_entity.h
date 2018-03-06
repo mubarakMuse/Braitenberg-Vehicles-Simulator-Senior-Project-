@@ -63,6 +63,14 @@ class ArenaEntity {
    * @param[in] dt is time elapsed since the last update. Unused.
    */
   virtual void TimestepUpdate(__unused unsigned int dt) {}
+  
+  /**
+   * @brief handle collisons for both the obstacle and the robot,
+   * Each using it in a away appropiate to that mobile entity
+   *
+   * @param[in] the type of the object it collied with. Unused.
+   * @param[in] the actual object it collied with. Unused.
+   */
   virtual void HandleCollision(__unused EntityType object_type, __unused ArenaEntity * object) {}
 
   /**
