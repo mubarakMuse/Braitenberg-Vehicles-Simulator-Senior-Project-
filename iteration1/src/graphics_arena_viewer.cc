@@ -137,7 +137,7 @@ void GraphicsArenaViewer::DrawRobot(NVGcontext *ctx,
   nvgSave(ctx);
   nvgRotate(ctx, static_cast<float>(M_PI / 2.0));
   nvgFillColor(ctx, nvgRGBA(0, 0, 0, 255));
-  nvgText(ctx, 0.0, 10.0, robot->get_name().c_str(), nullptr);
+  nvgText(ctx, 0.0, 10.0, robot->get_DisplayName().c_str(), nullptr);
   nvgRestore(ctx);
   nvgRestore(ctx);
 }
