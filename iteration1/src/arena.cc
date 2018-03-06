@@ -109,32 +109,32 @@ void Arena::UpdateEntitiesTimestep() {
     EntityType wall = GetCollisionWall(ent1);
     if (kUndefined != wall) {
       AdjustWallOverlap(ent1, wall);
-      //robot_->HandleCollision(wall);
-      robot_->lose_A_Life();
+      ent1->HandleCollision(wall,NULL);
+      //robot_->lose_A_Life();
       UpdateGameStatus();
     }
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
     */
 
-    for (auto &ent2 : entities_) {
-      if (ent2 == ent1) { continue; }
-      if (IsColliding(ent1, ent2)) {
-        AdjustEntityOverlap(ent1, ent2);
-        robot_->HandleCollision(ent2->get_type(), ent2);
-        if (ent2->get_type() == kObstacle){
-          robot_->lose_A_Life();
-          UpdateGameStatus();
-        }
-        if (ent2->get_type() == kBase){
-          // Bases collieded with
-          num_Bases_coloidedWith ++;
-           ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1
-           UpdateGameStatus();
-        }
+    // for (auto &ent2 : entities_) {
+    //   if (ent2 == ent1) { continue; }
+    //   if (IsColliding(ent1, ent2)) {
+    //     AdjustEntityOverlap(ent1, ent2);
+    //     robot_->HandleCollision(ent2->get_type(), ent2);
+    //     if (ent2->get_type() == kObstacle){
+    //       robot_->lose_A_Life();
+    //       UpdateGameStatus();
+    //     }
+    //     if (ent2->get_type() == kBase){
+    //       // Bases collieded with
+    //       num_Bases_coloidedWith ++;
+    //        ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1
+    //        UpdateGameStatus();
+    //     }
        
-      }
-    }
+    //   }
+    // }
   }
 }  // UpdateEntitiesTimestep()
 
@@ -165,7 +165,6 @@ void Arena::AdjustWallOverlap(ArenaMobileEntity *const ent, EntityType object) {
   switch (object) {
     case (kRightWall):  // at x = x_dim_
     ent->set_position(x_dim_-(ent->get_radius()+5), entity_pos.y);
-    ent->HandleCollision(kRightWall,NULL);
     break;
     case (kLeftWall):  // at x = 0
     ent->set_position(ent->get_radius()+5, entity_pos.y);

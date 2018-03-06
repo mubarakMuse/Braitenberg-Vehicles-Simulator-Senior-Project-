@@ -49,9 +49,12 @@ void Robot::Reset() {
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
+
   sensor_touch_->HandleCollision(object_type, object);
+  WheelVelocity temp  = motion_handler_.get_velocity();
   //std::cout<<"HandleCollision\n";
   motion_handler_.Stop();// stop the car right away. added for priorty.
+  motion_handler_.set_velocity(temp);
 }
 
 void Robot::IncreaseSpeed() {
