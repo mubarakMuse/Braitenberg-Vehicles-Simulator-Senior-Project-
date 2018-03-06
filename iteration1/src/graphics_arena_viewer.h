@@ -85,7 +85,13 @@ class GraphicsArenaViewer : public GraphicsApp {
    * pressed again.
    */
   void OnPlayingBtnPressed();
-
+  /**
+   * @brief Handle the user pressing the pause button on the GUI.
+   *
+   * This will freeze the graphics--no update, until the pause button is
+   * pressed again.
+   */
+  void NewGameBtnPressed();
   /**
    * @brief Called each time the mouse moves on the screen within the GUI
    * window.

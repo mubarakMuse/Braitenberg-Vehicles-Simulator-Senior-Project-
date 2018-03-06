@@ -42,6 +42,9 @@ GraphicsArenaViewer::GraphicsArenaViewer(
     gui->addButton(
       "Play",
       std::bind(&GraphicsArenaViewer::OnPlayingBtnPressed, this));
+    gui->addButton(
+      "NewGame",
+      std::bind(&GraphicsArenaViewer::NewGameBtnPressed, this));
   screen()->performLayout();
 }
 
@@ -55,7 +58,6 @@ void GraphicsArenaViewer::UpdateSimulation(double dt) {
   if (!paused_) {
     controller_->AdvanceTime(dt);
   }
-  
 }
 
 /*******************************************************************************
@@ -72,6 +74,9 @@ void GraphicsArenaViewer::OnPlayingBtnPressed() {
     playing_button_->setCaption("Pause");
     
   }
+}
+void GraphicsArenaViewer::NewGameBtnPressed(){
+  arena_->Reset();
 }
 
 /** OnSpecialKeyDown is called when the user presses down on one of the
