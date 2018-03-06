@@ -87,7 +87,7 @@ Base* EntityFactory::CreateBase() {
 
 Pose EntityFactory::SetPoseRandomly() {
   // Dividing arena into 19x14 grid. Each grid square is 50x50
-  return {static_cast<double>((30 + (random() % 19) * 50)),
+  return {static_cast<double>((30 + (random() % 18) * 50)),
         static_cast<double>((30 + (random() % 14) * 50))};
 }
 
