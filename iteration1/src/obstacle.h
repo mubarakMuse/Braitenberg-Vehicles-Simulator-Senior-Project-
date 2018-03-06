@@ -67,7 +67,7 @@ class Obstacle : public ArenaMobileEntity {
   /**
    * @brief Handles the collision by setting the sensor to activated.
    */
-  void HandleCollision(EntityType object_type, ArenaEntity * object = NULL);
+  void HandleCollision(EntityType object_type, ArenaEntity * object = NULL) override;
 
   /**
    * @brief Command that comes from the controller, then is passed to handler.

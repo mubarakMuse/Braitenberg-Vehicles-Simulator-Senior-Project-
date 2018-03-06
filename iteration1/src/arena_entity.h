@@ -63,6 +63,7 @@ class ArenaEntity {
    * @param[in] dt is time elapsed since the last update. Unused.
    */
   virtual void TimestepUpdate(__unused unsigned int dt) {}
+  virtual void HandleCollision(__unused EntityType object_type, __unused ArenaEntity * object) {}
 
   /**
    * @brief Reset entity to a newly constructed state.

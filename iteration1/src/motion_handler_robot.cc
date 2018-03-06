@@ -58,6 +58,7 @@ void MotionHandlerRobot::Stop() { // added for priorty 1 iteration 1
 
 void MotionHandlerRobot::UpdateVelocity() {
   if (entity_->get_touch_sensor()->get_output()) {
+    //std::cout<<"reversing direction\n";
     entity_->RelativeChangeHeading(+180);
   }
 }

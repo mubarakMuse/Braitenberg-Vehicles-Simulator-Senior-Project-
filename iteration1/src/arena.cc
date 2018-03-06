@@ -50,7 +50,7 @@ void Arena::AddRobot() {
 
 void Arena::AddEntity(EntityType type, int quantity) {
   for (int i = 0; i < quantity; i++) {
-    if (type == kObstacle){
+    if (type == kObstacle){ // making obstacles mobile
      obstacle_ = dynamic_cast<Obstacle *>(factory_->CreateEntity(kObstacle));
   entities_.push_back(obstacle_);
   mobile_entities_.push_back(obstacle_);
@@ -109,7 +109,7 @@ void Arena::UpdateEntitiesTimestep() {
     EntityType wall = GetCollisionWall(ent1);
     if (kUndefined != wall) {
       AdjustWallOverlap(ent1, wall);
-      robot_->HandleCollision(wall);
+      //robot_->HandleCollision(wall);
       robot_->lose_A_Life();
       UpdateGameStatus();
     }
@@ -143,6 +143,9 @@ void Arena::UpdateEntitiesTimestep() {
 // Always returns an entity type. If not collision, returns kUndefined.
 EntityType Arena::GetCollisionWall(ArenaMobileEntity *const ent) {
   if (ent->get_pose().x + ent->get_radius() >= x_dim_) {
+    std::cout<<"rightwall\n";
+    std::cout<<"ent->get_pose().x + ent->get_radius() = "<<ent->get_pose().x + ent->get_radius()<<"\n";
+    std::cout<<"x_dim_ = "<<x_dim_<<"\n";
     return kRightWall;  // at x = x_dim_
   } else if (ent->get_pose().x - ent->get_radius() <= 0) {
     return kLeftWall;  // at x = 0
@@ -162,6 +165,7 @@ void Arena::AdjustWallOverlap(ArenaMobileEntity *const ent, EntityType object) {
   switch (object) {
     case (kRightWall):  // at x = x_dim_
     ent->set_position(x_dim_-(ent->get_radius()+5), entity_pos.y);
+    ent->HandleCollision(kRightWall,NULL);
     break;
     case (kLeftWall):  // at x = 0
     ent->set_position(ent->get_radius()+5, entity_pos.y);
