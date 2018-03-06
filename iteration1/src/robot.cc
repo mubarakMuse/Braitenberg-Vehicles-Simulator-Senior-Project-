@@ -47,15 +47,16 @@ void Robot::Reset() {
   motion_handler_.set_max_speed(ROBOT_MAX_SPEED);
   motion_handler_.set_max_angle(ROBOT_MAX_ANGLE);
   sensor_touch_->Reset();
+  set_color(ROBOT_COLOR);
   set_lives(9);
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
 
   sensor_touch_->HandleCollision(object_type, object);
-  WheelVelocity currentVelocity  = motion_handler_.get_velocity();
+  //WheelVelocity currentVelocity  = motion_handler_.get_velocity();
   motion_handler_.Stop();// stop the car right away. added for priorty.
-  motion_handler_.set_velocity(currentVelocity);
+  //motion_handler_.set_velocity(currentVelocity);
 }
 
 void Robot::IncreaseSpeed() {

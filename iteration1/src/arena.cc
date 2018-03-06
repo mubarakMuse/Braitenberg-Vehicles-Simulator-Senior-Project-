@@ -65,6 +65,7 @@ void Arena::AddEntity(EntityType type, int quantity) {
 void Arena::Reset() {
   for (auto ent : entities_) {
     ent->Reset();
+    set_game_status(PLAYING);
   } /* for(ent..) */
 } /* reset() */
 
