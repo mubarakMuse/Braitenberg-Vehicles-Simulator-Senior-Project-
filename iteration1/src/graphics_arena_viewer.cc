@@ -40,7 +40,7 @@ GraphicsArenaViewer::GraphicsArenaViewer(
   gui->addGroup("Simulation Control");
   playing_button_ =
     gui->addButton(
-      "Playing",
+      "Play",
       std::bind(&GraphicsArenaViewer::OnPlayingBtnPressed, this));
   screen()->performLayout();
 }
@@ -52,7 +52,10 @@ GraphicsArenaViewer::GraphicsArenaViewer(
 // This is the primary driver for state change in the arena.
 // It will be called at each iteration of nanogui::mainloop()
 void GraphicsArenaViewer::UpdateSimulation(double dt) {
-  controller_->AdvanceTime(dt);
+  if (!paused_) {
+    controller_->AdvanceTime(dt);
+  }
+  
 }
 
 /*******************************************************************************
@@ -61,9 +64,13 @@ void GraphicsArenaViewer::UpdateSimulation(double dt) {
 void GraphicsArenaViewer::OnPlayingBtnPressed() {
   // Not implemented. Sample code provided to show how to implement.
   if (!paused_) {
-    playing_button_->setCaption("Playing");
+    paused_ = true;
+    playing_button_->setCaption("Play");
+    
   } else {
-    playing_button_->setCaption("Paused");
+    paused_ = false;
+    playing_button_->setCaption("Pause");
+    
   }
 }
 
