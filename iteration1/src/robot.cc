@@ -22,6 +22,7 @@ Robot::Robot() :
     motion_handler_(this),
     motion_behavior_(this),
     lives_(9) {
+  motion_handler_.set_velocity(3, 3); //
   set_type(kRobot);
   set_color(ROBOT_COLOR);
   set_pose(ROBOT_INIT_POS);
