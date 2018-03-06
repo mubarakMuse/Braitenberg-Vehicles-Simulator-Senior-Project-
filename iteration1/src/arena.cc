@@ -81,10 +81,18 @@ void Arena::AdvanceTime(double dt) {
 
 void Arena::UpdateGameStatus() { // added for priorty 1 
   if (robot_->get_lives() <= 0){
-          set_game_status(LOST);
-        }
-  if (num_Bases_coloidedWith == 3){
+    set_game_status(LOST);
+  }
+  bool AllBasesCaptured = true;
+  for (auto ent : entities_) {
+    if (ent->get_type() == kBase){
+      AllBasesCaptured = AllBasesCaptured && dynamic_cast<Base *> (ent)->IsCaptured();
+    }
+  }
+    
+  if (AllBasesCaptured){
     set_game_status(WON);
+    robot_->set_color(BASE_COLOR_POST_COLLISION);
   }
 
 }
@@ -238,7 +246,9 @@ void Arena::AcceptCommand(Communication com) {
     robot_->TurnRight();
     break;
     case(kPlay):
+    break;
     case(kPause):
+    break;
     case(kReset):
     Reset();
     break;

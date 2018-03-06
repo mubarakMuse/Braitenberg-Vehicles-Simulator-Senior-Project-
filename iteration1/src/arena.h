@@ -169,9 +169,6 @@ class Arena {
   int get_game_status() const { return game_status_; }
   void set_game_status(int status) { game_status_ = status; }
   
-   // Bases collieded with to calc losses
-  int num_Bases_coloidedWith;
-
 
  private:
   // Dimensions of graphics window inside which entities must operate
@@ -195,7 +192,6 @@ class Arena {
 
   // win/lose/playing state
   int game_status_;
-
   
 };
 
