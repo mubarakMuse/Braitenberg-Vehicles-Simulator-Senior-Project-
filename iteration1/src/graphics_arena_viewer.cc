@@ -76,7 +76,10 @@ void GraphicsArenaViewer::OnPlayingBtnPressed() {
   }
 }
 void GraphicsArenaViewer::NewGameBtnPressed(){
+  paused_ = true;
+  playing_button_->setCaption("Play");
   arena_->Reset();
+
 }
 
 /** OnSpecialKeyDown is called when the user presses down on one of the
