@@ -29,7 +29,7 @@ Arena::Arena(const struct arena_params *const params)
       mobile_entities_(),
       game_status_(PLAYING) {
   AddRobot();
-  AddEntity(kBase, 3); // changed this 3 i need  to us params 
+  AddEntity(kBase, 3); // changed this 3 i need  to us params
   AddEntity(kObstacle, 4); // changed the params to 4
 }
 
@@ -65,7 +65,7 @@ void Arena::AddEntity(EntityType type, int quantity) {
 void Arena::Reset() {
   for (auto ent : entities_) {
     ent->Reset();
-    set_game_status(PLAYING);
+    set_game_status(PLAYING); //reset the game status
   } /* for(ent..) */
 } /* reset() */
 
@@ -76,24 +76,24 @@ void Arena::AdvanceTime(double dt) {
     return;
   }
   for (size_t i = 0; i < 1; ++i) {
-    if (game_status_ == PLAYING){
+    if (game_status_ == PLAYING){ // only if the game hasnt been losed or won
       UpdateEntitiesTimestep();
     }
     //UpdateEntitiesTimestep();
   } /* for(i..) */
 } /* AdvanceTime() */
 
-void Arena::UpdateGameStatus() { // added for priorty 1 
+void Arena::UpdateGameStatus() { // checks for wins and lossses
   if (robot_->get_lives() <= 0){
     set_game_status(LOST);
   }
   bool AllBasesCaptured = true;
   for (auto ent : entities_) {
     if (ent->get_type() == kBase){
-      AllBasesCaptured = AllBasesCaptured && dynamic_cast<Base *> (ent)->IsCaptured();
+      AllBasesCaptured = AllBasesCaptured && dynamic_cast<Base *> (ent)->IsCaptured(); // checks if all the base were captured
     }
   }
-    
+
   if (AllBasesCaptured){
     set_game_status(WON);
     robot_->set_color(BASE_COLOR_POST_COLLISION);
@@ -104,16 +104,10 @@ void Arena::UpdateEntitiesTimestep() {
   /*
    * First, update the position of all entities, according to their current
    * velocities.
-   * @TODO: Should this be just the mobile entities ??
    */
   for (auto ent : entities_) {
     ent->TimestepUpdate(1);
   }
-
-  /*
-   * Check for win/loss
-   */
-  
 
    /* Determine if any mobile entity is colliding with wall.
    * Adjust the position accordingly so it doesn't overlap.
@@ -127,16 +121,14 @@ void Arena::UpdateEntitiesTimestep() {
         robot_->lose_A_Life();
       UpdateGameStatus();
       }
-      
+
     }
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
-    */
-
-    for (auto &ent2 : entities_) {
+    */    for (auto &ent2 : entities_) {
       if (ent2 == ent1) { continue; }
       if (IsColliding(ent1, ent2)) {
-        //AdjustEntityOverlap(ent1, ent2);
+        AdjustEntityOverlap(ent1, ent2);
         ent1->HandleCollision(ent2->get_type(), ent2);
         if (ent2->get_type() == kObstacle && ent1->get_type() == kRobot){
           robot_->lose_A_Life();
@@ -147,7 +139,7 @@ void Arena::UpdateEntitiesTimestep() {
           dynamic_cast<Base *> (ent2)->set_captured(true);
           UpdateGameStatus();
         }
-       
+
       }
     }
   }
@@ -158,9 +150,6 @@ void Arena::UpdateEntitiesTimestep() {
 // Always returns an entity type. If not collision, returns kUndefined.
 EntityType Arena::GetCollisionWall(ArenaMobileEntity *const ent) {
   if (ent->get_pose().x + ent->get_radius() >= x_dim_) {
-    std::cout<<"rightwall\n";
-    std::cout<<"ent->get_pose().x + ent->get_radius() = "<<ent->get_pose().x + ent->get_radius()<<"\n";
-    std::cout<<"x_dim_ = "<<x_dim_<<"\n";
     return kRightWall;  // at x = x_dim_
   } else if (ent->get_pose().x - ent->get_radius() <= 0) {
     return kLeftWall;  // at x = 0
@@ -232,12 +221,9 @@ void Arena::AdjustEntityOverlap(ArenaMobileEntity * const mobile_e,
 }
 
 // Accept communication from the controller. Dispatching as appropriate.
-/** @TODO: Call the appropriate Robot functions to implement user input
-  * for controlling the robot.
-  */
 void Arena::AcceptCommand(Communication com) {
   switch (com) {
-    case(kIncreaseSpeed): 
+    case(kIncreaseSpeed):
     robot_->IncreaseSpeed();
     break;
     case(kDecreaseSpeed):

@@ -43,10 +43,6 @@ class MotionHandlerRobot : public MotionHandler {
   /**
   * @brief Update the speed and the pose angle according to the sensor readings.
   *
-  * Currently does not change speed.
-  *
-  * @param[in] pose The current pose.
-  * @param[in] st A SensorTouch to be read.
   */
   void UpdateVelocity() override;
 
@@ -73,7 +69,7 @@ class MotionHandlerRobot : public MotionHandler {
   /**
    * @brief stop the entity to be at zero velocity.
    */
-  void Stop() override; 
+  void Stop() override;
 
  private:
   double clamp_vel(double vel);

@@ -48,7 +48,6 @@ class Controller {
    */
   Controller();
 
-
   /**
    * @brief Run launches the graphics and starts the game.
    */

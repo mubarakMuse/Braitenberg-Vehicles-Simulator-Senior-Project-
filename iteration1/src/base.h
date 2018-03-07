@@ -27,8 +27,6 @@ NAMESPACE_BEGIN(csci3081);
 /**
  * @brief Class representing a immobile base within the Arena.
  *
- * Base can enhance a Robot. If a Robot touches the Base, it becomes
- * a super robot.
  *
  * Base have the capability of updating their own position when asked, and
  * also track their own velocity and heading. They have a touch sensor for
@@ -68,13 +66,13 @@ class Base : public ArenaImmobileEntity {
   bool IsCaptured() const { return captured_; }
 
   /**
-   * @brief Setter for captured_, which is the state of the base
+   * @brief Setter for captured_, which is the state of the base. It also changes the color of the base once its captured.
    */
- void set_captured(bool state) { 
+ void set_captured(bool state) {
   captured_ = state;
   if (IsCaptured()){
     set_color(BASE_COLOR_POST_COLLISION);
-  } 
+  }
  }
 
 private:

@@ -85,7 +85,7 @@ class EntityFactory {
   Pose SetPoseRandomly();
 
   /**
-  * @brief An attempt to have diffrent sized entities .
+  * @brief An attempt to have diffrent sized obstacles .
   */
   double SetRadiusRandomly();
 

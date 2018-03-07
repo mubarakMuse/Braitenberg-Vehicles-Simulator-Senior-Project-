@@ -33,8 +33,8 @@ Obstacle::Obstacle():
 void Obstacle::TimestepUpdate(unsigned int dt) {
   // Update heading as indicated by touch sensor
   motion_handler_.UpdateVelocity();
-  if (random()%10 == 0){ // randomly changing the heading so the obtsacle can move around
-  	RelativeChangeHeading(+10);
+  if (random()%13 == 0){ // randomly changing the heading so the obtsacle can move around
+  	RelativeChangeHeading(+16);
   }
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_.get_velocity());
@@ -51,8 +51,8 @@ void Obstacle::Reset() {
 
 void Obstacle::HandleCollision(EntityType object_type, ArenaEntity * object) {
   sensor_touch_->HandleCollision(object_type, object);
-  WheelVelocity currentVelocity = motion_handler_.get_velocity(); // to maintain the speed it was moving at 
-  motion_handler_.Stop(); // stop the obstacle when it collides with something 
+  WheelVelocity currentVelocity = motion_handler_.get_velocity(); // to maintain the speed it was moving at
+  motion_handler_.Stop(); // stop the obstacle when it collides with something
   motion_handler_.set_velocity(currentVelocity);
 }
 

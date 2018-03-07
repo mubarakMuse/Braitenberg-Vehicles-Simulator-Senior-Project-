@@ -66,12 +66,8 @@ class SensorTouch {
   bool get_output() const { return output_; }
 
   /**
-   * @brief Modify heading to presumably move away from collision.
+   * @brief Modify heading to move away from collision.
    *
-   * Currently, no information is used to determine point of contact. The
-   * heading should really only change when it collides with something in
-   * front of it (as opposed to something running into the entity from behind.)
-   * The ArenaEntity can be used to determine the point of contact.
    */
   void HandleCollision(
     __unused EntityType object_type, __unused ArenaEntity * object);

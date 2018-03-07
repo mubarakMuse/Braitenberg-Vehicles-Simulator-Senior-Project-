@@ -96,20 +96,22 @@ class Robot : public ArenaMobileEntity {
   */
   void TurnLeft();
 
+  /**
+  * @brief returns the name and lives of the robot
+  */
   std::string get_DisplayName() const{
-     return "Robot\n"+std::to_string(get_lives()); 
+     return "Robot\n"+std::to_string(get_lives());
   };
 
-  int get_lives() const { return lives_; }
-
-  void set_lives(int l) { lives_ = l; }
-
   /**
-  * @brief Function called when robot loose alife
+  * @brief Function called when robot loose a single life
   */
   void lose_A_Life(){ // added for priorty 1
     lives_ = lives_ - 1;
   }
+  int get_lives() const { return lives_; }
+
+  void set_lives(int l) { lives_ = l; }
 
   MotionHandlerRobot get_motion_handler() { return motion_handler_; }
 

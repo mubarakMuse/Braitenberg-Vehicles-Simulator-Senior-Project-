@@ -53,7 +53,7 @@ GraphicsArenaViewer::GraphicsArenaViewer(
  ******************************************************************************/
 
 // This is the primary driver for state change in the arena.
-// It will be called at each iteration of nanogui::mainloop()
+// It will be called at each iteration of nanogui::mainloop() except when the game is paused.
 void GraphicsArenaViewer::UpdateSimulation(double dt) {
   if (!paused_) {
     controller_->AdvanceTime(dt);
@@ -64,30 +64,29 @@ void GraphicsArenaViewer::UpdateSimulation(double dt) {
  * Handlers for User Keyboard and Mouse Events
  ******************************************************************************/
 void GraphicsArenaViewer::OnPlayingBtnPressed() {
-  // Not implemented. Sample code provided to show how to implement.
+  // is the playing_button_ is clicked it play and the bool switched to false and vice versa
+  // game starts of as paused
   if (!paused_) {
     paused_ = true;
     playing_button_->setCaption("Play");
-    
+
   } else {
     paused_ = false;
     playing_button_->setCaption("Pause");
-    
+
   }
 }
 void GraphicsArenaViewer::NewGameBtnPressed(){
+  // handles the newgame which communicates to the arena to reset.
   paused_ = true;
   playing_button_->setCaption("Play");
   controller_->AcceptCommunication(kNewGame);
 }
 
-/** OnSpecialKeyDown is called when the user presses down on one of the
-  * special keys (e.g. the arrow keys).
-  */
-/**
- * @TODO: Check for arrow key presses using GLFW macros, then
- * convert to appropriate enum Communication and relay to controller
- */
+  // OnSpecialKeyDown is called when the user presses down on one of the
+  //special keys (e.g. the arrow keys).
+
+
 void GraphicsArenaViewer::OnSpecialKeyDown(int key,
   __unused int scancode, __unused int modifiers) {
     Communication key_value = kNone;
@@ -103,7 +102,7 @@ void GraphicsArenaViewer::OnSpecialKeyDown(int key,
         break;
       case GLFW_KEY_DOWN:
       controller_->AcceptCommunication(kKeyDown);
-        break;  
+        break;
       default: {}
     }
   controller_->AcceptCommunication(key_value);

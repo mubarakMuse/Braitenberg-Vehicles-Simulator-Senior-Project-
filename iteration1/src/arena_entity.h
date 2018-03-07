@@ -63,7 +63,7 @@ class ArenaEntity {
    * @param[in] dt is time elapsed since the last update. Unused.
    */
   virtual void TimestepUpdate(__unused unsigned int dt) {}
-  
+
   /**
    * @brief handle collisons for both the obstacle and the robot,
    * Each using it in a away appropiate to that mobile entity
@@ -78,6 +78,9 @@ class ArenaEntity {
    */
   virtual void Reset() {}
 
+  /**
+   * @brief Randomly place the entity at a spot.
+   */
   Pose SetPoseRandomly() {
   // Dividing arena into 19x14 grid. Each grid square is 50x50
   return {static_cast<double>((30 + (random() % 19) * 50)),
