@@ -6,7 +6,7 @@ Please copy this file into your /docs folder. Place an 'x' in each of the `[ ]` 
 
 ### Compilation and Execution
 
-- [ ] I cloned **fresh** from github onto a cselabs machine to test compilation
+- [x] I cloned **fresh** from github onto a cselabs machine to test compilation
 - [ ] Submission is on the master branch of the my project repo "project-<username>"
 - [ ] _/iteration1_ folder exists
 - [ ] _/build_ is not in the repo
