@@ -37,8 +37,10 @@
 #define WON 0
 #define LOST 1
 #define PLAYING 2
-#define WON_LOSS_COLOR \
+#define WON_COLOR \
   { 255, 0, 0 }
+#define LOSS_COLOR \
+  { 75, 0, 150 }
 
 // entity
 #define DEFAULT_POSE \

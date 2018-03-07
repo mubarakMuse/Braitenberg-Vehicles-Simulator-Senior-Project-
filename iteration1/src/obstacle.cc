@@ -47,6 +47,7 @@ void Obstacle::Reset() {
   motion_handler_.set_max_speed(OBSTACLE_MAX_SPEED);
   motion_handler_.set_max_angle(OBSTACLE_MAX_ANGLE);
   sensor_touch_->Reset();
+	set_color(OBSTACLE_COLOR);
 } /* Reset() */
 
 void Obstacle::HandleCollision(EntityType object_type, ArenaEntity * object) {

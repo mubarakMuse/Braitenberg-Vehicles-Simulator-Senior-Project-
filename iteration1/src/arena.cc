@@ -86,6 +86,9 @@ void Arena::AdvanceTime(double dt) {
 void Arena::UpdateGameStatus() { // checks for wins and lossses
   if (robot_->get_lives() <= 0){
     set_game_status(LOST);
+    for (auto ent1 : entities_) {
+      ent1->set_color(LOSS_COLOR);
+    }
   }
   bool AllBasesCaptured = true;
   for (auto ent : entities_) {
@@ -96,7 +99,9 @@ void Arena::UpdateGameStatus() { // checks for wins and lossses
 
   if (AllBasesCaptured){
     set_game_status(WON);
-    robot_->set_color(BASE_COLOR_POST_COLLISION);
+    for (auto ent2 : entities_) {
+      ent2->set_color(WON_COLOR);
+    };
   }
 
 }
