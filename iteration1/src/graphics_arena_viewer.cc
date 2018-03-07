@@ -53,7 +53,8 @@ GraphicsArenaViewer::GraphicsArenaViewer(
  ******************************************************************************/
 
 // This is the primary driver for state change in the arena.
-// It will be called at each iteration of nanogui::mainloop() except when the game is paused.
+// It will be called at each iteration of nanogui::mainloop()
+// except when the game is paused.
 void GraphicsArenaViewer::UpdateSimulation(double dt) {
   if (!paused_) {
     controller_->AdvanceTime(dt);
@@ -64,29 +65,24 @@ void GraphicsArenaViewer::UpdateSimulation(double dt) {
  * Handlers for User Keyboard and Mouse Events
  ******************************************************************************/
 void GraphicsArenaViewer::OnPlayingBtnPressed() {
-  // is the playing_button_ is clicked it play and the bool switched to false and vice versa
-  // game starts of as paused
+  // is the playing_button_ is clicked it play
+  // and the bool switched to false and vice versa game starts of as paused
   if (!paused_) {
     paused_ = true;
     playing_button_->setCaption("Play");
-
   } else {
     paused_ = false;
     playing_button_->setCaption("Pause");
-
   }
 }
-void GraphicsArenaViewer::NewGameBtnPressed(){
+void GraphicsArenaViewer::NewGameBtnPressed() {
   // handles the newgame which communicates to the arena to reset.
   paused_ = true;
   playing_button_->setCaption("Play");
   controller_->AcceptCommunication(kNewGame);
 }
-
   // OnSpecialKeyDown is called when the user presses down on one of the
-  //special keys (e.g. the arrow keys).
-
-
+  // special keys (e.g. the arrow keys).
 void GraphicsArenaViewer::OnSpecialKeyDown(int key,
   __unused int scancode, __unused int modifiers) {
     Communication key_value = kNone;

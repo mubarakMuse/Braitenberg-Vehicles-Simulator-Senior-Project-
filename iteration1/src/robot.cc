@@ -22,7 +22,7 @@ Robot::Robot() :
     motion_handler_(this),
     motion_behavior_(this),
     lives_(9) {
-  motion_handler_.set_velocity(1, 1); //
+  motion_handler_.set_velocity(1, 1);
   set_type(kRobot);
   set_color(ROBOT_COLOR);
   set_pose(ROBOT_INIT_POS);
@@ -52,10 +52,9 @@ void Robot::Reset() {
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
-
   sensor_touch_->HandleCollision(object_type, object);
   WheelVelocity currentVelocity  = motion_handler_.get_velocity();
-  motion_handler_.Stop();// stop the car right away. added for priorty.
+  motion_handler_.Stop();  // stop the car right away. added for priorty.
   motion_handler_.set_velocity(currentVelocity);
 }
 

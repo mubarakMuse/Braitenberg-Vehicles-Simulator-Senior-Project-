@@ -71,7 +71,8 @@ class ArenaEntity {
    * @param[in] the type of the object it collied with. Unused.
    * @param[in] the actual object it collied with. Unused.
    */
-  virtual void HandleCollision(__unused EntityType object_type, __unused ArenaEntity * object) {}
+  virtual void HandleCollision(__unused EntityType object_type,
+     __unused ArenaEntity * object) {}
 
   /**
    * @brief Reset entity to a newly constructed state.
@@ -158,4 +159,4 @@ class ArenaEntity {
 
 NAMESPACE_END(csci3081);
 
-#endif /* SRC_ARENA_ENTITY_H_ */
+#endif  // SRC_ARENA_ENTITY_H_

@@ -91,9 +91,9 @@ Pose EntityFactory::SetPoseRandomly() {
         static_cast<double>((30 + (random() % 14) * 50))};
 }
 
-double EntityFactory::SetRadiusRandomly() { // randomly  set the radius of the obstacles
+double EntityFactory::SetRadiusRandomly() {
+  // randomly set the radius of the obstacles
   return (random()%41)+10;
-
 }
 
 NAMESPACE_END(csci3081);

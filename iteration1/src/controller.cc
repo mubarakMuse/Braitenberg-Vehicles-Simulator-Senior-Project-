@@ -65,13 +65,13 @@ Communication Controller::ConvertComm(Communication com) {
     break;
     case (kKeyLeft) :
     return kTurnLeft;
-    break; 
+    break;
     case (kKeyRight) :
     return kTurnRight;
-    break; 
+    break;
     case (kPlay) :
     case (kPause) :
-    case (kNewGame) : 
+    case (kNewGame) :
     return kReset;
     break;
     default: return kNone;

@@ -33,7 +33,7 @@ class MotionBehaviorDifferential;
 /**
  * @brief Class representing an mobile obstacle within the Arena.
  *
- * 
+ *
  */
 class Obstacle : public ArenaMobileEntity {
  public:
@@ -66,7 +66,8 @@ class Obstacle : public ArenaMobileEntity {
   /**
    * @brief Handles the collision by setting the sensor to activated.
    */
-  void HandleCollision(EntityType object_type, ArenaEntity * object = NULL) override;
+  void HandleCollision(EntityType object_type,
+    ArenaEntity * object = NULL) override;
 
   /**
    * @brief Command that comes from the controller, then is passed to handler.
@@ -92,7 +93,7 @@ class Obstacle : public ArenaMobileEntity {
 
   MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }
 
-  private:
+ private:
   // Manages pose and wheel velocities that change with time and collisions.
   MotionHandlerRobot motion_handler_;
   // Calculates changes in pose based on elapsed time and wheel velocities.

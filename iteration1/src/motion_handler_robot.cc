@@ -32,33 +32,28 @@ void MotionHandlerRobot::TurnRight() {
     get_velocity().right - get_angle_delta());
 }
 
-void MotionHandlerRobot::IncreaseSpeed() { // added for priorty 
-  if ((get_velocity().left + get_speed_delta()) <= ROBOT_MAX_SPEED 
-    && (get_velocity().right + get_speed_delta()) <= ROBOT_MAX_SPEED){
+void MotionHandlerRobot::IncreaseSpeed() {  // added for priorty
+  if ((get_velocity().left + get_speed_delta()) <= ROBOT_MAX_SPEED
+    && (get_velocity().right + get_speed_delta()) <= ROBOT_MAX_SPEED) {
      set_velocity(
     get_velocity().left  + get_speed_delta(),
     get_velocity().right + get_speed_delta());
-}
   }
- 
-
-void MotionHandlerRobot::DecreaseSpeed() { // added for priorty 
+}
+void MotionHandlerRobot::DecreaseSpeed() {  // added for priorty
     if (0.00 <=( get_velocity().left - get_speed_delta())
     && 0.00 <= (get_velocity().right - get_speed_delta())) {
       set_velocity(
     get_velocity().left  - get_speed_delta(),
     get_velocity().right - get_speed_delta());
     }
-  
-}
-
-void MotionHandlerRobot::Stop() { // added for priorty 1 iteration 1
-  set_velocity(0.00,0.00);
+  }
+void MotionHandlerRobot::Stop() {  // added for priorty 1 iteration 1
+  set_velocity(0.00, 0.00);
 }
 
 void MotionHandlerRobot::UpdateVelocity() {
   if (entity_->get_touch_sensor()->get_output()) {
-    //std::cout<<"reversing direction\n";
     entity_->RelativeChangeHeading(+180);
   }
 }

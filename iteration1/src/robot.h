@@ -69,7 +69,8 @@ class Robot : public ArenaMobileEntity {
   /**
    * @brief Handles the collision by setting the sensor to activated.
    */
-  void HandleCollision(EntityType object_type, ArenaEntity * object = NULL) override;
+  void HandleCollision(EntityType object_type,
+    ArenaEntity * object = NULL) override;
 
   /**
    * @brief Get the name of the Robot for visualization and for debugging.
@@ -99,14 +100,14 @@ class Robot : public ArenaMobileEntity {
   /**
   * @brief returns the name and lives of the robot
   */
-  std::string get_DisplayName() const{
+  std::string get_DisplayName() const {
      return "Robot\n"+std::to_string(get_lives());
-  };
+  }
 
   /**
   * @brief Function called when robot loose a single life
   */
-  void lose_A_Life(){ // added for priorty 1
+  void lose_A_Life() {  // added for priorty 1
     lives_ = lives_ - 1;
   }
   int get_lives() const { return lives_; }

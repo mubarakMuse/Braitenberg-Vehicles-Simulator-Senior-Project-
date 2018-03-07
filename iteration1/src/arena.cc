@@ -29,8 +29,8 @@ Arena::Arena(const struct arena_params *const params)
       mobile_entities_(),
       game_status_(PLAYING) {
   AddRobot();
-  AddEntity(kBase, 3); // changed this 3 i need  to us params
-  AddEntity(kObstacle, 4); // changed the params to 4
+  AddEntity(kBase, 3);  // changed this 3 i need  to us params
+  AddEntity(kObstacle, 4);   // changed the params to 4
 }
 
 Arena::~Arena() {
@@ -51,13 +51,14 @@ void Arena::AddRobot() {
 
 void Arena::AddEntity(EntityType type, int quantity) {
   for (int i = 0; i < quantity; i++) {
-    if (type == kObstacle){ // making obstacles mobile adding them to the mobeil entity vector
+    if (type == kObstacle) {
+      // making obstacles mobile adding them to the mobeil entity vector
       obstacle_ = dynamic_cast<Obstacle *>(factory_->CreateEntity(kObstacle));
       entities_.push_back(obstacle_);
       mobile_entities_.push_back(obstacle_);
-    }
-    else {
-      entities_.push_back(factory_->CreateEntity(type)); // if its a base or something else
+    } else {
+      entities_.push_back(factory_->CreateEntity(type));
+      // if its a base or something else
     }
   }
 }
@@ -65,7 +66,7 @@ void Arena::AddEntity(EntityType type, int quantity) {
 void Arena::Reset() {
   for (auto ent : entities_) {
     ent->Reset();
-    set_game_status(PLAYING); //reset the game status
+    set_game_status(PLAYING);  // reset the game status
   } /* for(ent..) */
 } /* reset() */
 
@@ -76,15 +77,15 @@ void Arena::AdvanceTime(double dt) {
     return;
   }
   for (size_t i = 0; i < 1; ++i) {
-    if (game_status_ == PLAYING){ // only if the game hasnt been losed or won
+    if (game_status_ == PLAYING) {  // only if the game hasnt been losed or won
       UpdateEntitiesTimestep();
     }
-    //UpdateEntitiesTimestep();
+    // UpdateEntitiesTimestep();
   } /* for(i..) */
 } /* AdvanceTime() */
 
-void Arena::UpdateGameStatus() { // checks for wins and lossses
-  if (robot_->get_lives() <= 0){
+void Arena::UpdateGameStatus() {  // checks for wins and lossses
+  if (robot_->get_lives() <= 0) {
     set_game_status(LOST);
     for (auto ent1 : entities_) {
       ent1->set_color(LOSS_COLOR);
@@ -92,18 +93,18 @@ void Arena::UpdateGameStatus() { // checks for wins and lossses
   }
   bool AllBasesCaptured = true;
   for (auto ent : entities_) {
-    if (ent->get_type() == kBase){
-      AllBasesCaptured = AllBasesCaptured && dynamic_cast<Base *> (ent)->IsCaptured(); // checks if all the base were captured
+    if (ent->get_type() == kBase) {
+      AllBasesCaptured = AllBasesCaptured &&
+      dynamic_cast<Base *>(ent)->IsCaptured();
+       // checks if all the base were captured
     }
   }
-
-  if (AllBasesCaptured){
+  if (AllBasesCaptured) {
     set_game_status(WON);
     for (auto ent2 : entities_) {
       ent2->set_color(WON_COLOR);
-    };
+    }
   }
-
 }
 void Arena::UpdateEntitiesTimestep() {
   /*
@@ -121,12 +122,11 @@ void Arena::UpdateEntitiesTimestep() {
     EntityType wall = GetCollisionWall(ent1);
     if (kUndefined != wall) {
       AdjustWallOverlap(ent1, wall);
-      ent1->HandleCollision(wall,NULL);
-      if (ent1->get_type() == kRobot){
+      ent1->HandleCollision(wall, NULL);
+      if (ent1->get_type() == kRobot) {
         robot_->lose_A_Life();
       UpdateGameStatus();
       }
-
     }
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
@@ -149,7 +149,6 @@ void Arena::UpdateEntitiesTimestep() {
     }
   }
 }  // UpdateEntitiesTimestep()
-
 
 // Determine if the entity is colliding with a wall.
 // Always returns an entity type. If not collision, returns kUndefined.

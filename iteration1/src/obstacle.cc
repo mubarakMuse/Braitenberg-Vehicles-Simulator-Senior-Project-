@@ -18,10 +18,11 @@ NAMESPACE_BEGIN(csci3081);
 /*******************************************************************************
  * Constructors/Destructor
  ******************************************************************************/
-Obstacle::Obstacle():
-	motion_handler_(this),
-    motion_behavior_(this){
-  motion_handler_.set_velocity(5, 5); // obstacles being to move that fast at first
+Obstacle::Obstacle() :
+motion_handler_(this),
+motion_behavior_(this) {
+  motion_handler_.set_velocity(5, 5);
+  // obstacles being to move that fast at first
   set_color(OBSTACLE_COLOR);
   set_pose(OBSTACLE_POSITION);
   set_radius(OBSTACLE_RADIUS);
@@ -33,8 +34,9 @@ Obstacle::Obstacle():
 void Obstacle::TimestepUpdate(unsigned int dt) {
   // Update heading as indicated by touch sensor
   motion_handler_.UpdateVelocity();
-  if (random()%13 == 0){ // randomly changing the heading so the obtsacle can move around
-  	RelativeChangeHeading(+16);
+  if (random()%13 == 0) {
+  // randomly changing the heading so the obtsacle can move around
+     RelativeChangeHeading(+16);
   }
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_.get_velocity());
@@ -47,13 +49,14 @@ void Obstacle::Reset() {
   motion_handler_.set_max_speed(OBSTACLE_MAX_SPEED);
   motion_handler_.set_max_angle(OBSTACLE_MAX_ANGLE);
   sensor_touch_->Reset();
-	set_color(OBSTACLE_COLOR);
+  set_color(OBSTACLE_COLOR);
 } /* Reset() */
 
 void Obstacle::HandleCollision(EntityType object_type, ArenaEntity * object) {
   sensor_touch_->HandleCollision(object_type, object);
-  WheelVelocity currentVelocity = motion_handler_.get_velocity(); // to maintain the speed it was moving at
-  motion_handler_.Stop(); // stop the obstacle when it collides with something
+  WheelVelocity currentVelocity = motion_handler_.get_velocity();
+  // to maintain the speed it was moving at
+  motion_handler_.Stop();  // stop the obstacle when it collides with something
   motion_handler_.set_velocity(currentVelocity);
 }
 

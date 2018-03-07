@@ -157,7 +157,7 @@ class Arena {
    *
    * Check if the robots lives is zero or less after each collison
    * or check if robot touched all bases
-   * 
+   *
    */
   void UpdateGameStatus();
 
@@ -168,10 +168,8 @@ class Arena {
 
   int get_game_status() const { return game_status_; }
   void set_game_status(int status) { game_status_ = status; }
-  
-
  private:
-  // Dimensions of graphics window inside which entities must operate
+// Dimensions of graphics window inside which entities must operate
   double x_dim_;
   double y_dim_;
 
@@ -192,7 +190,6 @@ class Arena {
 
   // win/lose/playing state
   int game_status_;
-  
 };
 
 NAMESPACE_END(csci3081);

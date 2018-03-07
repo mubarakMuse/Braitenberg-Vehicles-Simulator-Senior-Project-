@@ -68,14 +68,14 @@ class Base : public ArenaImmobileEntity {
   /**
    * @brief Setter for captured_, which is the state of the base. It also changes the color of the base once its captured.
    */
- void set_captured(bool state) {
+void set_captured(bool state) {
   captured_ = state;
-  if (IsCaptured()){
+  if (IsCaptured()) {
     set_color(BASE_COLOR_POST_COLLISION);
   }
- }
+}
 
-private:
+ private:
   bool captured_;
 };
 
