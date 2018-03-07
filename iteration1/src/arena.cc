@@ -30,7 +30,7 @@ Arena::Arena(const struct arena_params *const params)
       game_status_(PLAYING) {
   AddRobot();
   AddEntity(kBase, 3);  // changed this 3 i need  to us params
-  AddEntity(kObstacle, 4);   // changed the params to 4
+  AddEntity(kObstacle, 5);   // changed the params to 4
 }
 
 Arena::~Arena() {
