@@ -146,7 +146,7 @@ void GraphicsArenaViewer::DrawArena(NVGcontext *ctx) {
 
 void GraphicsArenaViewer::DrawEntity(NVGcontext *ctx,
                                        const ArenaEntity *const entity) {
-  // obstacle's circle
+  // Light's circle
   nvgBeginPath(ctx);
   nvgCircle(ctx,
             static_cast<float>(entity->get_pose().x),
@@ -159,7 +159,7 @@ void GraphicsArenaViewer::DrawEntity(NVGcontext *ctx,
   nvgStrokeColor(ctx, nvgRGBA(0, 0, 0, 255));
   nvgStroke(ctx);
 
-  // obstacle id text label
+  // Light id text label
   nvgFillColor(ctx, nvgRGBA(0, 0, 0, 255));
   nvgText(ctx,
           static_cast<float>(entity->get_pose().x),

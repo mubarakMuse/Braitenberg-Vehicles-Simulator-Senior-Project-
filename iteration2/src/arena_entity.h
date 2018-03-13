@@ -65,7 +65,7 @@ class ArenaEntity {
   virtual void TimestepUpdate(__unused unsigned int dt) {}
 
   /**
-   * @brief handle collisons for both the obstacle and the robot,
+   * @brief handle collisons for both the Light and the robot,
    * Each using it in a away appropiate to that mobile entity
    *
    * @param[in] the type of the object it collied with. Unused.

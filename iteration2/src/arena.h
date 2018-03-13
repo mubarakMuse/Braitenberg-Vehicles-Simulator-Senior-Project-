@@ -179,8 +179,8 @@ class Arena {
   // Robot is special. It's also stored in the entity vectors.
   Robot *robot_{nullptr};
 
-// obstacle object in order to store it in the mobiile entites correclty.
-  Obstacle *obstacle_{nullptr};
+// Light object in order to store it in the mobiile entites correclty.
+  Light *Light_{nullptr};
 
   // All entities mobile and immobile.
   std::vector<class ArenaEntity *> entities_;

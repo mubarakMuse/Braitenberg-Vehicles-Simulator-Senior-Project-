@@ -28,8 +28,8 @@
 #define GUI_MENU_GAP 10
 
 // arena
-#define N_OBSTACLES 3
-#define MAX_OBSTACLES 8
+#define N_LightS 3
+#define MAX_LightS 8
 #define ARENA_X_DIM X_DIM
 #define ARENA_Y_DIM Y_DIM
 
@@ -76,18 +76,18 @@
   { 255, 0, 0 }
 #define BASE_COLOR_POST_COLLISION \
   { 255, 255, 0 }
-// obstacle
-#define OBSTACLE_POSITION \
+// Light
+#define Light_POSITION \
   { 200, 200 }
-#define OBSTACLE_RADIUS 30
-#define OBSTACLE_MIN_RADIUS 10
-#define OBSTACLE_MAX_RADIUS 50
-#define OBSTACLE_COLOR \
+#define Light_RADIUS 30
+#define Light_MIN_RADIUS 10
+#define Light_MAX_RADIUS 50
+#define Light_COLOR \
   { 255, 255, 255 }
 
-#define OBSTACLE_HEADING 270
-#define OBSTACLE_INIT_SPEED 0
-#define OBSTACLE_MAX_SPEED 10
-#define OBSTACLE_MAX_ANGLE 360
+#define Light_HEADING 270
+#define Light_INIT_SPEED 0
+#define Light_MAX_SPEED 10
+#define Light_MAX_ANGLE 360
 
 #endif  // SRC_PARAMS_H_
