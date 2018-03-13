@@ -15,7 +15,7 @@
  * \section Progam_Description
  * The Progam is a video game in which a user controls the robot with the arrow keys.
  * The objective of the game is to touch all of the bases without running into
- * obstacles or walls. The robot is given a fixed number of nine lives at the beginning of the game,
+ * Lights or walls. The robot is given a fixed number of nine lives at the beginning of the game,
  * but it will lose a life with every collision (except for when colliding with a base).
  *
  * \section Win_loss

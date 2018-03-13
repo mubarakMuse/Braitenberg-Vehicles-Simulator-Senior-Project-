@@ -30,7 +30,7 @@ Arena::Arena(const struct arena_params *const params)
       game_status_(PLAYING) {
   AddRobot();
   AddEntity(kBase, 3);  // changed this 3 i need  to us params
-  AddEntity(kObstacle, 5);   // changed the params to 4
+  AddEntity(kLight, 5);   // changed the params to 4
 }
 
 Arena::~Arena() {
@@ -51,11 +51,11 @@ void Arena::AddRobot() {
 
 void Arena::AddEntity(EntityType type, int quantity) {
   for (int i = 0; i < quantity; i++) {
-    if (type == kObstacle) {
-      // making obstacles mobile adding them to the mobeil entity vector
-      obstacle_ = dynamic_cast<Obstacle *>(factory_->CreateEntity(kObstacle));
-      entities_.push_back(obstacle_);
-      mobile_entities_.push_back(obstacle_);
+    if (type == kLight) {
+      // making Lights mobile adding them to the mobeil entity vector
+      Light_ = dynamic_cast<Light *>(factory_->CreateEntity(kLight));
+      entities_.push_back(Light_);
+      mobile_entities_.push_back(Light_);
     } else {
       entities_.push_back(factory_->CreateEntity(type));
       // if its a base or something else
@@ -135,7 +135,7 @@ void Arena::UpdateEntitiesTimestep() {
       if (IsColliding(ent1, ent2)) {
         AdjustEntityOverlap(ent1, ent2);
         ent1->HandleCollision(ent2->get_type(), ent2);
-        if (ent2->get_type() == kObstacle && ent1->get_type() == kRobot){
+        if (ent2->get_type() == kLight && ent1->get_type() == kRobot){
           robot_->lose_A_Life();
           UpdateGameStatus();
         }

@@ -28,7 +28,7 @@ NAMESPACE_BEGIN(csci3081);
  ******************************************************************************/
 
 /**
- * @brief Class managing a Robot's and obstacle's speed and heading angle based
+ * @brief Class managing a Robot's and Light's speed and heading angle based
  * on collisions and user inputs.
  *
  */
