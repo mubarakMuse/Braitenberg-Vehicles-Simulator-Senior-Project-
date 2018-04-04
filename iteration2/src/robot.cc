@@ -29,6 +29,9 @@ Robot::Robot() :
   set_color(ROBOT_COLOR);
   set_pose(ROBOT_INIT_POS);
   set_radius(ROBOT_RADIUS);
+
+  left_light_sensor_->set_pose(ROBOT_INIT_POS);
+  right_light_sensor_->set_pose(ROBOT_INIT_POS);
 }
 /*******************************************************************************
  * Member Functions
