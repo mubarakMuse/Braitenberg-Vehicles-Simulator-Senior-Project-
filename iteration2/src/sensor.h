@@ -19,10 +19,7 @@
 #include "src/rgb_color.h"
 #include "src/arena_mobile_entity.h"
 #include "src/light.h"
-<<<<<<< HEAD
-=======
 
->>>>>>> bd3f800e588ee4d70fbd2ba3eb1d05bc48205a74
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
@@ -32,19 +29,14 @@ NAMESPACE_BEGIN(csci3081);
 class Sensor {
  public:
 
-<<<<<<< HEAD
-=======
 
->>>>>>> bd3f800e588ee4d70fbd2ba3eb1d05bc48205a74
   explicit Sensor(ArenaMobileEntity * ent) : entity_{ent} {}
 
   virtual ~Sensor() = default;
 
-<<<<<<< HEAD
-  virtual int CalculateReading( __unused Light *ent);
-=======
-  virtual void update(__unused std::vector<class Light *> stimili){}
->>>>>>> bd3f800e588ee4d70fbd2ba3eb1d05bc48205a74
+
+  virtual void update(__unused std::vector<class ArenaMobileEntity *> stimili){}
+
 
   virtual void Reset() {};
 
@@ -58,7 +50,7 @@ class Sensor {
   int get_reading(){
     return reading_;
   }
-<<<<<<< HEAD
+
   
   // void set_Pose(Pose &p){
   //   SensorPose_ = p;
@@ -67,9 +59,7 @@ class Sensor {
   // Pose get_pose(){
   //   return SensorPose_;
   // }
-=======
 
->>>>>>> bd3f800e588ee4d70fbd2ba3eb1d05bc48205a74
 
 
   const RgbColor &get_color() const { return color_; }
@@ -107,10 +97,7 @@ class Sensor {
  
  protected:
   ArenaMobileEntity * entity_;
-<<<<<<< HEAD
-=======
 
->>>>>>> bd3f800e588ee4d70fbd2ba3eb1d05bc48205a74
 };
 
 NAMESPACE_END(csci3081);

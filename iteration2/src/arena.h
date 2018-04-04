@@ -73,7 +73,7 @@ class Arena {
   void AddRobot();
   void AddEntity(EntityType type, int quantity);
   void RegisterObserver(LightSensor* ob);
-  void Notify(){}
+  void Notify();
   /**
    * @brief
    */

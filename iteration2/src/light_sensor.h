@@ -31,18 +31,6 @@ class LightSensor: public Sensor {
   /**
  * @brief ArenaEntity constructor initialized with default values from params.h
  */
-<<<<<<< HEAD
-  explicit LightSensor(ArenaMobileEntity * ent)
-      : Sensor(ent) {}
-
-  int CalculateReading(Light *ent)override;
-
-  void Reset() override ;
-
-  void update(std::vector<class Light *> lights);
-
-=======
-
   explicit LightSensor(ArenaMobileEntity * ent)
       : Sensor(ent) {}
 
@@ -50,11 +38,8 @@ class LightSensor: public Sensor {
 
   void Reset() override ;
 
-  void update(std::vector<class Light *> stimili) override;
+  void update(std::vector<class ArenaMobileEntity *> stimili) override;
 
-
- 
->>>>>>> bd3f800e588ee4d70fbd2ba3eb1d05bc48205a74
  private:
  std::vector<class ArenaEntity *> lights_;
 
