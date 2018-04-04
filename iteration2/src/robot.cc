@@ -21,12 +21,17 @@ NAMESPACE_BEGIN(csci3081);
 Robot::Robot() :
     motion_handler_(this),
     motion_behavior_(this),
-    lives_(9) {
+    lives_(9),
+    left_light_sensor_(),
+    right_light_sensor_(){
   motion_handler_.set_velocity(1, 1);
   set_type(kRobot);
   set_color(ROBOT_COLOR);
   set_pose(ROBOT_INIT_POS);
   set_radius(ROBOT_RADIUS);
+
+  left_light_sensor_->set_pose(ROBOT_INIT_POS);
+  right_light_sensor_->set_pose(ROBOT_INIT_POS);
 }
 /*******************************************************************************
  * Member Functions

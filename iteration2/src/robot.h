@@ -12,6 +12,7 @@
  ******************************************************************************/
 #include <string>
 
+#include "src/light_sensor.h"
 #include "src/arena_mobile_entity.h"
 #include "src/common.h"
 #include "src/motion_handler_robot.h"
@@ -118,6 +119,10 @@ class Robot : public ArenaMobileEntity {
 
   MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }
 
+  LightSensor* get_left_light_sensor() {return left_light_sensor_; }
+
+  LightSensor* get_right_light_sensor() {return right_light_sensor_;}
+
  private:
   // Manages pose and wheel velocities that change with time and collisions.
   MotionHandlerRobot motion_handler_;
@@ -126,6 +131,11 @@ class Robot : public ArenaMobileEntity {
   // Lives are decremented when the robot collides with anything.
   // When all the lives are gone, the game is lost.
   int lives_;
+
+  LightSensor* left_light_sensor_;
+
+  LightSensor* right_light_sensor_;
+
 };
 
 NAMESPACE_END(csci3081);
