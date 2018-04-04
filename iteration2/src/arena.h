@@ -19,6 +19,7 @@
 #include "src/entity_factory.h"
 #include "src/robot.h"
 #include "src/communication.h"
+#include "src/light_sensor.h"
 
 /*******************************************************************************
  * Namespaces
@@ -71,7 +72,8 @@ class Arena {
 
   void AddRobot();
   void AddEntity(EntityType type, int quantity);
-
+  void RegisterObserver(LightSensor* ob);
+  void Notify();
   /**
    * @brief
    */
@@ -188,6 +190,9 @@ class Arena {
   // A subset of the entities -- only those that can move (only Robot for now).
   std::vector<class ArenaMobileEntity *> mobile_entities_;
 
+  std::vector<class Light *> light_entities_;
+
+  std::vector<class LightSensor* > observers_;
   // win/lose/playing state
   int game_status_;
 };

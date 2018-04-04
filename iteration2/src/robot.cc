@@ -21,7 +21,9 @@ NAMESPACE_BEGIN(csci3081);
 Robot::Robot() :
     motion_handler_(this),
     motion_behavior_(this),
-    lives_(9) {
+    lives_(9),
+    left_light_sensor_(),
+    right_light_sensor_(){
   motion_handler_.set_velocity(1, 1);
   set_type(kRobot);
   set_color(ROBOT_COLOR);

@@ -27,10 +27,12 @@ Arena::Arena(const struct arena_params *const params)
       factory_(new EntityFactory),
       entities_(),
       mobile_entities_(),
+      light_entities_(),
+      observers_(),
       game_status_(PLAYING) {
   AddRobot();
   AddEntity(kBase, 3);  // changed this 3 i need  to us params
-  AddEntity(kLight, 5);   // changed the params to 4
+  AddEntity(kLight, 1);   // changed the params to 4
 }
 
 Arena::~Arena() {
@@ -47,6 +49,10 @@ void Arena::AddRobot() {
   robot_ = dynamic_cast<Robot *>(factory_->CreateEntity(kRobot));
   entities_.push_back(robot_);
   mobile_entities_.push_back(robot_);
+  LightSensor* right = robot_->get_right_light_sensor();
+  LightSensor*left = robot_->get_left_light_sensor();
+  RegisterObserver(right);
+  RegisterObserver(left);
 }
 
 void Arena::AddEntity(EntityType type, int quantity) {
@@ -56,12 +62,24 @@ void Arena::AddEntity(EntityType type, int quantity) {
       Light_ = dynamic_cast<Light *>(factory_->CreateEntity(kLight));
       entities_.push_back(Light_);
       mobile_entities_.push_back(Light_);
+      light_entities_.push_back(Light_);
+
     } else {
       entities_.push_back(factory_->CreateEntity(type));
       // if its a base or something else
     }
   }
 }
+void Arena::RegisterObserver(LightSensor* ob){
+  observers_.push_back(ob);
+}
+
+void Arena::Notify(){
+   for (auto observer: observers_) {
+    observer->update(light_entities_);
+  }
+}
+
 
 void Arena::Reset() {
   for (auto ent : entities_) {
