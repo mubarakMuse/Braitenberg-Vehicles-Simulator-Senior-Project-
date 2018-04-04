@@ -15,9 +15,11 @@
 #include "src/common.h"
 #include "src/pose.h"
 #include "src/arena_entity.h"
+
 #include "src/rgb_color.h"
 #include "src/arena_mobile_entity.h"
 #include "src/light.h"
+
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
@@ -26,6 +28,7 @@ NAMESPACE_BEGIN(csci3081);
 
 class Sensor {
  public:
+
 
   explicit Sensor(ArenaMobileEntity * ent) : entity_{ent} {}
 
@@ -36,12 +39,15 @@ class Sensor {
   virtual void Reset() {};
 
 
+
   void set_reading(int num){
     reading_ = num;
   }
   int get_reading(){
     return reading_;
   }
+
+
 
   const RgbColor &get_color() const { return color_; }
 
@@ -78,6 +84,7 @@ class Sensor {
  
  protected:
   ArenaMobileEntity * entity_;
+
 };
 
 NAMESPACE_END(csci3081);

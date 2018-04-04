@@ -1,5 +1,6 @@
 
 #include "src/light_sensor.h"
+
 #include "src/params.h"
 #include <math.h> 
 
@@ -30,6 +31,7 @@ void LightSensor::update( std::vector<class Light *> stimili){
 };
 
 void LightSensor::Reset() {
+
   	set_reading(0);
   }
 
