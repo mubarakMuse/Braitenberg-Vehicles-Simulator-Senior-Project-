@@ -51,13 +51,13 @@ class Sensor {
     return reading_;
   }
 
-  // void set_Pose(Pose &p){
-  //   SensorPose_ = p;
-  // }
+  void set_pose(Pose p){
+    SensorPose_ = p;
+  }
 
-  // Pose get_pose(){
-  //   return SensorPose_;
-  // }
+  Pose get_pose(){
+    return SensorPose_;
+  }
 
 
 
@@ -65,8 +65,8 @@ class Sensor {
 
   void set_color(const RgbColor &color) { color_ = color; }
 
-  const Pose &get_pose() const { return SensorPose_; }
-  void set_pose(const Pose &pose) { SensorPose_ = pose; }
+  // const Pose &get_pose() const { return SensorPose_; }
+  // void set_pose(const Pose &pose) { SensorPose_ = pose; }
 
   /**
    * @brief Setter method for position within entity pose variable.
