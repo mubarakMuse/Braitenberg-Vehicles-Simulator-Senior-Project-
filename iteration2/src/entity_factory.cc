@@ -17,6 +17,7 @@
 #include "src/params.h"
 #include "src/pose.h"
 #include "src/rgb_color.h"
+#include "src/robot_type.h"
 
 /*******************************************************************************
  * Namespaces
@@ -31,10 +32,10 @@ EntityFactory::EntityFactory() {
   srand(time(nullptr));
 }
 
-ArenaEntity* EntityFactory::CreateEntity(EntityType etype) {
+ArenaEntity* EntityFactory::CreateEntity(EntityType etype, RobotType rt) {
   switch (etype) {
     case (kRobot):
-      return CreateRobot();
+      return CreateRobot(rt);
       break;
     case (kLight):
       return CreateLight();
@@ -49,12 +50,13 @@ ArenaEntity* EntityFactory::CreateEntity(EntityType etype) {
   return nullptr;
 }
 
-Robot* EntityFactory::CreateRobot() {
+Robot* EntityFactory::CreateRobot(RobotType rt) {
   auto* robot = new Robot;
   robot->set_type(kRobot);
   robot->set_color(ROBOT_COLOR);
   robot->set_pose(ROBOT_INIT_POS);
   robot->set_radius(ROBOT_RADIUS);
+  robot->set_robot_type(rt);
   ++entity_count_;
   ++robot_count_;
   robot->set_id(robot_count_);

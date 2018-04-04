@@ -43,6 +43,9 @@ void Robot::TimestepUpdate(unsigned int dt) {
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_.get_velocity());
 
+  left_light_sensor_->set_pose(get_pose());
+  right_light_sensor_->set_pose(get_pose());
+
   // Reset Sensor for next cycle
   sensor_touch_->Reset();
 } /* TimestepUpdate() */

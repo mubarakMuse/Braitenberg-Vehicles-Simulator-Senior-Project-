@@ -18,6 +18,7 @@
 #include "src/motion_handler_robot.h"
 #include "src/motion_behavior_differential.h"
 #include "src/entity_type.h"
+#include "src/robot_type.h"
 
 /*******************************************************************************
  * Namespaces
@@ -123,6 +124,13 @@ class Robot : public ArenaMobileEntity {
 
   LightSensor* get_right_light_sensor() {return right_light_sensor_;}
 
+  void set_robot_type(RobotType rt){
+    robot_type_ = rt;
+  }
+  RobotType get_robot_type(){
+    return robot_type_;
+  }
+
  private:
   // Manages pose and wheel velocities that change with time and collisions.
   MotionHandlerRobot motion_handler_;
@@ -131,6 +139,8 @@ class Robot : public ArenaMobileEntity {
   // Lives are decremented when the robot collides with anything.
   // When all the lives are gone, the game is lost.
   int lives_;
+
+  RobotType robot_type_;
 
   LightSensor* left_light_sensor_;
 

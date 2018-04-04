@@ -18,8 +18,10 @@
 #include "src/base.h"
 #include "src/entity_factory.h"
 #include "src/robot.h"
+#include "src/robot_type.h"
 #include "src/communication.h"
 #include "src/light_sensor.h"
+
 
 /*******************************************************************************
  * Namespaces
@@ -70,7 +72,7 @@ class Arena {
    */
   void AdvanceTime(double dt);
 
-  void AddRobot();
+  void AddRobot(RobotType rt);
   void AddEntity(EntityType type, int quantity);
   void RegisterObserver(LightSensor* ob);
   void Notify();

@@ -12,7 +12,7 @@
 
 #include "src/arena.h"
 #include "src/arena_params.h"
-
+#include "src/robot_type.h"
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
@@ -30,7 +30,7 @@ Arena::Arena(const struct arena_params *const params)
       light_entities_(),
       observers_(),
       game_status_(PLAYING) {
-  AddRobot();
+  AddRobot(kAgressive);
   AddEntity(kBase, 3);  // changed this 3 i need  to us params
   AddEntity(kLight, 1);   // changed the params to 4
 }
@@ -45,8 +45,8 @@ Arena::~Arena() {
  * Member Functions
  ******************************************************************************/
 
-void Arena::AddRobot() {
-  robot_ = dynamic_cast<Robot *>(factory_->CreateEntity(kRobot));
+void Arena::AddRobot(RobotType rt) {
+  robot_ = dynamic_cast<Robot *>(factory_->CreateEntity(kRobot,rt));
   entities_.push_back(robot_);
   mobile_entities_.push_back(robot_);
   LightSensor* right = robot_->get_right_light_sensor();
