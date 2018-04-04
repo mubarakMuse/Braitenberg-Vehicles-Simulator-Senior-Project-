@@ -15,6 +15,10 @@
 #include "src/common.h"
 #include "src/sensor.h"
 
+#include "src/light.h"
+#include "src/arena_mobile_entity.h"
+
+
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
@@ -26,12 +30,18 @@ class LightSensor: public Sensor {
   /**
  * @brief ArenaEntity constructor initialized with default values from params.h
  */
-  LightSensor();
 
-  void CalculateReading( __unused ArenaEntity *ent) override ;
+  explicit LightSensor(ArenaMobileEntity * ent)
+      : Sensor(ent) {}
+
+  int CalculateReading(Light *light);
 
   void Reset() override ;
 
+  void update(std::vector<class Light *> stimili) override;
+
+
+ 
  private:
  std::vector<class ArenaEntity *> lights_;
 

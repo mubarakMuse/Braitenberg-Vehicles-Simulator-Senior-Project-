@@ -15,8 +15,11 @@
 #include "src/common.h"
 #include "src/pose.h"
 #include "src/arena_entity.h"
-#include "src/sensor_type.h"
+
 #include "src/rgb_color.h"
+#include "src/arena_mobile_entity.h"
+#include "src/light.h"
+
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
@@ -26,13 +29,14 @@ NAMESPACE_BEGIN(csci3081);
 class Sensor {
  public:
 
-  Sensor() {}
+
+  explicit Sensor(ArenaMobileEntity * ent) : entity_{ent} {}
 
   virtual ~Sensor() = default;
 
-  virtual void CalculateReading(__unused ArenaEntity *ent) {}
+  virtual void update(__unused std::vector<class Light *> stimili){}
 
-  virtual void Reset() {}
+  virtual void Reset() {};
 
 
 
@@ -42,21 +46,8 @@ class Sensor {
   int get_reading(){
     return reading_;
   }
-  
-  void set_Pose(Pose &p){
-    SensorPose_ = p;
-  }
 
-  Pose get_pose(){
-    return SensorPose_;
-  }
 
-  SensorType get_sensortype(){
-    return sensor_type_;
-  }
-  void set_sensortype(SensorType st){
-    sensor_type_ = st;
-  }
 
   const RgbColor &get_color() const { return color_; }
 
@@ -87,12 +78,13 @@ class Sensor {
   }
 
  private:
-  
- //std::vector<class ArenaEntity *> subject_;
-  SensorType sensor_type_{kSensor};
   int reading_{0};
   Pose SensorPose_;
   RgbColor color_;
+ 
+ protected:
+  ArenaMobileEntity * entity_;
+
 };
 
 NAMESPACE_END(csci3081);
