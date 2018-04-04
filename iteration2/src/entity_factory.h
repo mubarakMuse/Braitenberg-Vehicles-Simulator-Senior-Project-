@@ -20,7 +20,7 @@
 #include "src/pose.h"
 #include "src/rgb_color.h"
 #include "src/robot.h"
-
+#include "src/robot_type.h"
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
@@ -61,13 +61,13 @@ class EntityFactory {
   * appropriate data structure so that the call to Arena is the same regardless
   * of the entity type.
   */
-  ArenaEntity* CreateEntity(EntityType etype);
+  ArenaEntity* CreateEntity(EntityType etype, RobotType rt = kUndefinedRT);
 
  private:
    /**
    * @brief CreateRobot called from within CreateEntity.
    */
-  Robot* CreateRobot();
+  Robot* CreateRobot(RobotType rt);
 
   /**
   * @brief CreateLight called from within CreateEntity.

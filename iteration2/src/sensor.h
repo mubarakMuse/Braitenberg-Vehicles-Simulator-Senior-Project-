@@ -51,7 +51,6 @@ class Sensor {
     return reading_;
   }
 
-  
   // void set_Pose(Pose &p){
   //   SensorPose_ = p;
   // }
