@@ -7,6 +7,10 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
+#define _USE_MATH_DEFINES
+ 
+#include <cmath>
+
 #include "src/robot.h"
 #include "src/params.h"
 
@@ -33,8 +37,8 @@ Robot::Robot() :
   left_light_sensor_ = new LightSensor(this);
   right_light_sensor_ = new LightSensor(this);
 
-  left_light_sensor_->set_pose(ROBOT_INIT_POS);
-  right_light_sensor_->set_pose(ROBOT_INIT_POS);
+  left_light_sensor_->sensor_robot_location(40*M_PI/180);
+  right_light_sensor_->sensor_robot_location(-40*M_PI/180);
 }
 /*******************************************************************************
  * Member Functions
@@ -46,8 +50,8 @@ void Robot::TimestepUpdate(unsigned int dt) {
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_.get_velocity());
 
-  left_light_sensor_->set_pose(get_pose());
-  right_light_sensor_->set_pose(get_pose());
+  left_light_sensor_->sensor_robot_location(40*M_PI/180);
+  right_light_sensor_->sensor_robot_location(-40*M_PI/180);
 
   // Reset Sensor for next cycle
   sensor_touch_->Reset();
