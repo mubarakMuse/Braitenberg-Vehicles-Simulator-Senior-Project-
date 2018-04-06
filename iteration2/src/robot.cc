@@ -23,7 +23,7 @@ NAMESPACE_BEGIN(csci3081);
  * Constructors/Destructor
  ******************************************************************************/
 Robot::Robot() :
-    motion_handler_(this),
+    motion_handler_(),
     motion_behavior_(this),
     lives_(9),
     left_light_sensor_(),

@@ -116,7 +116,7 @@ class Robot : public ArenaMobileEntity {
 
   void set_lives(int l) { lives_ = l; }
 
-  MotionHandlerRobot get_motion_handler() { return motion_handler_; }
+  MotionHandlerRobot* get_motion_handler() { return motion_handler_; }
 
   MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }
 
@@ -138,7 +138,7 @@ class Robot : public ArenaMobileEntity {
 
  private:
   // Manages pose and wheel velocities that change with time and collisions.
-  MotionHandlerRobot motion_handler_;
+  MotionHandlerRobot* motion_handler_;
   // Calculates changes in pose based on elapsed time and wheel velocities.
   MotionBehaviorDifferential motion_behavior_;
   // Lives are decremented when the robot collides with anything.
