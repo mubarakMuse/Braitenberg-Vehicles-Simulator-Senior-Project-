@@ -18,7 +18,7 @@
 NAMESPACE_BEGIN(csci3081);
 
 enum RobotType {
-  kLove, kExplore, kAgressive, kCoward,kUndefinedRT
+  kLove, kExplore, kAgressive,kCoward,kUndefinedRT
 };
 
 NAMESPACE_END(csci3081);

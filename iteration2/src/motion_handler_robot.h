@@ -17,7 +17,7 @@
 #include "src/motion_handler.h"
 #include "src/sensor_touch.h"
 #include "src/communication.h"
-
+#include "src/robot_type.h"
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
@@ -71,8 +71,18 @@ class MotionHandlerRobot : public MotionHandler {
    */
   void Stop() override;
 
+  void update_m_h_r(RobotType rt, double reading){
+    robot_type_= rt;
+    total_reading_ = reading;
+  }
+  RobotType get_robot_type(){
+    return robot_type_;
+  }
+
  private:
   double clamp_vel(double vel);
+  RobotType robot_type_;
+  double total_reading_;
 };
 
 NAMESPACE_END(csci3081);

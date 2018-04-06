@@ -27,6 +27,7 @@ NAMESPACE_BEGIN(csci3081);
 class MotionBehaviorDifferential;
 
 
+
 /*******************************************************************************
  * Class Definitions
  ******************************************************************************/
@@ -92,6 +93,15 @@ class Light : public ArenaMobileEntity {
   MotionHandlerRobot get_motion_handler() { return motion_handler_; }
 
   MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }
+
+  // void set_robot_type(__unused RobotType rt) override {}
+  // RobotType get_robot_type() override{
+  //   return kUndefinedRT;
+  // }
+  // //virtual void set_TotalSensorReading(double tsr);
+  //  double get_TotalSensorReading() override {
+  //   return 0;
+  //  }
 
  private:
   // Manages pose and wheel velocities that change with time and collisions.

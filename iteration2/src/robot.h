@@ -124,12 +124,17 @@ class Robot : public ArenaMobileEntity {
 
   LightSensor* get_right_light_sensor() {return right_light_sensor_;}
 
-  void set_robot_type(RobotType rt){
+  void set_robot_type(RobotType rt)  {
     robot_type_ = rt;
   }
-  RobotType get_robot_type(){
+  RobotType get_robot_type() {
     return robot_type_;
   }
+  // //virtual void set_TotalSensorReading(double tsr);
+  //  double get_TotalSensorReading() override {
+  //   total_sensor_readings = left_light_sensor_->get_reading()+right_light_sensor_->get_reading();
+  //   return total_sensor_readings;
+  //  }
 
  private:
   // Manages pose and wheel velocities that change with time and collisions.
@@ -146,6 +151,7 @@ class Robot : public ArenaMobileEntity {
 
   LightSensor* right_light_sensor_;
 
+  //double total_sensor_readings{0.00};
 };
 
 NAMESPACE_END(csci3081);

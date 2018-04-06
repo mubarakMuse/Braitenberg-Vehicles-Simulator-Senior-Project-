@@ -1,7 +1,10 @@
 
-#include "src/light_sensor.h"
-#include "src/params.h"
 #include <math.h> 
+
+#include "src/light_sensor.h"
+#include "src/light.h"
+#include "src/params.h"
+
 
 
 NAMESPACE_BEGIN(csci3081);

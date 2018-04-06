@@ -74,6 +74,14 @@ void set_captured(bool state) {
     set_color(BASE_COLOR_POST_COLLISION);
   }
 }
+ // void set_robot_type(__unused RobotType rt) override {}
+ //  RobotType get_robot_type() override{
+ //    return kUndefinedRT;
+ //  }
+ //  //virtual void set_TotalSensorReading(double tsr);
+ //   double get_TotalSensorReading() override {
+ //    return 0;
+ //   }
 
  private:
   bool captured_;
