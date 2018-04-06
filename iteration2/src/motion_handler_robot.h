@@ -71,7 +71,7 @@ class MotionHandlerRobot : public MotionHandler {
    */
   void Stop() override;
 
-  void update_m_h_r(RobotType rt, double reading){
+  void update(RobotType rt, double reading){
     robot_type_= rt;
     total_reading_ = reading;
   }

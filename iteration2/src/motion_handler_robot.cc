@@ -56,6 +56,10 @@ void MotionHandlerRobot::Stop() {  // added for priorty 1 iteration 1
 
 void MotionHandlerRobot::UpdateVelocity() {
   if (entity_->get_touch_sensor()->get_output()) {
+     entity_->RelativeChangeHeading(+180);
+  }
+  if (get_robot_type()){
+    IncreaseSpeed();
   }
 
  

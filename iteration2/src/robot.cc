@@ -44,6 +44,7 @@ Robot::Robot() :
  * Member Functions
  ******************************************************************************/
 void Robot::TimestepUpdate(unsigned int dt) {
+  motion_handler_.update(get_robot_type(),left_light_sensor_->get_reading());
   // Update heading as indicated by touch sensor
   motion_handler_.UpdateVelocity();
 
