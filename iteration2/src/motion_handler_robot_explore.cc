@@ -1,5 +1,5 @@
 /**
- * @file motion_handler_robot.cc
+ * @file motion_handler_robot_explore.cc
  *
  * @copyright 2018 3081 Staff, All rights reserved.
  */
@@ -7,7 +7,7 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "src/motion_handler_robot.h"
+#include "src/motion_handler_robot_explore.h"
 #include "src/motion_behavior_differential.h"
 #include "src/robot.h"
 #include "src/robot_type.h"
@@ -22,19 +22,19 @@ NAMESPACE_BEGIN(csci3081);
  ******************************************************************************/
 // @TODO add clamped
 
-void MotionHandlerRobot::TurnLeft() {
+void MotionHandlerRobotExplore::TurnLeft() {
   set_velocity(
     get_velocity().left  - get_angle_delta(),
     get_velocity().right + get_angle_delta());
 }
 
-void MotionHandlerRobot::TurnRight() {
+void MotionHandlerRobotExplore::TurnRight() {
   set_velocity(
     get_velocity().left  + get_angle_delta(),
     get_velocity().right - get_angle_delta());
 }
 
-void MotionHandlerRobot::IncreaseSpeed() {  // added for priorty
+void MotionHandlerRobotExplore::IncreaseSpeed() {  // added for priorty
   if ((get_velocity().left + get_speed_delta()) <= ROBOT_MAX_SPEED
     && (get_velocity().right + get_speed_delta()) <= ROBOT_MAX_SPEED) {
      set_velocity(
@@ -42,7 +42,7 @@ void MotionHandlerRobot::IncreaseSpeed() {  // added for priorty
     get_velocity().right + get_speed_delta());
   }
 }
-void MotionHandlerRobot::DecreaseSpeed() {  // added for priorty
+void MotionHandlerRobotExplore::DecreaseSpeed() {  // added for priorty
     if (0.00 <=( get_velocity().left - get_speed_delta())
     && 0.00 <= (get_velocity().right - get_speed_delta())) {
       set_velocity(
@@ -50,17 +50,21 @@ void MotionHandlerRobot::DecreaseSpeed() {  // added for priorty
     get_velocity().right - get_speed_delta());
     }
   }
-void MotionHandlerRobot::Stop() {  // added for priorty 1 iteration 1
+void MotionHandlerRobotExplore::Stop() {  // added for priorty 1 iteration 1
   set_velocity(0.00, 0.00);
 }
 
-void MotionHandlerRobot::UpdateVelocity() {
+void MotionHandlerRobotExplore::UpdateVelocity() {
   if (entity_->get_touch_sensor()->get_output()) {
      entity_->RelativeChangeHeading(+180);
   }
+  // std::cout << get_sensor_reading()*.0027<< "      ";
+  set_velocity(
+    (1000-get_right_sensor_reading())*.0027,
+    (1000-get_left_sensor_reading())*.0027);
 }
 
-double MotionHandlerRobot::clamp_vel(double vel) {
+double MotionHandlerRobotExplore::clamp_vel(double vel) {
   // @TODO: don't go backwards
   double clamped = 0.0;
   if (vel > 0) {

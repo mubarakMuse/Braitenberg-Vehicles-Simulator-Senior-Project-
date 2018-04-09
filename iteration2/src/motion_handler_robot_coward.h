@@ -1,11 +1,11 @@
 /**
- * @file motion_handler_robot.h
+ * @file motion_handler_robot_coward.h
  *
  * @copyright 2018 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_MOTION_HANDLER_ROBOT_H_
-#define SRC_MOTION_HANDLER_ROBOT_H_
+#ifndef SRC_MOTION_HANDLER_ROBOT_COWARD_H_
+#define SRC_MOTION_HANDLER_ROBOT_COWARD_H_
 
 /*******************************************************************************
  * Includes
@@ -32,13 +32,13 @@ NAMESPACE_BEGIN(csci3081);
  * on collisions and user inputs.
  *
  */
-class MotionHandlerRobot : public MotionHandler {
+class MotionHandlerRobotCoward : public MotionHandler {
  public:
-  explicit MotionHandlerRobot(ArenaMobileEntity * ent)
+  explicit MotionHandlerRobotCoward(ArenaMobileEntity * ent)
       : MotionHandler(ent) {}
 
-  MotionHandlerRobot(const MotionHandlerRobot& other) = default;
-  MotionHandlerRobot& operator=(const MotionHandlerRobot& other) = default;
+  MotionHandlerRobotCoward(const MotionHandlerRobotCoward& other) = default;
+  MotionHandlerRobotCoward& operator=(const MotionHandlerRobotCoward& other) = default;
 
   /**
   * @brief Update the speed and the pose angle according to the sensor readings.
@@ -87,4 +87,4 @@ class MotionHandlerRobot : public MotionHandler {
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_MOTION_HANDLER_ROBOT_H_
+#endif  // SRC_MOTION_HANDLER_ROBOT_COWARD_H_

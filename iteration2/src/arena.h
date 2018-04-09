@@ -21,6 +21,7 @@
 #include "src/robot_type.h"
 #include "src/communication.h"
 #include "src/light_sensor.h"
+#include "src/light.h"
 
 
 /*******************************************************************************

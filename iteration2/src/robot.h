@@ -16,6 +16,10 @@
 #include "src/arena_mobile_entity.h"
 #include "src/common.h"
 #include "src/motion_handler_robot.h"
+#include "src/motion_handler_robot_love.h"
+#include "src/motion_handler_robot_explore.h"
+#include "src/motion_handler_robot_coward.h"
+#include "src/motion_handler_robot_aggressive.h"
 #include "src/motion_behavior_differential.h"
 #include "src/entity_type.h"
 #include "src/robot_type.h"
@@ -51,7 +55,7 @@ class Robot : public ArenaMobileEntity {
    * @brief Constructor using initialization values from params.h.
    */
 
-  Robot();
+  Robot(RobotType rt);
 
   /**
    * @brief Reset the Robot to a newly constructed state (needed for reset
@@ -116,7 +120,7 @@ class Robot : public ArenaMobileEntity {
 
   void set_lives(int l) { lives_ = l; }
 
-  MotionHandlerRobot get_motion_handler() { return motion_handler_; }
+  MotionHandler* get_motion_handler() { return motion_handler_; }
 
   MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }
 
@@ -124,16 +128,21 @@ class Robot : public ArenaMobileEntity {
 
   LightSensor* get_right_light_sensor() {return right_light_sensor_;}
 
-  void set_robot_type(RobotType rt){
+  void set_robot_type(RobotType rt)  {
     robot_type_ = rt;
   }
-  RobotType get_robot_type(){
+  RobotType get_robot_type() {
     return robot_type_;
   }
+  // //virtual void set_TotalSensorReading(double tsr);
+  //  double get_TotalSensorReading() override {
+  //   total_sensor_readings = left_light_sensor_->get_reading()+right_light_sensor_->get_reading();
+  //   return total_sensor_readings;
+  //  }
 
  private:
   // Manages pose and wheel velocities that change with time and collisions.
-  MotionHandlerRobot motion_handler_;
+  MotionHandler* motion_handler_;
   // Calculates changes in pose based on elapsed time and wheel velocities.
   MotionBehaviorDifferential motion_behavior_;
   // Lives are decremented when the robot collides with anything.
@@ -146,6 +155,7 @@ class Robot : public ArenaMobileEntity {
 
   LightSensor* right_light_sensor_;
 
+  //double total_sensor_readings{0.00};
 };
 
 NAMESPACE_END(csci3081);

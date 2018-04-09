@@ -15,8 +15,6 @@
 #include "src/common.h"
 #include "src/sensor.h"
 #include "src/light.h"
-
-#include "src/light.h"
 #include "src/arena_mobile_entity.h"
 
 
@@ -24,6 +22,7 @@
  * Namespaces
  ******************************************************************************/
 NAMESPACE_BEGIN(csci3081);
+
 
 
 class LightSensor: public Sensor {
@@ -34,7 +33,7 @@ class LightSensor: public Sensor {
   explicit LightSensor(ArenaMobileEntity * ent)
       : Sensor(ent) {}
 
-  int CalculateReading(Light *light);
+  int CalculateReading(Light *ent);
 
   void Reset() override ;
 

@@ -50,13 +50,12 @@ ArenaEntity* EntityFactory::CreateEntity(EntityType etype, RobotType rt) {
   return nullptr;
 }
 
-Robot* EntityFactory::CreateRobot(RobotType rt) {
-  auto* robot = new Robot;
+Robot* EntityFactory::CreateRobot( RobotType rt) {
+  auto* robot = new Robot(rt);
   robot->set_type(kRobot);
   robot->set_color(ROBOT_COLOR);
   robot->set_pose(ROBOT_INIT_POS);
   robot->set_radius(ROBOT_RADIUS);
-  robot->set_robot_type(rt);
   ++entity_count_;
   ++robot_count_;
   robot->set_id(robot_count_);

@@ -15,6 +15,7 @@
 #include "src/arena_entity.h"
 #include "src/common.h"
 #include "src/sensor_touch.h"
+#include "src/robot_type.h"
 
 /*******************************************************************************
  * Namespaces
@@ -52,6 +53,10 @@ class ArenaMobileEntity : public ArenaEntity {
 
   virtual double get_speed() { return speed_; }
   virtual void set_speed(double sp) { speed_ = sp; }
+
+  // virtual double get_TotalSensorReading();
+  // virtual void set_robot_type(__unused RobotType rt){}
+  // virtual RobotType get_robot_type();
 
   /**
    * @brief Get a pointer to the ArenaMobileEntity's touch sensor.

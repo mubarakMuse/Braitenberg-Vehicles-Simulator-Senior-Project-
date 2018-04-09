@@ -17,6 +17,7 @@
 #include "src/params.h"
 #include "src/pose.h"
 #include "src/rgb_color.h"
+#include "src/robot_type.h"
 
 /*******************************************************************************
  * Namespaces
@@ -148,6 +149,9 @@ class ArenaEntity {
    */
   void set_mobility(bool value) { is_mobile_ = value; }
 
+
+
+
  private:
   double radius_{DEFAULT_RADIUS};
   Pose pose_;
@@ -155,6 +159,7 @@ class ArenaEntity {
   EntityType type_{kEntity};
   int id_{-1};
   bool is_mobile_{false};
+  //double total_sesnor_readings_{0};
 };
 
 NAMESPACE_END(csci3081);

@@ -15,6 +15,7 @@
 #include "src/wheel_velocity.h"
 #include "src/sensor_touch.h"
 #include "src/arena_mobile_entity.h"
+#include "src/robot_type.h"
 
 /*******************************************************************************
  * Namespaces
@@ -83,6 +84,7 @@ class MotionHandler {
   /**
    * @brief Turn the entity to the right by angle_delta (in degrees?)
    */
+  
   virtual void TurnRight() {}
 
   /**
@@ -136,13 +138,28 @@ class MotionHandler {
 
   ArenaMobileEntity * get_entity() { return entity_; }
 
+  void set_lightsensor_reading(double left_reading, double right_reading ){
+    left_light_sensor_reading = left_reading;
+    right_light_sensor_reading = right_reading;
+  }
+
+  double get_left_sensor_reading(){
+    return left_light_sensor_reading;
+  }
+
+  double get_right_sensor_reading(){
+    return right_light_sensor_reading;
+  }
+
  private:
   double max_speed_{10};
   double max_angle_{360};
   double speed_delta_{1};
   double angle_delta_{1};
   WheelVelocity velocity_;
-
+  double left_light_sensor_reading{0};
+  double right_light_sensor_reading{0};
+  
  protected:
   ArenaMobileEntity * entity_;
 };

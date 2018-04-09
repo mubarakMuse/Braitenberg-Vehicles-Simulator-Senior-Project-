@@ -11,6 +11,7 @@
  * Includes
  ******************************************************************************/
 #include <string>
+#include <math.h> 
 
 #include "src/common.h"
 #include "src/pose.h"
@@ -19,6 +20,8 @@
 #include "src/rgb_color.h"
 #include "src/arena_mobile_entity.h"
 #include "src/light.h"
+  
+ 
 
 /*******************************************************************************
  * Namespaces
@@ -35,14 +38,10 @@ class Sensor {
   virtual ~Sensor() = default;
 
 
-  virtual void update(__unused std::vector<class ArenaMobileEntity *> stimili){}
+  virtual void update( __unused std::vector<class ArenaMobileEntity *> stimili){};
 
 
   virtual void Reset() {};
-
-
-
-
 
   void set_reading(int num){
     reading_ = num;
@@ -52,14 +51,23 @@ class Sensor {
   }
 
   void set_pose(Pose p){
-    SensorPose_ = p;
+    sensorpose_ = p;
   }
 
   Pose get_pose(){
-    return SensorPose_;
+    return sensorpose_;
   }
-
-
+  //  def SensorLocation(self, angle) :
+        // theta = self.heading + angle
+        // x = self.radius*math.cos(theta) + self.position.x
+        // y = self.radius*math.sin(theta) + self.position.y
+        // return Position(x,y)
+  void sensor_robot_location(double angle){
+    double theta = entity_->get_pose().theta + angle;
+    double x = entity_->get_radius() * cos(theta)+ sensorpose_.x;
+    double y = entity_->get_radius() * cos(theta)+ sensorpose_.y;
+    set_position(x,y);
+  }
 
   const RgbColor &get_color() const { return color_; }
 
@@ -72,11 +80,11 @@ class Sensor {
    * @brief Setter method for position within entity pose variable.
    */
   void set_position(const double inx, const double iny) {
-    SensorPose_.x = inx;
-    SensorPose_.y = iny;
+    sensorpose_.x = inx;
+    sensorpose_.y = iny;
   }
 
-  void set_heading(const double t) {SensorPose_.theta = t;}
+  void set_heading(const double t) {sensorpose_.theta = t;}
 
   /**
    * @brief Setter for heading within pose, but change is relative to current
@@ -86,12 +94,12 @@ class Sensor {
    * or negative.
    */
   void RelativeChangeHeading(const double delta) {
-    SensorPose_.theta += delta;
+    sensorpose_.theta += delta;
   }
 
  private:
   int reading_{0};
-  Pose SensorPose_;
+  Pose sensorpose_;
   RgbColor color_;
  
  protected:
