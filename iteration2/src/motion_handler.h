@@ -138,25 +138,29 @@ class MotionHandler {
 
   ArenaMobileEntity * get_entity() { return entity_; }
 
-  void set_lightsensor_reading(double reading){
-    total_lightsensor_reading_ = reading;
+  void set_lightsensor_reading(double left_reading, double right_reading ){
+    left_light_sensor_reading = left_reading;
+    right_light_sensor_reading = right_reading;
   }
 
-  double get_sensor_reading(){
-    return total_lightsensor_reading_ ;
+  double get_left_sensor_reading(){
+    return left_light_sensor_reading;
   }
- 
 
- protected:
+  double get_right_sensor_reading(){
+    return right_light_sensor_reading;
+  }
+
+ private:
   double max_speed_{10};
   double max_angle_{360};
   double speed_delta_{1};
   double angle_delta_{1};
   WheelVelocity velocity_;
-  double total_lightsensor_reading_;
-
-
- 
+  double left_light_sensor_reading{0};
+  double right_light_sensor_reading{0};
+  
+ protected:
   ArenaMobileEntity * entity_;
 };
 

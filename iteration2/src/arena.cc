@@ -50,7 +50,7 @@ void Arena::AddRobot(RobotType rt) {
   entities_.push_back(robot_);
   mobile_entities_.push_back(robot_);
   LightSensor* right = robot_->get_right_light_sensor();
-  LightSensor*left = robot_->get_left_light_sensor();
+  LightSensor* left = robot_->get_left_light_sensor();
   RegisterObserver(right);
   RegisterObserver(left);
 }

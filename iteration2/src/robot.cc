@@ -54,7 +54,7 @@ Robot::Robot(RobotType rt) :
  ******************************************************************************/
 void Robot::TimestepUpdate(unsigned int dt) {
   //std::cout << left_light_sensor_->get_reading();
-  motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading());
+  motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading(),right_light_sensor_->get_reading());
   // Update heading as indicated by touch sensor
   motion_handler_->UpdateVelocity();
 

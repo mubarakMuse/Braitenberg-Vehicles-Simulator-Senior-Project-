@@ -58,11 +58,10 @@ void MotionHandlerRobotLove::UpdateVelocity() {
   if (entity_->get_touch_sensor()->get_output()) {
      entity_->RelativeChangeHeading(+180);
   }
-  std::cout << get_sensor_reading()*.0027<< "      ";
+  // std::cout << get_sensor_reading()*.0027<< "      ";
   set_velocity(
-    get_sensor_reading()*.0027,
-    get_sensor_reading()*.0027);
-
+    get_right_sensor_reading()*.0027,
+    get_left_sensor_reading()*.0027);
 }
 
 double MotionHandlerRobotLove::clamp_vel(double vel) {
