@@ -103,28 +103,28 @@ void Arena::AdvanceTime(double dt) {
   } /* for(i..) */
 } /* AdvanceTime() */
 
-void Arena::UpdateGameStatus() {  // checks for wins and lossses
-  if (robot_->get_lives() <= 0) {
-    set_game_status(LOST);
-    for (auto ent1 : entities_) {
-      ent1->set_color(LOSS_COLOR);
-    }
-  }
-  bool AllBasesCaptured = true;
-  for (auto ent : entities_) {
-    if (ent->get_type() == kBase) {
-      AllBasesCaptured = AllBasesCaptured &&
-      dynamic_cast<Base *>(ent)->IsCaptured();
-       // checks if all the base were captured
-    }
-  }
-  if (AllBasesCaptured) {
-    set_game_status(WON);
-    for (auto ent2 : entities_) {
-      ent2->set_color(WON_COLOR);
-    }
-  }
-}
+// void Arena::UpdateGameStatus() {  // checks for wins and lossses
+//   if (robot_->get_lives() <= 0) {
+//     set_game_status(LOST);
+//     for (auto ent1 : entities_) {
+//       ent1->set_color(LOSS_COLOR);
+//     }
+//   }
+//   bool AllBasesCaptured = true;
+//   for (auto ent : entities_) {
+//     if (ent->get_type() == kBase) {
+//       AllBasesCaptured = AllBasesCaptured &&
+//       dynamic_cast<Base *>(ent)->IsCaptured();
+//        // checks if all the base were captured
+//     }
+//   }
+//   if (AllBasesCaptured) {
+//     set_game_status(WON);
+//     for (auto ent2 : entities_) {
+//       ent2->set_color(WON_COLOR);
+//     }
+//   }
+// }
 void Arena::UpdateEntitiesTimestep() {
   /*
    * First, update the position of all entities, according to their current
@@ -142,10 +142,10 @@ void Arena::UpdateEntitiesTimestep() {
     if (kUndefined != wall) {
       AdjustWallOverlap(ent1, wall);
       ent1->HandleCollision(wall, NULL);
-      if (ent1->get_type() == kRobot) {
-        robot_->lose_A_Life();
-      UpdateGameStatus();
-      }
+      // if (ent1->get_type() == kRobot) {
+      //   robot_->lose_A_Life();
+      // UpdateGameStatus();
+      // }
     }
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
@@ -156,15 +156,15 @@ void Arena::UpdateEntitiesTimestep() {
           AdjustEntityOverlap(ent1, ent2);
           ent1->HandleCollision(ent2->get_type(), ent2);
         }
-        if (ent2->get_type() == kLight && ent1->get_type() == kRobot){
-          robot_->lose_A_Life();
-          UpdateGameStatus();
-        }
-        if (ent2->get_type() == kBase && ent1->get_type() == kRobot){
-          //ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
-          dynamic_cast<Base *> (ent2)->set_captured(true);
-          UpdateGameStatus();
-        }
+        // if (ent2->get_type() == kLight && ent1->get_type() == kRobot){
+        //   robot_->lose_A_Life();
+        //   UpdateGameStatus();
+        // }
+        // if (ent2->get_type() == kBase && ent1->get_type() == kRobot){
+        //   //ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
+        //   dynamic_cast<Base *> (ent2)->set_captured(true);
+        //   UpdateGameStatus();
+        // }
 
       }
     }
