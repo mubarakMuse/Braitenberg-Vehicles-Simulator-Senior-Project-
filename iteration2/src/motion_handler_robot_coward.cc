@@ -59,9 +59,10 @@ void MotionHandlerRobotCoward::UpdateVelocity() {
      entity_->RelativeChangeHeading(+180);
   }
   // std::cout << get_sensor_reading()*.0027<< "      ";
+  //std::cout << get_right_sensor_reading() << " \n  ";
   set_velocity(
-    get_left_sensor_reading()*.0027,
-    get_right_sensor_reading()*.0027);
+    get_left_sensor_reading()/100,
+    get_right_sensor_reading()/100);
 }
 
 double MotionHandlerRobotCoward::clamp_vel(double vel) {

@@ -56,7 +56,7 @@ Robot::Robot(RobotType rt) :
   right_light_sensor_ = new LightSensor(this);
   food_sensor_ = new FoodSensor(this);
 
-  left_light_sensor_->sensor_robot_location(40*M_PI/180);
+  left_light_sensor_->sensor_robot_location(-40*M_PI/180);
   right_light_sensor_->sensor_robot_location(-40*M_PI/180);
   food_sensor_->sensor_robot_location(-40*M_PI/180);
 }
