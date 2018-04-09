@@ -68,13 +68,13 @@
 #define ROBOT_MAX_ANGLE 360
 
 // base
-#define BASE_RADIUS 20
-#define BASE_COLLISION_DELTA 1
-#define BASE_INIT_POS \
+#define FOOD_RADIUS 20
+#define FOOD_COLLISION_DELTA 1
+#define FOOD_INIT_POS \
   { 400, 400 }
-#define BASE_COLOR \
+#define FOOD_COLOR \
   { 255, 0, 0 }
-#define BASE_COLOR_POST_COLLISION \
+#define FOOD_COLOR_POST_COLLISION \
   { 255, 255, 0 }
 // Light
 #define Light_POSITION \

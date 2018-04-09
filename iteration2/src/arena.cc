@@ -31,7 +31,7 @@ Arena::Arena(const struct arena_params *const params)
       observers_(),
       game_status_(PLAYING) {
   AddRobot(kAggressive);
-  AddEntity(kBase, 0);  // changed this 3 i need  to us params
+  AddEntity(kFood, 1);  // changed this 3 i need  to us params
   AddEntity(kLight,4);   // changed the params to 4
 }
 
