@@ -147,7 +147,7 @@ class MotionHandler {
   }
  
 
- private:
+ protected:
   double max_speed_{10};
   double max_angle_{360};
   double speed_delta_{1};
@@ -156,7 +156,7 @@ class MotionHandler {
   double total_lightsensor_reading_;
 
 
- protected:
+ 
   ArenaMobileEntity * entity_;
 };
 

@@ -30,7 +30,7 @@ Arena::Arena(const struct arena_params *const params)
       light_entities_(),
       observers_(),
       game_status_(PLAYING) {
-  AddRobot(kAgressive);
+  AddRobot(kAggressive);
   AddEntity(kBase, 0);  // changed this 3 i need  to us params
   AddEntity(kLight, 1);   // changed the params to 4
 }
@@ -94,6 +94,7 @@ void Arena::AdvanceTime(double dt) {
   if (!(dt > 0)) {
     return;
   }
+  Notify();
   for (size_t i = 0; i < 1; ++i) {
     if (game_status_ == PLAYING) {  // only if the game hasnt been losed or won
       UpdateEntitiesTimestep();

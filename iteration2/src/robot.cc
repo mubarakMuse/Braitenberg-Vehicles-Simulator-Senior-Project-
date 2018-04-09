@@ -13,6 +13,7 @@
 
 #include "src/robot.h"
 #include "src/params.h"
+#include "src/robot_type.h"
 
 /*******************************************************************************
  * Namespaces
@@ -22,17 +23,25 @@ NAMESPACE_BEGIN(csci3081);
 /*******************************************************************************
  * Constructors/Destructor
  ******************************************************************************/
-Robot::Robot() :
+Robot::Robot(RobotType rt) :
     motion_handler_(),
     motion_behavior_(this),
     lives_(9),
     left_light_sensor_(),
     right_light_sensor_(){
-  motion_handler_.set_velocity(1, 1);
+  // motion_handler_->set_velocity(1, 1);
   set_type(kRobot);
+  set_robot_type(rt);
   set_color(ROBOT_COLOR);
   set_pose(ROBOT_INIT_POS);
   set_radius(ROBOT_RADIUS);
+
+  switch(get_robot_type()){
+    case(kAggressive):
+    motion_handler_ = new MotionHandlerRobotLove(this);
+    break;
+    default: break;
+  }
 
   left_light_sensor_ = new LightSensor(this);
   right_light_sensor_ = new LightSensor(this);
@@ -44,12 +53,13 @@ Robot::Robot() :
  * Member Functions
  ******************************************************************************/
 void Robot::TimestepUpdate(unsigned int dt) {
-  motion_handler_.update(get_robot_type(),left_light_sensor_->get_reading());
+  //std::cout << left_light_sensor_->get_reading();
+  motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading());
   // Update heading as indicated by touch sensor
-  motion_handler_.UpdateVelocity();
+  motion_handler_->UpdateVelocity();
 
   // Use velocity and position to update position
-  motion_behavior_.UpdatePose(dt, motion_handler_.get_velocity());
+  motion_behavior_.UpdatePose(dt, motion_handler_->get_velocity());
 
   left_light_sensor_->sensor_robot_location(40*M_PI/180);
   right_light_sensor_->sensor_robot_location(-40*M_PI/180);
@@ -60,8 +70,8 @@ void Robot::TimestepUpdate(unsigned int dt) {
 
 void Robot::Reset() {
   set_pose(SetPoseRandomly());
-  motion_handler_.set_max_speed(ROBOT_MAX_SPEED);
-  motion_handler_.set_max_angle(ROBOT_MAX_ANGLE);
+  motion_handler_->set_max_speed(ROBOT_MAX_SPEED);
+  motion_handler_->set_max_angle(ROBOT_MAX_ANGLE);
   sensor_touch_->Reset();
   set_color(ROBOT_COLOR);
   set_lives(9);
@@ -69,22 +79,22 @@ void Robot::Reset() {
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
   sensor_touch_->HandleCollision(object_type, object);
-  WheelVelocity currentVelocity  = motion_handler_.get_velocity();
-  motion_handler_.Stop();  // stop the car right away. added for priorty.
-  motion_handler_.set_velocity(currentVelocity);
+  WheelVelocity currentVelocity  = motion_handler_->get_velocity();
+  motion_handler_->Stop();  // stop the car right away. added for priorty.
+  motion_handler_->set_velocity(currentVelocity);
 }
 
 void Robot::IncreaseSpeed() {
-  motion_handler_.IncreaseSpeed();
+  motion_handler_->IncreaseSpeed();
 }
 void Robot::DecreaseSpeed() {
-  motion_handler_.DecreaseSpeed();
+  motion_handler_->DecreaseSpeed();
 }
 void Robot::TurnRight() {
-  motion_handler_.TurnRight();
+  motion_handler_->TurnRight();
 }
 void Robot::TurnLeft() {
-  motion_handler_.TurnLeft();
+  motion_handler_->TurnLeft();
 }
 
 NAMESPACE_END(csci3081);

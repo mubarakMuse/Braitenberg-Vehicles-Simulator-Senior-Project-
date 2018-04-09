@@ -16,6 +16,7 @@
 #include "src/arena_mobile_entity.h"
 #include "src/common.h"
 #include "src/motion_handler_robot.h"
+#include "src/motion_handler_robot_love.h"
 #include "src/motion_behavior_differential.h"
 #include "src/entity_type.h"
 #include "src/robot_type.h"
@@ -51,7 +52,7 @@ class Robot : public ArenaMobileEntity {
    * @brief Constructor using initialization values from params.h.
    */
 
-  Robot();
+  Robot(RobotType rt);
 
   /**
    * @brief Reset the Robot to a newly constructed state (needed for reset
@@ -116,7 +117,7 @@ class Robot : public ArenaMobileEntity {
 
   void set_lives(int l) { lives_ = l; }
 
-  MotionHandlerRobot* get_motion_handler() { return motion_handler_; }
+  MotionHandler* get_motion_handler() { return motion_handler_; }
 
   MotionBehaviorDifferential get_motion_behavior() { return motion_behavior_; }
 
@@ -138,7 +139,7 @@ class Robot : public ArenaMobileEntity {
 
  private:
   // Manages pose and wheel velocities that change with time and collisions.
-  MotionHandlerRobot* motion_handler_;
+  MotionHandler* motion_handler_;
   // Calculates changes in pose based on elapsed time and wheel velocities.
   MotionBehaviorDifferential motion_behavior_;
   // Lives are decremented when the robot collides with anything.
