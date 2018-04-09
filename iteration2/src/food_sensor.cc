@@ -1,15 +1,15 @@
 
 #include <math.h> 
 
-#include "src/light_sensor.h"
-#include "src/light.h"
+#include "src/food_sensor.h"
+#include "src/food.h"
 #include "src/params.h"
 
 
 
 NAMESPACE_BEGIN(csci3081);
 
-int LightSensor::CalculateReading(Light *ent){
+int FoodSensor::CalculateReading(Food *ent){
   int reading = 0;
 	Pose mypose= get_pose();
 	double deltaX = mypose.x - ent->get_pose().x;
@@ -21,10 +21,10 @@ int LightSensor::CalculateReading(Light *ent){
 }
   
 
-void LightSensor::update( std::vector<class ArenaEntity *> stimili){
+void FoodSensor::update( std::vector<class ArenaEntity *> stimili){
   int reading = get_reading();
-  for (auto light : stimili){
-  	reading += CalculateReading(dynamic_cast<Light *>(light));
+  for (auto food : stimili){
+  	reading += CalculateReading(dynamic_cast<Food *>(food));
   }	
   if (reading > 1000) {
   	reading = 1000;
@@ -33,7 +33,7 @@ void LightSensor::update( std::vector<class ArenaEntity *> stimili){
   set_reading(reading);
 };
 
-void LightSensor::Reset() {
+void FoodSensor::Reset() {
   	set_reading(0);
   }
 
@@ -41,5 +41,3 @@ void LightSensor::Reset() {
 
 
 NAMESPACE_END(csci3081);
-
-

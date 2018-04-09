@@ -1,11 +1,11 @@
 /**
- * @file light_sensor.h
+ * @file food_sensor.h
  *
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_LIGHT_SENSOR_H_
-#define SRC_LIGHT_SENSOR_H_
+#ifndef SRC_FOOD_SENSOR_H_
+#define SRC_FOOD_SENSOR_H_
 
 /*******************************************************************************
  * Includes
@@ -14,8 +14,9 @@
 
 #include "src/common.h"
 #include "src/sensor.h"
-#include "src/light.h"
+#include "src/food.h"
 #include "src/arena_mobile_entity.h"
+#include "src/arena_entity.h"
 
 
 /*******************************************************************************
@@ -25,15 +26,15 @@ NAMESPACE_BEGIN(csci3081);
 
 
 
-class LightSensor: public Sensor {
+class FoodSensor: public Sensor {
  public:
   /**
  * @brief ArenaEntity constructor initialized with default values from params.h
  */
-  explicit LightSensor(ArenaMobileEntity * ent)
+  explicit FoodSensor(ArenaMobileEntity * ent)
       : Sensor(ent) {}
 
-  int CalculateReading(Light *ent);
+  int CalculateReading(Food *ent);
 
   void Reset() override ;
 
@@ -43,4 +44,4 @@ class LightSensor: public Sensor {
 
 NAMESPACE_END(csci3081);
 
-#endif  // SRC_LIGHT_SENSOR_H_
+#endif  // SRC_FOOD_SENSOR_H_

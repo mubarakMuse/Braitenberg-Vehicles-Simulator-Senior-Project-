@@ -38,7 +38,7 @@ class Sensor {
   virtual ~Sensor() = default;
 
 
-  virtual void update( __unused std::vector<class ArenaMobileEntity *> stimili){};
+  virtual void update( __unused std::vector<class ArenaEntity *> stimili){};
 
 
   virtual void Reset() {};

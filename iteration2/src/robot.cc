@@ -54,9 +54,11 @@ Robot::Robot(RobotType rt) :
 
   left_light_sensor_ = new LightSensor(this);
   right_light_sensor_ = new LightSensor(this);
+  food_sensor_ = new FoodSensor(this);
 
   left_light_sensor_->sensor_robot_location(40*M_PI/180);
   right_light_sensor_->sensor_robot_location(-40*M_PI/180);
+  food_sensor_->sensor_robot_location(-40*M_PI/180);
 }
 /*******************************************************************************
  * Member Functions
@@ -72,6 +74,7 @@ void Robot::TimestepUpdate(unsigned int dt) {
 
   left_light_sensor_->sensor_robot_location(40*M_PI/180);
   right_light_sensor_->sensor_robot_location(-40*M_PI/180);
+  food_sensor_->sensor_robot_location(-40*M_PI/180);
 
   // Reset Sensor for next cycle
   sensor_touch_->Reset();
