@@ -38,7 +38,16 @@ Robot::Robot(RobotType rt) :
 
   switch(get_robot_type()){
     case(kAggressive):
+    motion_handler_ = new MotionHandlerRobotAggressive(this);
+    break;
+    case(kLove):
     motion_handler_ = new MotionHandlerRobotLove(this);
+    break;
+    case(kCoward):
+    motion_handler_ = new MotionHandlerRobotCoward(this);
+    break;
+    case(kExplore):
+    motion_handler_ = new MotionHandlerRobotExplore(this);
     break;
     default: break;
   }
