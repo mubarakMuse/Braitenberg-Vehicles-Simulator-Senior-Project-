@@ -32,7 +32,7 @@ Arena::Arena(const struct arena_params *const params)
       game_status_(PLAYING) {
   AddRobot(kAggressive);
   AddEntity(kBase, 0);  // changed this 3 i need  to us params
-  AddEntity(kLight, 1);   // changed the params to 4
+  AddEntity(kLight,4);   // changed the params to 4
 }
 
 Arena::~Arena() {
@@ -152,8 +152,10 @@ void Arena::UpdateEntitiesTimestep() {
     */    for (auto &ent2 : entities_) {
       if (ent2 == ent1) { continue; }
       if (IsColliding(ent1, ent2)) {
-        AdjustEntityOverlap(ent1, ent2);
-        ent1->HandleCollision(ent2->get_type(), ent2);
+        if (ent2->get_type() == kLight && ent1->get_type() == kLight){
+          AdjustEntityOverlap(ent1, ent2);
+          ent1->HandleCollision(ent2->get_type(), ent2);
+        }
         if (ent2->get_type() == kLight && ent1->get_type() == kRobot){
           robot_->lose_A_Life();
           UpdateGameStatus();
