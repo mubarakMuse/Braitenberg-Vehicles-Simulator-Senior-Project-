@@ -152,7 +152,7 @@ void Arena::UpdateEntitiesTimestep() {
     */    for (auto &ent2 : entities_) {
       if (ent2 == ent1) { continue; }
       if (IsColliding(ent1, ent2)) {
-        if (ent2->get_type() == kLight && ent1->get_type() == kLight){
+        if (ent2->get_type() == ent1->get_type()){
           AdjustEntityOverlap(ent1, ent2);
           ent1->HandleCollision(ent2->get_type(), ent2);
         }
