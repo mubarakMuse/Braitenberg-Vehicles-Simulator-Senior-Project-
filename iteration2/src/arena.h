@@ -75,7 +75,9 @@ class Arena {
 
   void AddRobot(RobotType rt);
   void AddEntity(EntityType type, int quantity);
-  void RegisterObserver(LightSensor* ob);
+  void RegisterLightSensorObserver(LightSensor* ob);
+  void RegisterFoodSensorObserver(FoodSensor* ob);
+
   void Notify();
   /**
    * @brief
@@ -187,15 +189,21 @@ class Arena {
 // Light object in order to store it in the mobiile entites correclty.
   Light *Light_{nullptr};
 
+  Food *food_{nullptr};
+
   // All entities mobile and immobile.
   std::vector<class ArenaEntity *> entities_;
 
   // A subset of the entities -- only those that can move (only Robot for now).
   std::vector<class ArenaMobileEntity *> mobile_entities_;
 
-  std::vector<class ArenaMobileEntity *> light_entities_;
+  std::vector<class ArenaEntity *> light_entities_;
 
-  std::vector<class LightSensor* > observers_;
+  std::vector<class ArenaEntity *> food_entities_;
+
+  std::vector<class LightSensor* > lightsensor_observers_;
+
+  std::vector<class FoodSensor* > foodsensor_observers_;
   // win/lose/playing state
   int game_status_;
 };

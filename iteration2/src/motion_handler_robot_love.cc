@@ -60,8 +60,8 @@ void MotionHandlerRobotLove::UpdateVelocity() {
   }
   // std::cout << get_sensor_reading()*.0027<< "      ";
   set_velocity(
-    (1000-get_left_sensor_reading())*.0027,
-    (1000-get_right_sensor_reading())*.0027);
+    (1200-get_left_sensor_reading())/200,
+    (1200-get_right_sensor_reading())/200);
 }
 
 double MotionHandlerRobotLove::clamp_vel(double vel) {

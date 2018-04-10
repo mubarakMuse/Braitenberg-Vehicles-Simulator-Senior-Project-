@@ -151,6 +151,19 @@ class MotionHandler {
     return right_light_sensor_reading;
   }
 
+  double get_right_food_sensor_reading(){
+    return right_food_sensor_reading;
+  }
+  double get_left_food_sensor_reading(){
+    return left_food_sensor_reading;
+  }
+  
+
+  void set_foodsensor_reading(double left_food_reading,double right_food_reading){
+    left_food_sensor_reading = left_food_reading;
+    right_food_sensor_reading = right_food_reading;
+  }
+
  private:
   double max_speed_{10};
   double max_angle_{360};
@@ -159,6 +172,8 @@ class MotionHandler {
   WheelVelocity velocity_;
   double left_light_sensor_reading{0};
   double right_light_sensor_reading{0};
+  double left_food_sensor_reading{0};
+  double right_food_sensor_reading{0};
   
  protected:
   ArenaMobileEntity * entity_;
