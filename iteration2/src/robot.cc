@@ -28,7 +28,8 @@ Robot::Robot(RobotType rt) :
     motion_behavior_(this),
     lives_(9),
     left_light_sensor_(),
-    right_light_sensor_(){
+    right_light_sensor_(),
+    food_sensor_(){
   // motion_handler_->set_velocity(1, 1);
   set_type(kRobot);
   set_robot_type(rt);

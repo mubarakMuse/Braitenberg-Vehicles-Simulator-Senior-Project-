@@ -8,29 +8,38 @@
 
 
 NAMESPACE_BEGIN(csci3081);
+int count1 = 0;
 
-int FoodSensor::CalculateReading(Food *ent){
+int FoodSensor::CalculateReading( Food *ent){
   int reading = 0;
 	Pose mypose= get_pose();
 	double deltaX = mypose.x - ent->get_pose().x;
-  double deltaY = mypose.y - ent->get_pose().y;  
-  double distance = (pow( deltaX*deltaX + deltaY*deltaY, 0.5) - 30);
-  reading = 1200/(pow(1.08,distance));
-  std::cout <<  reading << "    ";
+  double deltaY = mypose.y - ent->get_pose().y; 
+  count1++;
+  std::cout << count1;
+  //std::cout << ent->get_pose().x;
+  double distance = (pow( deltaX*deltaX + deltaY*deltaY, 0.5) - 11);
+  reading = 1200/(pow(1.02,distance));
+  //std::cout <<  reading << "    ";
   return reading;
 }
   
 
 void FoodSensor::update( std::vector<class ArenaEntity *> stimili){
   int reading = get_reading();
-  for (auto food : stimili){
+  
+  for (auto &food : stimili){
+    
+    //std::cout << count;
   	reading += CalculateReading(dynamic_cast<Food *>(food));
   }	
+
   if (reading > 1000) {
   	reading = 1000;
   } 
   //std::cout <<  reading << "    ";    
   set_reading(reading);
+count1 =0;
 };
 
 void FoodSensor::Reset() {

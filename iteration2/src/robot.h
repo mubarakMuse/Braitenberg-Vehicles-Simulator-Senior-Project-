@@ -129,6 +129,8 @@ class Robot : public ArenaMobileEntity {
 
   LightSensor* get_right_light_sensor() {return right_light_sensor_;}
 
+  FoodSensor* get_food_sensor() {return food_sensor_;}
+
   void set_robot_type(RobotType rt)  {
     robot_type_ = rt;
   }

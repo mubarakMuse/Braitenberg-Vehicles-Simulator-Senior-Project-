@@ -28,15 +28,16 @@ Arena::Arena(const struct arena_params *const params)
       entities_(),
       mobile_entities_(),
       light_entities_(),
-      observers_(),
+      lightsensor_observers_(),
+      foodsensor_observers_(),
       game_status_(PLAYING) {
   //AddRobot(kLove);
   //AddRobot(kCoward);
   AddRobot(kAggressive);
   //AddRobot(kExplore);
 
-  AddEntity(kFood, 1);  // changed this 3 i need  to us params
-  AddEntity(kLight,4);   // changed the params to 4
+  AddEntity(kFood, 3);  // changed this 3 i need  to us params
+  AddEntity(kLight,6);   // changed the params to 4
 }
 
 Arena::~Arena() {
@@ -55,8 +56,10 @@ void Arena::AddRobot(RobotType rt) {
   mobile_entities_.push_back(robot_);
   LightSensor* right = robot_->get_right_light_sensor();
   LightSensor* left = robot_->get_left_light_sensor();
-  RegisterObserver(right);
-  RegisterObserver(left);
+  FoodSensor* foodsensor = robot_->get_food_sensor();
+  RegisterLightSensorObserver(right);
+  RegisterLightSensorObserver(left);
+  RegisterFoodSensorObserver(foodsensor);
 }
 
 void Arena::AddEntity(EntityType type, int quantity) {
@@ -68,20 +71,32 @@ void Arena::AddEntity(EntityType type, int quantity) {
       mobile_entities_.push_back(Light_);
       light_entities_.push_back(Light_);
 
+    }
+    else if (type == kFood) {
+      food_ = dynamic_cast<Food *>(factory_->CreateEntity(kFood));
+      entities_.push_back(factory_->CreateEntity(type));
+      food_entities_.push_back(food_);
     } else {
       entities_.push_back(factory_->CreateEntity(type));
       // if its a base or something else
     }
   }
 }
-void Arena::RegisterObserver(LightSensor* ob){
-  observers_.push_back(ob);
+void Arena::RegisterLightSensorObserver(LightSensor* ob){
+  lightsensor_observers_.push_back(ob);
+}
+void Arena::RegisterFoodSensorObserver(FoodSensor* ob){
+  foodsensor_observers_.push_back(ob);
 }
 
 void Arena::Notify(){
-   for (auto observer: observers_) {
+   for (auto observer: lightsensor_observers_) {
     observer->update(light_entities_);
   }
+   for (auto observer: foodsensor_observers_) {
+    observer->update(food_entities_);
+  }
+
 }
 
 

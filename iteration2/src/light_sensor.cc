@@ -39,7 +39,7 @@ void LightSensor::update( std::vector<class ArenaEntity *> stimili){
   } 
   //std::cout <<  count << "----" << reading << "  ";  
   set_reading(reading);
-   std::cout << get_reading() << " ";
+  // std::cout << get_reading() << " ";
 };
 
 void LightSensor::Reset() {
