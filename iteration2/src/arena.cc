@@ -32,8 +32,8 @@ Arena::Arena(const struct arena_params *const params)
       foodsensor_observers_(),
       game_status_(PLAYING) {
   //AddRobot(kLove);
-  //AddRobot(kCoward);
-  AddRobot(kAggressive);
+  AddRobot(kCoward);
+  //AddRobot(kAggressive);
   //AddRobot(kExplore);
 
   AddEntity(kFood, 3);  // changed this 3 i need  to us params
@@ -56,10 +56,12 @@ void Arena::AddRobot(RobotType rt) {
   mobile_entities_.push_back(robot_);
   LightSensor* right = robot_->get_right_light_sensor();
   LightSensor* left = robot_->get_left_light_sensor();
-  FoodSensor* foodsensor = robot_->get_food_sensor();
+  FoodSensor* left_foodsensor = robot_->get_left_food_sensor();
+  FoodSensor* right_foodsensor = robot_->get_right_food_sensor();
   RegisterLightSensorObserver(right);
   RegisterLightSensorObserver(left);
-  RegisterFoodSensorObserver(foodsensor);
+  RegisterFoodSensorObserver(left_foodsensor);
+  RegisterFoodSensorObserver(right_foodsensor);
 }
 
 void Arena::AddEntity(EntityType type, int quantity) {
@@ -179,10 +181,11 @@ void Arena::UpdateEntitiesTimestep() {
         //   robot_->lose_A_Life();
         //   UpdateGameStatus();
         // }
-        // if (ent2->get_type() == kBase && ent1->get_type() == kRobot){
-        //   //ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
-        //   dynamic_cast<Base *> (ent2)->set_captured(true);
-        //   UpdateGameStatus();
+        // if (ent2->get_type() == kFood && ent1->get_type() == kRobot){
+        //   ent1->HandleCollision(ent2->get_type(), ent2);
+        // //   //ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
+        // //   dynamic_cast<Base *> (ent2)->set_captured(true);
+        // //   UpdateGameStatus();
         // }
 
       }

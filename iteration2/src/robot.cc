@@ -29,7 +29,8 @@ Robot::Robot(RobotType rt) :
     lives_(9),
     left_light_sensor_(),
     right_light_sensor_(),
-    food_sensor_(){
+    left_food_sensor_(),
+    right_food_sensor_(){
   // motion_handler_->set_velocity(1, 1);
   set_type(kRobot);
   set_robot_type(rt);
@@ -55,27 +56,38 @@ Robot::Robot(RobotType rt) :
 
   left_light_sensor_ = new LightSensor(this);
   right_light_sensor_ = new LightSensor(this);
-  food_sensor_ = new FoodSensor(this);
+  left_food_sensor_ = new FoodSensor(this);
+  right_food_sensor_ = new FoodSensor(this);
 
-  left_light_sensor_->sensor_robot_location(-40*M_PI/180);
-  right_light_sensor_->sensor_robot_location(-40*M_PI/180);
-  food_sensor_->sensor_robot_location(-40*M_PI/180);
+  left_light_sensor_->sensor_robot_location(65*M_PI/180);
+  right_light_sensor_->sensor_robot_location(-65*M_PI/180);
+  left_food_sensor_->sensor_robot_location(65*M_PI/180);
+  right_food_sensor_->sensor_robot_location(-65*M_PI/180);
 }
 /*******************************************************************************
  * Member Functions
  ******************************************************************************/
 void Robot::TimestepUpdate(unsigned int dt) {
+  IncrementRobotTime();
   //std::cout << left_light_sensor_->get_reading();
-  motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading(),right_light_sensor_->get_reading());
+  // if (get_hunger()){
+  //   motion_handler_ = new MotionHandlerRobotAggressive(this);
+  // }
+  motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading(),
+    right_light_sensor_->get_reading());
+
+  motion_handler_->set_foodsensor_reading(left_food_sensor_->get_reading(),
+    right_food_sensor_->get_reading());
   // Update heading as indicated by touch sensor
   motion_handler_->UpdateVelocity();
 
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_->get_velocity());
 
-  left_light_sensor_->sensor_robot_location(40*M_PI/180);
-  right_light_sensor_->sensor_robot_location(-40*M_PI/180);
-  food_sensor_->sensor_robot_location(-40*M_PI/180);
+  left_light_sensor_->sensor_robot_location(65*M_PI/180);
+  right_light_sensor_->sensor_robot_location(-65*M_PI/180);
+  left_food_sensor_->sensor_robot_location(65*M_PI/180);
+  right_food_sensor_->sensor_robot_location(-65*M_PI/180);
 
   // Reset Sensor for next cycle
   sensor_touch_->Reset();
@@ -91,6 +103,9 @@ void Robot::Reset() {
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
+  // if (object_type == kFood){
+  //   RestartRobotTime();
+  // }
   sensor_touch_->HandleCollision(object_type, object);
   WheelVelocity currentVelocity  = motion_handler_->get_velocity();
   motion_handler_->Stop();  // stop the car right away. added for priorty.

@@ -129,13 +129,37 @@ class Robot : public ArenaMobileEntity {
 
   LightSensor* get_right_light_sensor() {return right_light_sensor_;}
 
-  FoodSensor* get_food_sensor() {return food_sensor_;}
+  FoodSensor* get_right_food_sensor() {return right_food_sensor_;}
+
+  FoodSensor* get_left_food_sensor() {return left_food_sensor_;}
 
   void set_robot_type(RobotType rt)  {
     robot_type_ = rt;
   }
   RobotType get_robot_type() {
     return robot_type_;
+  }
+  void set_hunger(bool hunger){
+    hungry_ = hunger;
+  }
+  bool get_hunger(){
+    if (robot_time_ > 30){
+      hungry_ = true;
+    }
+    else{
+      hungry_ = false;
+    }
+    return hungry_;
+  }
+  int get_robot_time(){
+    return robot_time_;
+  }
+  void RestartRobotTime(){
+    robot_time_ = 0;
+    hungry_ = false;
+  }
+  void IncrementRobotTime(){
+    robot_time_++;
   }
   // //virtual void set_TotalSensorReading(double tsr);
   //  double get_TotalSensorReading() override {
@@ -158,7 +182,13 @@ class Robot : public ArenaMobileEntity {
 
   LightSensor* right_light_sensor_;
 
-  FoodSensor* food_sensor_;
+  FoodSensor* left_food_sensor_;
+  FoodSensor* right_food_sensor_;
+
+
+  bool hungry_{false};
+
+  int robot_time_{0};
 
   //double total_sensor_readings{0.00};
 };

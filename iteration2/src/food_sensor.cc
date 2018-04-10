@@ -16,7 +16,7 @@ int FoodSensor::CalculateReading( Food *ent){
 	double deltaX = mypose.x - ent->get_pose().x;
   double deltaY = mypose.y - ent->get_pose().y; 
   count1++;
-  std::cout << count1;
+  // std::cout << count1;
   //std::cout << ent->get_pose().x;
   double distance = (pow( deltaX*deltaX + deltaY*deltaY, 0.5) - 11);
   reading = 1200/(pow(1.02,distance));
