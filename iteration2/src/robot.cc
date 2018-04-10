@@ -69,10 +69,28 @@ Robot::Robot(RobotType rt) :
  ******************************************************************************/
 void Robot::TimestepUpdate(unsigned int dt) {
   IncrementRobotTime();
-  //std::cout << left_light_sensor_->get_reading();
-  // if (get_hunger()){
-  //   motion_handler_ = new MotionHandlerRobotAggressive(this);
-  // }
+  std::cout << get_robot_time() << "\n";
+  if (get_hunger()){
+    motion_handler_ = new MotionHandlerRobotAggressive(this);
+     std::cout << "kAggressive";
+  }else{
+    switch(get_robot_type()){
+    case(kAggressive):
+    motion_handler_ = new MotionHandlerRobotAggressive(this);
+    break;
+    case(kLove):
+    motion_handler_ = new MotionHandlerRobotLove(this);
+    break;
+    case(kCoward):
+    motion_handler_ = new MotionHandlerRobotCoward(this);
+    break;
+    case(kExplore):
+    motion_handler_ = new MotionHandlerRobotExplore(this);
+    break;
+    default: break;
+  }
+  }
+  
   motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading(),
     right_light_sensor_->get_reading());
 
@@ -103,13 +121,19 @@ void Robot::Reset() {
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
-  // if (object_type == kFood){
-  //   RestartRobotTime();
-  // }
-  sensor_touch_->HandleCollision(object_type, object);
+  if (object_type == kFood){
+    RestartRobotTime();
+  }
+  else{
+    sensor_touch_->HandleCollision(object_type, object);
   WheelVelocity currentVelocity  = motion_handler_->get_velocity();
   motion_handler_->Stop();  // stop the car right away. added for priorty.
   motion_handler_->set_velocity(currentVelocity);
+  }
+  // sensor_touch_->HandleCollision(object_type, object);
+  // WheelVelocity currentVelocity  = motion_handler_->get_velocity();
+  // motion_handler_->Stop();  // stop the car right away. added for priorty.
+  // motion_handler_->set_velocity(currentVelocity);
 }
 
 void Robot::IncreaseSpeed() {

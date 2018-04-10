@@ -17,7 +17,7 @@ int LightSensor::CalculateReading(Light *ent){
 	double deltaX = mypose.x - ent->get_pose().x;
   double deltaY = mypose.y - ent->get_pose().y;  
   //std::cout << deltaX << "  x  " << deltaY << "  y \n ";
-  double distance = (pow( deltaX*deltaX + deltaY*deltaY, 0.5)-11);
+  double distance = (pow( deltaX*deltaX + deltaY*deltaY, 0.5)-30);
   reading = 1200/(pow(1.02,distance));
 
   

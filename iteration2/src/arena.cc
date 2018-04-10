@@ -181,12 +181,12 @@ void Arena::UpdateEntitiesTimestep() {
         //   robot_->lose_A_Life();
         //   UpdateGameStatus();
         // }
-        // if (ent2->get_type() == kFood && ent1->get_type() == kRobot){
-        //   ent1->HandleCollision(ent2->get_type(), ent2);
-        // //   //ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
-        // //   dynamic_cast<Base *> (ent2)->set_captured(true);
-        // //   UpdateGameStatus();
-        // }
+        if (ent2->get_type() == kFood && ent1->get_type() == kRobot){
+          ent1->HandleCollision(ent2->get_type(), ent2);
+        //   //ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
+        //   dynamic_cast<Base *> (ent2)->set_captured(true);
+        //   UpdateGameStatus();
+        }
 
       }
     }

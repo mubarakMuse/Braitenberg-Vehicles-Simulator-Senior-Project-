@@ -58,6 +58,7 @@ GraphicsArenaViewer::GraphicsArenaViewer(
 void GraphicsArenaViewer::UpdateSimulation(double dt) {
   if (!paused_) {
     controller_->AdvanceTime(dt);
+    //std::cout << dt;
   }
 }
 

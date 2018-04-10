@@ -108,7 +108,7 @@ class Robot : public ArenaMobileEntity {
   * @brief returns the name and lives of the robot
   */
   std::string get_DisplayName() const {
-     return "Robot\n"+std::to_string(get_lives());
+     return "Robot\n"+std::to_string(hungry_);
   }
 
   /**
@@ -143,7 +143,7 @@ class Robot : public ArenaMobileEntity {
     hungry_ = hunger;
   }
   bool get_hunger(){
-    if (robot_time_ > 30){
+    if (robot_time_ > 600){
       hungry_ = true;
     }
     else{
