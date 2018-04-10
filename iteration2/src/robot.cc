@@ -72,8 +72,8 @@ void Robot::TimestepUpdate(unsigned int dt) {
   std::cout << get_robot_time() << "\n";
   if (get_hunger()){
     motion_handler_ = new MotionHandlerRobotAggressive(this);
-     std::cout << "kAggressive";
-  }else{
+  }
+  else{
     switch(get_robot_type()){
     case(kAggressive):
     motion_handler_ = new MotionHandlerRobotAggressive(this);
@@ -90,12 +90,21 @@ void Robot::TimestepUpdate(unsigned int dt) {
     default: break;
   }
   }
-  
-  motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading(),
+  if (get_robot_time() > 3000){
+
+    motion_handler_->set_lightsensor_reading(0,0); // ignore light if its starve
+
+    motion_handler_->set_foodsensor_reading(left_food_sensor_->get_reading(),
+    right_food_sensor_->get_reading());
+    }
+  else{
+    motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading(),
     right_light_sensor_->get_reading());
 
-  motion_handler_->set_foodsensor_reading(left_food_sensor_->get_reading(),
+    motion_handler_->set_foodsensor_reading(left_food_sensor_->get_reading(),
     right_food_sensor_->get_reading());
+  }
+  
   // Update heading as indicated by touch sensor
   motion_handler_->UpdateVelocity();
 
@@ -118,6 +127,7 @@ void Robot::Reset() {
   sensor_touch_->Reset();
   set_color(ROBOT_COLOR);
   set_lives(9);
+  RestartRobotTime();
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {

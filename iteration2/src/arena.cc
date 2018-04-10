@@ -161,6 +161,12 @@ void Arena::UpdateEntitiesTimestep() {
   for (auto &ent1 : mobile_entities_) {
     EntityType wall = GetCollisionWall(ent1);
     if (kUndefined != wall) {
+      // if (ent1->get_type()==kRobot){
+      //   Robot* r = dynamic_cast<Robot *>(ent1);
+      //   if (r->get_robot_time()>1550){ // if one robots starves
+      //     Reset();
+      //   }
+      // }
       AdjustWallOverlap(ent1, wall);
       ent1->HandleCollision(wall, NULL);
       // if (ent1->get_type() == kRobot) {
