@@ -1,5 +1,5 @@
 /**
- * @file motion_handler_robot_Aggressive.cc
+ * @file motion_handler_robot_aggressive.cc
  *
  * @copyright 2018 3081 Staff, All rights reserved.
  */
@@ -58,10 +58,9 @@ void MotionHandlerRobotAggressive::UpdateVelocity() {
   if (entity_->get_touch_sensor()->get_output()) {
      entity_->RelativeChangeHeading(+180);
   }
-  // std::cout << get_sensor_reading()*.0027<< "      ";
-  set_velocity(
-    get_right_sensor_reading()*.0027,
-    get_left_sensor_reading()*.0027);
+  set_velocity( // combined effect of both sensors
+    clamp_vel((get_right_food_sensor_reading()+get_right_sensor_reading())/200),
+    clamp_vel((get_right_food_sensor_reading()+get_right_sensor_reading())/200));
 }
 
 double MotionHandlerRobotAggressive::clamp_vel(double vel) {
