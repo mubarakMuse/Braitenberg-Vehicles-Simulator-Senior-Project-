@@ -29,15 +29,25 @@ NAMESPACE_BEGIN(csci3081);
 class FoodSensor: public Sensor {
  public:
   /**
- * @brief ArenaEntity constructor initialized with default values from params.h
- */
+ 	* @brief food sesnor that inherits from the parent sesnor class
+ 	*/
   explicit FoodSensor(ArenaMobileEntity * ent)
       : Sensor(ent) {}
 
+  /**
+ 	* @brief calaculates the reading using the expontial function
+ 	*/
   int CalculateReading(Food *ent);
 
+  /**
+ 	* @brief resets the sensors reading
+ 	*/
   void Reset() override ;
 
+  /**
+ 	* @brief accumalates the reading by calling the CalculateReading
+ 	* for each food in the arena
+ 	*/
   void update(std::vector<class ArenaEntity *> stimili) override;
 
 };

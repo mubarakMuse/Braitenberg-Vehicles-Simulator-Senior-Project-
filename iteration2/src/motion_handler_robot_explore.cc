@@ -58,7 +58,7 @@ void MotionHandlerRobotExplore::UpdateVelocity() {
   if (entity_->get_touch_sensor()->get_output()) {
      entity_->RelativeChangeHeading(+180);
   }
-  // std::cout << get_sensor_reading()*.0027<< "      ";
+
   set_velocity(
     clamp_vel((1000-get_right_sensor_reading())/120),
     clamp_vel((1000-get_left_sensor_reading())/120));

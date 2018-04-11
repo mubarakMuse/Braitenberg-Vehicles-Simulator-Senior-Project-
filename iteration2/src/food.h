@@ -57,34 +57,7 @@ class Food : public ArenaImmobileEntity {
    * @return Name of the Food.
    */
   std::string get_name() const override { return "Food"; }
-
-  /**
-   * @brief Getter for captured_, which is the state of the Food
-   *
-   * @return true if captured.
-   */
-  bool IsCaptured() const { return captured_; }
-
-  /**
-   * @brief Setter for captured_, which is the state of the Food. It also changes the color of the Food once its captured.
-   */
-void set_captured(bool state) {
-  captured_ = state;
-  if (IsCaptured()) {
-    set_color(FOOD_COLOR_POST_COLLISION);
-  }
-}
- // void set_robot_type(__unused RobotType rt) override {}
- //  RobotType get_robot_type() override{
- //    return kUndefinedRT;
- //  }
- //  //virtual void set_TotalSensorReading(double tsr);
- //   double get_TotalSensorReading() override {
- //    return 0;
- //   }
-
- private:
-  bool captured_;
+  
 };
 
 NAMESPACE_END(csci3081);

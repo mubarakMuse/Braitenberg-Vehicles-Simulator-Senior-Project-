@@ -29,8 +29,7 @@ NAMESPACE_BEGIN(csci3081);
 
 /**
  * @brief Class managing a Robot's and Light's speed and heading angle based
- * on collisions and user inputs.
- *
+ * on aggressive sensor readings.
  */
 class MotionHandlerRobotAggressive : public MotionHandler {
  public:
@@ -41,7 +40,7 @@ class MotionHandlerRobotAggressive : public MotionHandler {
   MotionHandlerRobotAggressive& operator=(const MotionHandlerRobotAggressive& other) = default;
 
   /**
-  * @brief Update the speed and the pose angle according to the sensor readings.
+  * @brief Update the speed and the pose angle according to the aggressive sensor readings.
   *
   */
   void UpdateVelocity() override;
@@ -71,18 +70,10 @@ class MotionHandlerRobotAggressive : public MotionHandler {
    */
   void Stop() override;
 
-  // void update(RobotType rt, double reading){
-  //   robot_type_= rt;
-  //   total_reading_ = reading;
-  // }
-  // RobotType get_robot_type(){
-  //   return robot_type_;
-  // }
+
 
  private:
   double clamp_vel(double vel);
-  // RobotType robot_type_;
-  // double total_reading_;
 };
 
 NAMESPACE_END(csci3081);

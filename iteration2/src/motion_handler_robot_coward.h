@@ -29,7 +29,7 @@ NAMESPACE_BEGIN(csci3081);
 
 /**
  * @brief Class managing a Robot's and Light's speed and heading angle based
- * on collisions and user inputs.
+ * on coward sesnor reading
  *
  */
 class MotionHandlerRobotCoward : public MotionHandler {

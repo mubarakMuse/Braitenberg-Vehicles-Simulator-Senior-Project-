@@ -73,14 +73,45 @@ class Arena {
    */
   void AdvanceTime(double dt);
 
+   /**
+   * @brief function to add a robot to the arena
+   *
+   * @param rt the behavior of the robot's motion toward sensors
+   *
+   **/
   void AddRobot(RobotType rt);
+
+  /**
+   * @brief function to add an entity to the arena
+   *
+   * @param type of the entity (food or light)
+   *
+   **/
   void AddEntity(EntityType type, int quantity);
+
+  /**
+   * @brief registers the light sensors of the robot as observes of arena
+   *
+   * @param[in] ob The lightsensor of the robot
+   *
+   */
   void RegisterLightSensorObserver(LightSensor* ob);
+
+  /**
+   * @brief registers the food sensors of the robot as observes of arena
+   *
+   * @param[in] ob The foodsensor of the robot
+   *
+   */
   void RegisterFoodSensorObserver(FoodSensor* ob);
 
-  void Notify();
   /**
-   * @brief
+   * @brief notify the observes of the new postions of the foods and lights
+   */
+  void Notify();
+
+  /**
+   * @brief translates communication from the controller to action in the arena
    */
   void AcceptCommand(Communication com);
 
@@ -90,7 +121,7 @@ class Arena {
   void Reset();
 
   /**
-   * @brief Get the Robot (there's only 1) in Arena.
+   * @brief Get the Robot  in Arena.
    *
    * @return A pointer to the Robot.
    */
@@ -194,16 +225,20 @@ class Arena {
   // All entities mobile and immobile.
   std::vector<class ArenaEntity *> entities_;
 
-  // A subset of the entities -- only those that can move (only Robot for now).
+  // A subset of the entities -- only those that can move .
   std::vector<class ArenaMobileEntity *> mobile_entities_;
-
+  // A subset of the entities -- lights only
   std::vector<class ArenaEntity *> light_entities_;
 
+  // A subset of the entities -- lights only
   std::vector<class ArenaEntity *> food_entities_;
 
+  // All of the lightsensors in the arena
   std::vector<class LightSensor* > lightsensor_observers_;
 
+  // All of the foodsensors in the arena
   std::vector<class FoodSensor* > foodsensor_observers_;
+  
   // win/lose/playing state
   int game_status_;
 };
