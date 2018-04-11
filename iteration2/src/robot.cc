@@ -8,7 +8,7 @@
  * Includes
  ******************************************************************************/
 #define _USE_MATH_DEFINES
- 
+
 #include <cmath>
 
 #include "src/robot.h"
@@ -27,10 +27,11 @@ Robot::Robot(RobotType rt) :
     motion_handler_(),
     motion_behavior_(this),
     lives_(9),
+    robot_type_(),
     left_light_sensor_(),
     right_light_sensor_(),
     left_food_sensor_(),
-    right_food_sensor_(){
+    right_food_sensor_() {
   set_type(kRobot);
   set_robot_type(rt);
   set_color(ROBOT_COLOR);
@@ -38,7 +39,7 @@ Robot::Robot(RobotType rt) :
   set_radius(ROBOT_RADIUS);
 
   // assiging the apporipate motion handler with respect to the robot type
-  switch(get_robot_type()){ 
+  switch (get_robot_type()) {
     case(kAggressive):
     motion_handler_ = new MotionHandlerRobotAggressive(this);
     break;
@@ -70,11 +71,10 @@ Robot::Robot(RobotType rt) :
  ******************************************************************************/
 void Robot::TimestepUpdate(unsigned int dt) {
   IncrementRobotTime();
-  if (get_hunger()){ // change to aggressive if its hungry
+  if (get_hunger()) {  // change to aggressive if its hungry
     motion_handler_ = new MotionHandlerRobotAggressive(this);
-  }
-  else{
-    switch(get_robot_type()){ // switch back to the correct behavior when not hungry
+  } else {  // switch back to the correct behavior when not hungry
+    switch (get_robot_type()) {
     case(kAggressive):
     motion_handler_ = new MotionHandlerRobotAggressive(this);
     break;
@@ -90,21 +90,17 @@ void Robot::TimestepUpdate(unsigned int dt) {
     default: break;
     }
   }
-  if (get_robot_time() > 3000){ // 2 minutes
-
-    motion_handler_->set_lightsensor_reading(0,0); // ignore light if its starve
-
+  if (get_robot_time() > 3000) {  // 2 minutes
+    // ignore light when starves
+    motion_handler_->set_lightsensor_reading(0, 0);
     motion_handler_->set_foodsensor_reading(left_food_sensor_->get_reading(),
     right_food_sensor_->get_reading());
-    }
-  else{
+    } else {
     motion_handler_->set_lightsensor_reading(left_light_sensor_->get_reading(),
     right_light_sensor_->get_reading());
-
     motion_handler_->set_foodsensor_reading(left_food_sensor_->get_reading(),
     right_food_sensor_->get_reading());
   }
-  
   // Update heading as indicated by touch sensor
   motion_handler_->UpdateVelocity();
 
@@ -132,10 +128,10 @@ void Robot::Reset() {
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
-  if (object_type == kFood){ // indicates it eat the food and restarts the timer
+  // indicates that it eat the food and restarts the timer
+  if (object_type == kFood) {
     RestartRobotTime();
-  }
-  else{
+  } else {
     sensor_touch_->HandleCollision(object_type, object);
     WheelVelocity currentVelocity  = motion_handler_->get_velocity();
     motion_handler_->Stop();  // stop the car right away. added for priorty.

@@ -10,8 +10,9 @@
 /*******************************************************************************
  * Includes
  ******************************************************************************/
+#include <math.h>
 #include <string>
-#include <math.h> 
+#include <vector>
 
 #include "src/common.h"
 #include "src/pose.h"
@@ -20,8 +21,8 @@
 #include "src/rgb_color.h"
 #include "src/arena_mobile_entity.h"
 #include "src/light.h"
-  
- 
+
+
 
 /*******************************************************************************
  * Namespaces
@@ -31,50 +32,44 @@ NAMESPACE_BEGIN(csci3081);
 
 class Sensor {
  public:
-
-
-  explicit Sensor(ArenaMobileEntity * ent) : entity_{ent} {}
+  explicit Sensor(ArenaMobileEntity * ent) :sensorpose_(),
+  color_(),
+  entity_{ent} {}
 
   virtual ~Sensor() = default;
+  Sensor(const Sensor&) = default;
+  Sensor& operator=(const Sensor& other) = default;
+
+  virtual void update(__unused std::vector<class ArenaEntity *> stimili) {}
 
 
-  virtual void update( __unused std::vector<class ArenaEntity *> stimili){};
+  virtual void Reset() {}
 
-
-  virtual void Reset() {};
-
-  void set_reading(int num){
+  void set_reading(int num) {
     reading_ = num;
   }
-  int get_reading(){
+  int get_reading() {
     return reading_;
   }
 
-  void set_pose(Pose p){
+  void set_pose(Pose p) {
     sensorpose_ = p;
   }
 
-  Pose get_pose(){
+  Pose get_pose() {
     return sensorpose_;
   }
-  //  def SensorLocation(self, angle) :
-        // theta = self.heading + angle
-        // x = self.radius*math.cos(theta) + self.position.x
-        // y = self.radius*math.sin(theta) + self.position.y
-        // return Position(x,y)
-  void sensor_robot_location(double angle){
+
+  void sensor_robot_location(double angle) {
     double theta = entity_->get_pose().theta + angle;
     double x = entity_->get_radius() * cos(theta)+ entity_->get_pose().x;
     double y = entity_->get_radius() * cos(theta)+ entity_->get_pose().y;
-    set_position(x,y);
+    set_position(x, y);
   }
 
   const RgbColor &get_color() const { return color_; }
 
   void set_color(const RgbColor &color) { color_ = color; }
-
-  // const Pose &get_pose() const { return SensorPose_; }
-  // void set_pose(const Pose &pose) { SensorPose_ = pose; }
 
   /**
    * @brief Setter method for position within entity pose variable.
@@ -101,10 +96,9 @@ class Sensor {
   int reading_{0};
   Pose sensorpose_;
   RgbColor color_;
- 
+
  protected:
   ArenaMobileEntity * entity_;
-
 };
 
 NAMESPACE_END(csci3081);

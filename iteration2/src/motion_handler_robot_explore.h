@@ -38,7 +38,8 @@ class MotionHandlerRobotExplore : public MotionHandler {
       : MotionHandler(ent) {}
 
   MotionHandlerRobotExplore(const MotionHandlerRobotExplore& other) = default;
-  MotionHandlerRobotExplore& operator=(const MotionHandlerRobotExplore& other) = default;
+  MotionHandlerRobotExplore& operator=(const MotionHandlerRobotExplore& other)
+  = default;
 
   /**
   * @brief Update the speed and the pose angle according to the explore sensor readings..

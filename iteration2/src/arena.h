@@ -206,6 +206,7 @@ class Arena {
 
   int get_game_status() const { return game_status_; }
   void set_game_status(int status) { game_status_ = status; }
+
  private:
 // Dimensions of graphics window inside which entities must operate
   double x_dim_;
@@ -238,7 +239,7 @@ class Arena {
 
   // All of the foodsensors in the arena
   std::vector<class FoodSensor* > foodsensor_observers_;
-  
+
   // win/lose/playing state
   int game_status_;
 };

@@ -1,26 +1,22 @@
 /**
- * @file robot_type.h
+ * @file sensor.cc
  *
  * @copyright 2017 3081 Staff, All rights reserved.
  */
 
-#ifndef SRC_ROBOT_TYPE_H_
-#define SRC_ROBOT_TYPE_H_
-
 /*******************************************************************************
  * Includes
  ******************************************************************************/
-#include "src/common.h"
+#include "src/sensor.h"
+#include <iostream>
 
 /*******************************************************************************
  * Namespaces
  ******************************************************************************/
 NAMESPACE_BEGIN(csci3081);
 
-enum RobotType {
-  kLove, kExplore, kAggressive, kCoward, kUndefinedRT
-};
+/*******************************************************************************
+ * Member Functions
+ ******************************************************************************/
 
 NAMESPACE_END(csci3081);
-
-#endif  // SRC_ROBOT_TYPE_H_

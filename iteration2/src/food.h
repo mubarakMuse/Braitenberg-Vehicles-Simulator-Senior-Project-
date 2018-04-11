@@ -57,7 +57,6 @@ class Food : public ArenaImmobileEntity {
    * @return Name of the Food.
    */
   std::string get_name() const override { return "Food"; }
-  
 };
 
 NAMESPACE_END(csci3081);
