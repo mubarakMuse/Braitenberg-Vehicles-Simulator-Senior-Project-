@@ -166,12 +166,13 @@ class Robot : public ArenaMobileEntity {
     robot_time_ = 0;
     hungry_ = false;
   }
-  
+
  private:
   // Manages pose and wheel velocities that change with time and collisions.
   MotionHandler* motion_handler_;
   // Calculates changes in pose based on elapsed time and wheel velocities.
   MotionBehaviorDifferential motion_behavior_;
+  
   // Lives are decremented when the robot collides with anything.
   // When all the lives are gone, the game is lost.
   int lives_;
