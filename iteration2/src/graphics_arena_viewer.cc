@@ -58,7 +58,6 @@ GraphicsArenaViewer::GraphicsArenaViewer(
 void GraphicsArenaViewer::UpdateSimulation(double dt) {
   if (!paused_) {
     controller_->AdvanceTime(dt);
-    //std::cout << dt;
   }
 }
 
@@ -133,7 +132,7 @@ void GraphicsArenaViewer::DrawRobot(NVGcontext *ctx,
   nvgSave(ctx);
   nvgRotate(ctx, static_cast<float>(M_PI / 2.0));
   nvgFillColor(ctx, nvgRGBA(0, 0, 0, 255));
-  nvgText(ctx, 0.0, 10.0, robot->get_DisplayName().c_str(), nullptr);
+  nvgText(ctx, 0.0, 10.0, robot->get_name().c_str(), nullptr);
   nvgRestore(ctx);
   nvgRestore(ctx);
 }
@@ -178,7 +177,6 @@ void GraphicsArenaViewer::DrawUsingNanoVG(NVGcontext *ctx) {
   for (auto &entity : entities) {
     DrawEntity(ctx, entity);
   } /* for(i..) */
-  //DrawRobot(ctx, arena_->robot());
 }
 
 NAMESPACE_END(csci3081);

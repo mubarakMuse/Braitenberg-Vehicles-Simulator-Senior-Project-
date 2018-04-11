@@ -38,7 +38,8 @@ class MotionHandlerRobotLove : public MotionHandler {
       : MotionHandler(ent) {}
 
   MotionHandlerRobotLove(const MotionHandlerRobotLove& other) = default;
-  MotionHandlerRobotLove& operator=(const MotionHandlerRobotLove& other) = default;
+  MotionHandlerRobotLove& operator=(const MotionHandlerRobotLove& other)
+  = default;
 
   /**
   * @brief Update the speed and the pose angle according to the sensor readings.

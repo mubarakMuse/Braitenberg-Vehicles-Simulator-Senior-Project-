@@ -19,7 +19,7 @@ NAMESPACE_BEGIN(csci3081);
 /*******************************************************************************
  * Constructors/Destructor
  ******************************************************************************/
-Food::Food() : ArenaImmobileEntity(){
+Food::Food() : ArenaImmobileEntity() {
   set_type(kFood);
   set_color(FOOD_COLOR);
   set_pose(FOOD_INIT_POS);

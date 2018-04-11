@@ -56,12 +56,15 @@ class Robot : public ArenaMobileEntity {
    * @brief Constructor using initialization values from params.h.
    */
 
-  Robot(RobotType rt);
+  explicit Robot(RobotType rt);
 
   /**
    * @brief Reset the Robot to a newly constructed state (needed for reset
    * button to work in GUI).
    */
+
+  Robot(const Robot&) = default;
+  Robot& operator=(const Robot& other) = default;
   void Reset() override;
 
   /**
@@ -104,12 +107,6 @@ class Robot : public ArenaMobileEntity {
   */
   void TurnLeft();
 
-  /**
-  * @brief returns the name and lives of the robot
-  */
-  std::string get_DisplayName() const {
-     return "Robot\n"+std::to_string(hungry_);
-  }
 
   /**
   * @brief Function called when robot loose a single life
@@ -121,7 +118,7 @@ class Robot : public ArenaMobileEntity {
   /**
   * @brief Function to increment the robots time to track hunger
   */
-  void IncrementRobotTime(){
+  void IncrementRobotTime() {
     robot_time_++;
   }
 
@@ -147,22 +144,22 @@ class Robot : public ArenaMobileEntity {
   RobotType get_robot_type() {
     return robot_type_;
   }
-  void set_hunger(bool hunger){
+  void set_hunger(bool hunger) {
     hungry_ = hunger;
   }
-  bool get_hunger(){
-    if (robot_time_ > 600){
+  bool get_hunger() {
+    if (robot_time_ > 600) {
       hungry_ = true;
-    }
-    else{
+    } else {
       hungry_ = false;
     }
     return hungry_;
   }
-  int get_robot_time(){
+
+  int get_robot_time() {
     return robot_time_;
   }
-  void RestartRobotTime(){
+  void RestartRobotTime() {
     robot_time_ = 0;
     hungry_ = false;
   }
@@ -172,7 +169,7 @@ class Robot : public ArenaMobileEntity {
   MotionHandler* motion_handler_;
   // Calculates changes in pose based on elapsed time and wheel velocities.
   MotionBehaviorDifferential motion_behavior_;
-  
+
   // Lives are decremented when the robot collides with anything.
   // When all the lives are gone, the game is lost.
   int lives_;

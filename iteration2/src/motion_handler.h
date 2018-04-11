@@ -84,7 +84,7 @@ class MotionHandler {
   /**
    * @brief Turn the entity to the right by angle_delta (in degrees?)
    */
-  
+
   virtual void TurnRight() {}
 
   /**
@@ -138,28 +138,28 @@ class MotionHandler {
 
   ArenaMobileEntity * get_entity() { return entity_; }
 
-  void set_lightsensor_reading(double left_reading, double right_reading ){
+  void set_lightsensor_reading(double left_reading, double right_reading ) {
     left_light_sensor_reading = left_reading;
     right_light_sensor_reading = right_reading;
   }
 
-  double get_left_sensor_reading(){
+  double get_left_sensor_reading() {
     return left_light_sensor_reading;
   }
 
-  double get_right_sensor_reading(){
+  double get_right_sensor_reading() {
     return right_light_sensor_reading;
   }
 
-  double get_right_food_sensor_reading(){
+  double get_right_food_sensor_reading() {
     return right_food_sensor_reading;
   }
-  double get_left_food_sensor_reading(){
+  double get_left_food_sensor_reading() {
     return left_food_sensor_reading;
   }
-  
 
-  void set_foodsensor_reading(double left_food_reading,double right_food_reading){
+  void set_foodsensor_reading(double left_food_reading,
+    double right_food_reading) {
     left_food_sensor_reading = left_food_reading;
     right_food_sensor_reading = right_food_reading;
   }
@@ -174,7 +174,7 @@ class MotionHandler {
   double right_light_sensor_reading{0};
   double left_food_sensor_reading{0};
   double right_food_sensor_reading{0};
-  
+
  protected:
   ArenaMobileEntity * entity_;
 };

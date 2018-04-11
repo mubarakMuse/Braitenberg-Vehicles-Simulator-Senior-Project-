@@ -36,12 +36,14 @@ class MotionHandlerRobotAggressive : public MotionHandler {
   explicit MotionHandlerRobotAggressive(ArenaMobileEntity * ent)
       : MotionHandler(ent) {}
 
-  MotionHandlerRobotAggressive(const MotionHandlerRobotAggressive& other) = default;
-  MotionHandlerRobotAggressive& operator=(const MotionHandlerRobotAggressive& other) = default;
+  MotionHandlerRobotAggressive(const MotionHandlerRobotAggressive& other)
+  = default;
+  MotionHandlerRobotAggressive& operator=(const MotionHandlerRobotAggressive& o)
+  = default;
 
   /**
-  * @brief Update the speed and the pose angle according to the aggressive sensor readings.
-  *
+  * @brief Update the speed and the pose angle according to
+  * the aggressive sensor readings.
   */
   void UpdateVelocity() override;
 

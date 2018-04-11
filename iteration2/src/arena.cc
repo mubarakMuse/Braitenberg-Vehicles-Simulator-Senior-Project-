@@ -28,6 +28,7 @@ Arena::Arena(const struct arena_params *const params)
       entities_(),
       mobile_entities_(),
       light_entities_(),
+      food_entities_(),
       lightsensor_observers_(),
       foodsensor_observers_(),
       game_status_(PLAYING) {
@@ -41,10 +42,8 @@ Arena::Arena(const struct arena_params *const params)
   AddRobot(kExplore);
   AddRobot(kExplore);
   AddRobot(kExplore);
-
-
   AddEntity(kFood, 4);  // 4 foods
-  AddEntity(kLight,4);   // changed the params to 4
+  AddEntity(kLight, 4);   // changed the params to 4
 }
 
 Arena::~Arena() {
@@ -58,14 +57,14 @@ Arena::~Arena() {
  ******************************************************************************/
 
 void Arena::AddRobot(RobotType rt) {
-  robot_ = dynamic_cast<Robot *>(factory_->CreateEntity(kRobot,rt));
+  robot_ = dynamic_cast<Robot *>(factory_->CreateEntity(kRobot, rt));
   entities_.push_back(robot_);
   mobile_entities_.push_back(robot_);
   LightSensor* right = robot_->get_right_light_sensor();
   LightSensor* left = robot_->get_left_light_sensor();
   FoodSensor* left_foodsensor = robot_->get_left_food_sensor();
   FoodSensor* right_foodsensor = robot_->get_right_food_sensor();
-  RegisterLightSensorObserver(right); // sensors are observers of my arena
+  RegisterLightSensorObserver(right);  // sensors are observers of my arena
   RegisterLightSensorObserver(left);
   RegisterFoodSensorObserver(left_foodsensor);
   RegisterFoodSensorObserver(right_foodsensor);
@@ -79,8 +78,7 @@ void Arena::AddEntity(EntityType type, int quantity) {
       entities_.push_back(Light_);
       mobile_entities_.push_back(Light_);
       light_entities_.push_back(Light_);
-    }
-    else if (type == kFood) {
+    } else if (type == kFood) {
       food_ = dynamic_cast<Food *>(factory_->CreateEntity(kFood));
       entities_.push_back(factory_->CreateEntity(type));
       food_entities_.push_back(food_);
@@ -90,24 +88,21 @@ void Arena::AddEntity(EntityType type, int quantity) {
     }
   }
 }
-void Arena::RegisterLightSensorObserver(LightSensor* ob){
+void Arena::RegisterLightSensorObserver(LightSensor* ob) {
   lightsensor_observers_.push_back(ob);
 }
-void Arena::RegisterFoodSensorObserver(FoodSensor* ob){
+void Arena::RegisterFoodSensorObserver(FoodSensor* ob) {
   foodsensor_observers_.push_back(ob);
 }
 
-void Arena::Notify(){ // called at each timesupdate
-   for (auto observer: lightsensor_observers_) {
+void Arena::Notify() {  // called at each timesupdate
+  for (auto observer : lightsensor_observers_) {
     observer->update(light_entities_);
   }
-   for (auto observer: foodsensor_observers_) {
+  for (auto observer : foodsensor_observers_) {
     observer->update(food_entities_);
   }
-
 }
-
-
 void Arena::Reset() {
   for (auto ent : entities_) {
     ent->Reset();
@@ -133,7 +128,7 @@ void Arena::UpdateEntitiesTimestep() {
    * First, update the position of all entities, according to their current
    * velocities.
    */
-  Notify(); // set sesnor readings
+  Notify();  // set sesnor readings
 
   for (auto ent : entities_) {
     ent->TimestepUpdate(1);
@@ -149,15 +144,16 @@ void Arena::UpdateEntitiesTimestep() {
     }
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
-    */    
+    */
     for (auto &ent2 : entities_) {
       if (ent2 == ent1) { continue; }
       if (IsColliding(ent1, ent2)) {
-        if (ent2->get_type() == ent1->get_type()){ // lights and robots only
+        if (ent2->get_type() == ent1->get_type()) {  // lights and robots only
           AdjustEntityOverlap(ent1, ent2);
           ent1->HandleCollision(ent2->get_type(), ent2);
         }
-        if (ent2->get_type() == kFood && ent1->get_type() == kRobot){ // to see if robot eat the food
+        // to see if robot eat the food
+        if (ent2->get_type() == kFood && ent1->get_type() == kRobot) {
           ent1->HandleCollision(ent2->get_type(), ent2);
         }
       }
@@ -233,8 +229,10 @@ void Arena::AdjustEntityOverlap(ArenaMobileEntity * const mobile_e,
       mobile_e->get_pose().y+sin(angle)*distance_to_move);
 }
 
-// Accept communication from the controller. Dispatching as appropriate.
-void Arena::AcceptCommand(Communication com) { // disabled arrows to direct robot
+// Accept communication from the controller.
+// Dispatching as appropriate.
+void Arena::AcceptCommand(Communication com) {
+  // disabled arrows to direct robot
   switch (com) {
     case(kIncreaseSpeed):
     break;
