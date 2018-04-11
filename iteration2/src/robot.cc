@@ -60,7 +60,7 @@ Robot::Robot(RobotType rt) :
   left_food_sensor_ = new FoodSensor(this);
   right_food_sensor_ = new FoodSensor(this);
 
-  // positiong the sensors on the left and right of the robot at a 65 angle
+  // positiong the sensors on the left & right of the robot at a 65 angle
   left_light_sensor_->sensor_robot_location(65*M_PI/180);
   right_light_sensor_->sensor_robot_location(-65*M_PI/180);
   left_food_sensor_->sensor_robot_location(65*M_PI/180);
