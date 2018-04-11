@@ -117,6 +117,14 @@ class Robot : public ArenaMobileEntity {
   void lose_A_Life() {  // added for priorty 1
     lives_ = lives_ - 1;
   }
+
+  /**
+  * @brief Function to increment the robots time to track hunger
+  */
+  void IncrementRobotTime(){
+    robot_time_++;
+  }
+
   int get_lives() const { return lives_; }
 
   void set_lives(int l) { lives_ = l; }
@@ -158,15 +166,7 @@ class Robot : public ArenaMobileEntity {
     robot_time_ = 0;
     hungry_ = false;
   }
-  void IncrementRobotTime(){
-    robot_time_++;
-  }
-  // //virtual void set_TotalSensorReading(double tsr);
-  //  double get_TotalSensorReading() override {
-  //   total_sensor_readings = left_light_sensor_->get_reading()+right_light_sensor_->get_reading();
-  //   return total_sensor_readings;
-  //  }
-
+  
  private:
   // Manages pose and wheel velocities that change with time and collisions.
   MotionHandler* motion_handler_;
@@ -176,6 +176,7 @@ class Robot : public ArenaMobileEntity {
   // When all the lives are gone, the game is lost.
   int lives_;
 
+  // the robot's motion behavior
   RobotType robot_type_;
 
   LightSensor* left_light_sensor_;
@@ -183,14 +184,13 @@ class Robot : public ArenaMobileEntity {
   LightSensor* right_light_sensor_;
 
   FoodSensor* left_food_sensor_;
-  FoodSensor* right_food_sensor_;
 
+  FoodSensor* right_food_sensor_;
 
   bool hungry_{false};
 
+  // tracks how long since the robot ate.
   int robot_time_{0};
-
-  //double total_sensor_readings{0.00};
 };
 
 NAMESPACE_END(csci3081);

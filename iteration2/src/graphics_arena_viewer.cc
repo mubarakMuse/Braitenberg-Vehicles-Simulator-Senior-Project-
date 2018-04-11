@@ -178,7 +178,7 @@ void GraphicsArenaViewer::DrawUsingNanoVG(NVGcontext *ctx) {
   for (auto &entity : entities) {
     DrawEntity(ctx, entity);
   } /* for(i..) */
-  DrawRobot(ctx, arena_->robot());
+  //DrawRobot(ctx, arena_->robot());
 }
 
 NAMESPACE_END(csci3081);

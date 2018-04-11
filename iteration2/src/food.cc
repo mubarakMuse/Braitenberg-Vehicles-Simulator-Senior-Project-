@@ -19,7 +19,7 @@ NAMESPACE_BEGIN(csci3081);
 /*******************************************************************************
  * Constructors/Destructor
  ******************************************************************************/
-Food::Food() : ArenaImmobileEntity(), captured_(false) {
+Food::Food() : ArenaImmobileEntity(){
   set_type(kFood);
   set_color(FOOD_COLOR);
   set_pose(FOOD_INIT_POS);
@@ -31,7 +31,6 @@ Food::Food() : ArenaImmobileEntity(), captured_(false) {
  ******************************************************************************/
 void Food::Reset() {
   set_pose(SetPoseRandomly());
-  set_captured(false);
   set_radius(FOOD_RADIUS);
   set_color(FOOD_COLOR);
 } /* Reset */

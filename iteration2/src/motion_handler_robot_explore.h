@@ -29,7 +29,7 @@ NAMESPACE_BEGIN(csci3081);
 
 /**
  * @brief Class managing a Robot's and Light's speed and heading angle based
- * on collisions and user inputs.
+ * on the explore sensor readings.
  *
  */
 class MotionHandlerRobotExplore : public MotionHandler {
@@ -41,7 +41,7 @@ class MotionHandlerRobotExplore : public MotionHandler {
   MotionHandlerRobotExplore& operator=(const MotionHandlerRobotExplore& other) = default;
 
   /**
-  * @brief Update the speed and the pose angle according to the sensor readings.
+  * @brief Update the speed and the pose angle according to the explore sensor readings..
   *
   */
   void UpdateVelocity() override;

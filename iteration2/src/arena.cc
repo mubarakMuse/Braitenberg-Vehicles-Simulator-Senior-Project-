@@ -31,13 +31,20 @@ Arena::Arena(const struct arena_params *const params)
       lightsensor_observers_(),
       foodsensor_observers_(),
       game_status_(PLAYING) {
-  //AddRobot(kLove);
   AddRobot(kCoward);
-  //AddRobot(kAggressive);
-  //AddRobot(kExplore);
+  AddRobot(kCoward);
+  AddRobot(kCoward);
+  AddRobot(kCoward);
+  AddRobot(kCoward);
+  AddRobot(kExplore);
+  AddRobot(kExplore);
+  AddRobot(kExplore);
+  AddRobot(kExplore);
+  AddRobot(kExplore);
 
-  AddEntity(kFood, 3);  // changed this 3 i need  to us params
-  AddEntity(kLight,6);   // changed the params to 4
+
+  AddEntity(kFood, 4);  // 4 foods
+  AddEntity(kLight,4);   // changed the params to 4
 }
 
 Arena::~Arena() {
@@ -58,7 +65,7 @@ void Arena::AddRobot(RobotType rt) {
   LightSensor* left = robot_->get_left_light_sensor();
   FoodSensor* left_foodsensor = robot_->get_left_food_sensor();
   FoodSensor* right_foodsensor = robot_->get_right_food_sensor();
-  RegisterLightSensorObserver(right);
+  RegisterLightSensorObserver(right); // sensors are observers of my arena
   RegisterLightSensorObserver(left);
   RegisterFoodSensorObserver(left_foodsensor);
   RegisterFoodSensorObserver(right_foodsensor);
@@ -72,7 +79,6 @@ void Arena::AddEntity(EntityType type, int quantity) {
       entities_.push_back(Light_);
       mobile_entities_.push_back(Light_);
       light_entities_.push_back(Light_);
-
     }
     else if (type == kFood) {
       food_ = dynamic_cast<Food *>(factory_->CreateEntity(kFood));
@@ -80,7 +86,7 @@ void Arena::AddEntity(EntityType type, int quantity) {
       food_entities_.push_back(food_);
     } else {
       entities_.push_back(factory_->CreateEntity(type));
-      // if its a base or something else
+      // something else
     }
   }
 }
@@ -91,7 +97,7 @@ void Arena::RegisterFoodSensorObserver(FoodSensor* ob){
   foodsensor_observers_.push_back(ob);
 }
 
-void Arena::Notify(){
+void Arena::Notify(){ // called at each timesupdate
    for (auto observer: lightsensor_observers_) {
     observer->update(light_entities_);
   }
@@ -122,78 +128,38 @@ void Arena::AdvanceTime(double dt) {
     // UpdateEntitiesTimestep();
   } /* for(i..) */
 } /* AdvanceTime() */
-
-// void Arena::UpdateGameStatus() {  // checks for wins and lossses
-//   if (robot_->get_lives() <= 0) {
-//     set_game_status(LOST);
-//     for (auto ent1 : entities_) {
-//       ent1->set_color(LOSS_COLOR);
-//     }
-//   }
-//   bool AllBasesCaptured = true;
-//   for (auto ent : entities_) {
-//     if (ent->get_type() == kBase) {
-//       AllBasesCaptured = AllBasesCaptured &&
-//       dynamic_cast<Base *>(ent)->IsCaptured();
-//        // checks if all the base were captured
-//     }
-//   }
-//   if (AllBasesCaptured) {
-//     set_game_status(WON);
-//     for (auto ent2 : entities_) {
-//       ent2->set_color(WON_COLOR);
-//     }
-//   }
-// }
 void Arena::UpdateEntitiesTimestep() {
   /*
    * First, update the position of all entities, according to their current
    * velocities.
    */
+  Notify(); // set sesnor readings
+
   for (auto ent : entities_) {
     ent->TimestepUpdate(1);
   }
-  Notify();
-
-   /* Determine if any mobile entity is colliding with wall.
+  /* Determine if any mobile entity is colliding with wall.
    * Adjust the position accordingly so it doesn't overlap.
    */
   for (auto &ent1 : mobile_entities_) {
     EntityType wall = GetCollisionWall(ent1);
     if (kUndefined != wall) {
-      // if (ent1->get_type()==kRobot){
-      //   Robot* r = dynamic_cast<Robot *>(ent1);
-      //   if (r->get_robot_time()>1550){ // if one robots starves
-      //     Reset();
-      //   }
-      // }
       AdjustWallOverlap(ent1, wall);
       ent1->HandleCollision(wall, NULL);
-      // if (ent1->get_type() == kRobot) {
-      //   robot_->lose_A_Life();
-      // UpdateGameStatus();
-      // }
     }
     /* Determine if that mobile entity is colliding with any other entity.
     * Adjust the position accordingly so they don't overlap.
-    */    for (auto &ent2 : entities_) {
+    */    
+    for (auto &ent2 : entities_) {
       if (ent2 == ent1) { continue; }
       if (IsColliding(ent1, ent2)) {
-        if (ent2->get_type() == ent1->get_type()){
+        if (ent2->get_type() == ent1->get_type()){ // lights and robots only
           AdjustEntityOverlap(ent1, ent2);
           ent1->HandleCollision(ent2->get_type(), ent2);
         }
-        // if (ent2->get_type() == kLight && ent1->get_type() == kRobot){
-        //   robot_->lose_A_Life();
-        //   UpdateGameStatus();
-        // }
-        if (ent2->get_type() == kFood && ent1->get_type() == kRobot){
+        if (ent2->get_type() == kFood && ent1->get_type() == kRobot){ // to see if robot eat the food
           ent1->HandleCollision(ent2->get_type(), ent2);
-        //   //ent2->set_color(BASE_COLOR_POST_COLLISION); // Added for priority 1 change color is it the base to yellow
-        //   dynamic_cast<Base *> (ent2)->set_captured(true);
-        //   UpdateGameStatus();
         }
-
       }
     }
   }
@@ -254,12 +220,6 @@ bool Arena::IsColliding(
 */
 /* @TODO: Add functionality to Pose to determine the distance distance_between two instances (e.g. overload operator -)
 */
-/* @BUG: The robot will pass through the home base on occasion. The problem
- * is likely due to the adjustment being in the wrong direction. This could
- * be because the cos/sin generate the wrong sign of the distance_to_move
- * when the collision is in a specific quadrant relative to the center of the
- * colliding entities..
- */
 void Arena::AdjustEntityOverlap(ArenaMobileEntity * const mobile_e,
   ArenaEntity *const other_e) {
     double delta_x = mobile_e->get_pose().x - other_e->get_pose().x;
@@ -274,7 +234,7 @@ void Arena::AdjustEntityOverlap(ArenaMobileEntity * const mobile_e,
 }
 
 // Accept communication from the controller. Dispatching as appropriate.
-void Arena::AcceptCommand(Communication com) {
+void Arena::AcceptCommand(Communication com) { // disabled arrows to direct robot
   switch (com) {
     case(kIncreaseSpeed):
     break;

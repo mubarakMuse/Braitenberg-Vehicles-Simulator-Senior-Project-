@@ -31,14 +31,14 @@ Robot::Robot(RobotType rt) :
     right_light_sensor_(),
     left_food_sensor_(),
     right_food_sensor_(){
-  // motion_handler_->set_velocity(1, 1);
   set_type(kRobot);
   set_robot_type(rt);
   set_color(ROBOT_COLOR);
   set_pose(ROBOT_INIT_POS);
   set_radius(ROBOT_RADIUS);
 
-  switch(get_robot_type()){
+  // assiging the apporipate motion handler with respect to the robot type
+  switch(get_robot_type()){ 
     case(kAggressive):
     motion_handler_ = new MotionHandlerRobotAggressive(this);
     break;
@@ -53,12 +53,13 @@ Robot::Robot(RobotType rt) :
     break;
     default: break;
   }
-
+  // intializng sesnors
   left_light_sensor_ = new LightSensor(this);
   right_light_sensor_ = new LightSensor(this);
   left_food_sensor_ = new FoodSensor(this);
   right_food_sensor_ = new FoodSensor(this);
 
+  // positiong the sensors on the left and right of the robot at a 65 angle
   left_light_sensor_->sensor_robot_location(65*M_PI/180);
   right_light_sensor_->sensor_robot_location(-65*M_PI/180);
   left_food_sensor_->sensor_robot_location(65*M_PI/180);
@@ -69,12 +70,11 @@ Robot::Robot(RobotType rt) :
  ******************************************************************************/
 void Robot::TimestepUpdate(unsigned int dt) {
   IncrementRobotTime();
-  std::cout << get_robot_time() << "\n";
-  if (get_hunger()){
+  if (get_hunger()){ // change to aggressive if its hungry
     motion_handler_ = new MotionHandlerRobotAggressive(this);
   }
   else{
-    switch(get_robot_type()){
+    switch(get_robot_type()){ // switch back to the correct behavior when not hungry
     case(kAggressive):
     motion_handler_ = new MotionHandlerRobotAggressive(this);
     break;
@@ -88,9 +88,9 @@ void Robot::TimestepUpdate(unsigned int dt) {
     motion_handler_ = new MotionHandlerRobotExplore(this);
     break;
     default: break;
+    }
   }
-  }
-  if (get_robot_time() > 3000){
+  if (get_robot_time() > 3000){ // 2 minutes
 
     motion_handler_->set_lightsensor_reading(0,0); // ignore light if its starve
 
@@ -111,6 +111,7 @@ void Robot::TimestepUpdate(unsigned int dt) {
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_->get_velocity());
 
+  // update the psoe of the sesnors
   left_light_sensor_->sensor_robot_location(65*M_PI/180);
   right_light_sensor_->sensor_robot_location(-65*M_PI/180);
   left_food_sensor_->sensor_robot_location(65*M_PI/180);
@@ -131,20 +132,17 @@ void Robot::Reset() {
 } /* Reset() */
 
 void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
-  if (object_type == kFood){
+  if (object_type == kFood){ // indicates it eat the food and restarts the timer
     RestartRobotTime();
   }
   else{
     sensor_touch_->HandleCollision(object_type, object);
-  WheelVelocity currentVelocity  = motion_handler_->get_velocity();
-  motion_handler_->Stop();  // stop the car right away. added for priorty.
-  motion_handler_->set_velocity(currentVelocity);
+    WheelVelocity currentVelocity  = motion_handler_->get_velocity();
+    motion_handler_->Stop();  // stop the car right away. added for priorty.
+    motion_handler_->set_velocity(currentVelocity);
   }
-  // sensor_touch_->HandleCollision(object_type, object);
-  // WheelVelocity currentVelocity  = motion_handler_->get_velocity();
-  // motion_handler_->Stop();  // stop the car right away. added for priorty.
-  // motion_handler_->set_velocity(currentVelocity);
 }
+
 
 void Robot::IncreaseSpeed() {
   motion_handler_->IncreaseSpeed();

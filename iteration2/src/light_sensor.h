@@ -32,11 +32,20 @@ class LightSensor: public Sensor {
  */
   explicit LightSensor(ArenaMobileEntity * ent)
       : Sensor(ent) {}
-
+  /**
+ 	* @brief calaculates the reading using the expontial function
+ 	*/
   int CalculateReading(Light *ent);
 
+  /**
+ 	* @brief resets the sensors reading
+ 	*/
   void Reset() override ;
 
+  /**
+ 	* @brief accumalates the reading by calling the CalculateReading
+ 	* for each light in the arena
+ 	*/
   void update(std::vector<class ArenaEntity *> stimili) override;
 
 };

@@ -29,7 +29,7 @@ NAMESPACE_BEGIN(csci3081);
 
 /**
  * @brief Class managing a Robot's and Light's speed and heading angle based
- * on collisions and user inputs.
+ * on the love sensor readings.
  *
  */
 class MotionHandlerRobotLove : public MotionHandler {
@@ -71,18 +71,8 @@ class MotionHandlerRobotLove : public MotionHandler {
    */
   void Stop() override;
 
-  // void update(RobotType rt, double reading){
-  //   robot_type_= rt;
-  //   total_reading_ = reading;
-  // }
-  // RobotType get_robot_type(){
-  //   return robot_type_;
-  // }
-
  private:
   double clamp_vel(double vel);
-  // RobotType robot_type_;
-  // double total_reading_;
 };
 
 NAMESPACE_END(csci3081);

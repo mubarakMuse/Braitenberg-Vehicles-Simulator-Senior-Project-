@@ -1,5 +1,5 @@
 /**
- * @file Light.cc
+ * @file light.cc
  *
  * @copyright 2017 3081 Staff, All rights reserved.
  */
@@ -36,7 +36,7 @@ void Light::TimestepUpdate(unsigned int dt) {
   motion_handler_.UpdateVelocity();
   if (random()%13 == 0) {
   // randomly changing the heading so the obtsacle can move around
-     RelativeChangeHeading(+16);
+     RelativeChangeHeading(+5);
   }
   // Use velocity and position to update position
   motion_behavior_.UpdatePose(dt, motion_handler_.get_velocity());
