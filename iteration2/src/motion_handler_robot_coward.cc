@@ -62,8 +62,8 @@ void MotionHandlerRobotCoward::UpdateVelocity() {
   //std::cout << get_right_sensor_reading() << " \n  ";
   std::cout << " coward\n";
   set_velocity(
-    get_left_sensor_reading()/120,
-    get_right_sensor_reading()/120);
+    clamp_vel(get_left_sensor_reading()/120),
+    clamp_vel(get_right_sensor_reading()/120));
 }
 
 double MotionHandlerRobotCoward::clamp_vel(double vel) {
