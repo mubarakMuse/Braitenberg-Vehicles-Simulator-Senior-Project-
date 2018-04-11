@@ -31,13 +31,21 @@ Arena::Arena(const struct arena_params *const params)
       lightsensor_observers_(),
       foodsensor_observers_(),
       game_status_(PLAYING) {
-  //AddRobot(kLove);
+  AddRobot(kCoward);
+  AddRobot(kCoward);
+  AddRobot(kCoward);
+  AddRobot(kCoward);
   AddRobot(kCoward);
   //AddRobot(kAggressive);
-  //AddRobot(kExplore);
+  AddRobot(kExplore);
+  AddRobot(kExplore);
+  AddRobot(kExplore);
+  AddRobot(kExplore);
+  AddRobot(kExplore);
 
-  AddEntity(kFood, 3);  // changed this 3 i need  to us params
-  AddEntity(kLight,6);   // changed the params to 4
+
+  AddEntity(kFood, 4);  // changed this 3 i need  to us params
+  AddEntity(kLight,4);   // changed the params to 4
 }
 
 Arena::~Arena() {

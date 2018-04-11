@@ -18,8 +18,8 @@ int FoodSensor::CalculateReading( Food *ent){
   count1++;
   // std::cout << count1;
   //std::cout << ent->get_pose().x;
-  double distance = (pow( deltaX*deltaX + deltaY*deltaY, 0.5) - 30);
-  reading = 1200/(pow(1.02,distance));
+  double distance = (pow( deltaX*deltaX + deltaY*deltaY, 0.5) - 16);
+  reading = 1200/(pow(1.00,distance));
   //std::cout <<  reading << "    ";
   return reading;
 }
