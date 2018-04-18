@@ -258,6 +258,11 @@ void Arena::AcceptCommand(Communication com) {
 } /* AcceptCommand */
 void Arena::ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum){
   entities_.clear();
+  light_entities_.clear();
+  food_entities_.clear();
+  mobile_entities_.clear();
+  lightsensor_observers_.clear();
+  foodsensor_observers_.clear();
   int cowardnum = int(robotnum*coward_percent);
   int explorenum = robotnum - cowardnum;
   AddRobot(kCoward,cowardnum);

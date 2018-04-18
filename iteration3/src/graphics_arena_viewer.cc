@@ -82,9 +82,9 @@ GraphicsArenaViewer::GraphicsArenaViewer(
   // you should communicate that value to the controller so that it can configure the Arena.
   slider->setFinalCallback(
     [&](float value) {
-      int robot_count_ = int(value*10);
+      robotnum = int(value*10);
       std::cout << "Final slider value: " << value;
-      std::cout << " \n robot " << robot_count_ << std::endl;
+      std::cout << " \n number of robot " << lightnum << std::endl;
     }
   );
 
@@ -109,12 +109,66 @@ GraphicsArenaViewer::GraphicsArenaViewer(
 
   slider2->setFinalCallback(
     [&](float value) {
-      int robot_count_ = int(value*5);
+      lightnum = int(value*5);
       std::cout << "Final slider2 value: " << value;
-      std::cout << " robot " << robot_count_ << std::endl;
+      std::cout << " number of lights" << lightnum << std::endl;
     }
   );
 
+  // *************** SLIDER 3 ************************//
+  new nanogui::Label(panel, "Number of foods", "sans-bold");
+  nanogui::Slider *slider3 = new nanogui::Slider(panel);
+  slider3->setValue(0.0f);
+  slider3->setFixedWidth(100);
+  //textBox->setUnits("%");
+
+  nanogui::TextBox *textBox3 = new nanogui::TextBox(panel);
+  textBox3->setFixedSize(nanogui::Vector2i(60, 25));
+  textBox3->setFontSize(20);
+  textBox3->setValue("0");
+  //textBox2->setAlignment(nanogui::TextBox::Alignment::Right);
+
+  slider3->setCallback(
+    [textBox3](float value) {
+      textBox3->setValue(std::to_string(int(value*5)));
+    }
+  );
+
+  slider3->setFinalCallback(
+    [&](float value) {
+      foodnum = int(value*5);
+      std::cout << "Final slider2 value: " << value;
+      std::cout << " number of foods" << foodnum << std::endl;
+    }
+  );
+
+  // *************** SLIDER 4 ************************//
+  new nanogui::Label(panel, "percent of Coward robots", "sans-bold");
+  nanogui::Slider *slider4 = new nanogui::Slider(panel);
+  slider4->setValue(0.0f);
+  slider4->setFixedWidth(100);
+  
+
+  nanogui::TextBox *textBox4 = new nanogui::TextBox(panel);
+  textBox4->setFixedSize(nanogui::Vector2i(60, 25));
+  textBox4->setFontSize(20);
+  textBox4->setValue("0");
+  textBox4->setUnits("%");
+  //textBox2->setAlignment(nanogui::TextBox::Alignment::Right);
+
+  slider4->setCallback(
+    [textBox4](float value) {
+      textBox4->setValue(std::to_string(int(value*100)));
+    }
+  );
+
+  slider4->setFinalCallback(
+    [&](float value) {
+      coward_percent = value;
+      //std::cout << "Final slider3 value: " << value;
+      // std::cout << " number of foods" << foodnum << std::endl;
+    }
+  );
   // Lays out all the components with "15" units of inbetween spacing
   panel->setLayout(new nanogui::BoxLayout(nanogui::Orientation::Vertical, nanogui::Alignment::Middle, 0, 15));
 
@@ -154,7 +208,7 @@ void GraphicsArenaViewer::NewGameBtnPressed() {
   // handles the newgame which communicates to the arena to reset.
   paused_ = true;
   playing_button_->setCaption("Play");
-  controller_->ConfigArena(4, .5, 4, 4);
+  controller_->ConfigArena(robotnum, coward_percent, lightnum, foodnum);
   //controller_->AcceptCommunication(kNewGame);
   
 
