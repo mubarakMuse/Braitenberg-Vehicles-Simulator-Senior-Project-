@@ -154,7 +154,10 @@ void GraphicsArenaViewer::NewGameBtnPressed() {
   // handles the newgame which communicates to the arena to reset.
   paused_ = true;
   playing_button_->setCaption("Play");
-  controller_->AcceptCommunication(kNewGame);
+  controller_->ConfigArena(4, .5, 4, 4);
+  //controller_->AcceptCommunication(kNewGame);
+  
+
 }
   // OnSpecialKeyDown is called when the user presses down on one of the
   // special keys (e.g. the arrow keys).
