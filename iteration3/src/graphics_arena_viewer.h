@@ -237,6 +237,7 @@ class GraphicsArenaViewer : public GraphicsApp {
 
   // buttons
   nanogui::Button *playing_button_{nullptr};
+  nanogui::Button *NewGame_button_{nullptr};
 };
 
 NAMESPACE_END(csci3081);
