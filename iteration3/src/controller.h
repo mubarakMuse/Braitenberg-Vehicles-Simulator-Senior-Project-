@@ -72,6 +72,11 @@ class Controller {
   */
   Communication ConvertComm(Communication com);
 
+  void ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum){
+    arena_->ConfigArena(robotnum, coward_percent, lightnum, foodnum);
+  }
+
+
  private:
   double last_dt{0};
   Arena* arena_{nullptr};

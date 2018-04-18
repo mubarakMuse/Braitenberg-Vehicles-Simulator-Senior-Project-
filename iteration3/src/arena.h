@@ -79,7 +79,7 @@ class Arena {
    * @param rt the behavior of the robot's motion toward sensors
    *
    **/
-  void AddRobot(RobotType rt);
+  void AddRobot(RobotType rt, int quantity);
 
   /**
    * @brief function to add an entity to the arena
@@ -198,6 +198,9 @@ class Arena {
    *
    */
   void UpdateGameStatus();
+
+  void ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum);
+
 
   std::vector<class ArenaEntity *> get_entities() const { return entities_; }
 

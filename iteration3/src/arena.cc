@@ -32,18 +32,19 @@ Arena::Arena(const struct arena_params *const params)
       lightsensor_observers_(),
       foodsensor_observers_(),
       game_status_(PLAYING) {
-  AddRobot(kCoward);
-  AddRobot(kCoward);
-  AddRobot(kCoward);
-  AddRobot(kCoward);
-  AddRobot(kCoward);
-  AddRobot(kExplore);
-  AddRobot(kExplore);
-  AddRobot(kExplore);
-  AddRobot(kExplore);
-  AddRobot(kExplore);
-  AddEntity(kFood, 4);  // 4 foods
-  AddEntity(kLight, 4);   // changed the params to 4
+  // AddRobot(kCoward);
+  // AddRobot(kCoward);
+  // AddRobot(kCoward);
+  // AddRobot(kCoward);
+  // AddRobot(kCoward);
+  // AddRobot(kExplore);
+  // AddRobot(kExplore);
+  // AddRobot(kExplore);
+  // AddRobot(kExplore);
+  // AddRobot(kExplore,1);
+  // AddEntity(kFood, 4);  // 4 foods
+  // AddEntity(kLight, 4);   // changed the params to 4
+    ConfigArena(8,.5,4,4);
 }
 
 Arena::~Arena() {
@@ -56,7 +57,8 @@ Arena::~Arena() {
  * Member Functions
  ******************************************************************************/
 
-void Arena::AddRobot(RobotType rt) {
+void Arena::AddRobot(RobotType rt, int quantity) {
+  for (int i = 0; i < quantity; i++) {
   robot_ = dynamic_cast<Robot *>(factory_->CreateEntity(kRobot, rt));
   entities_.push_back(robot_);
   mobile_entities_.push_back(robot_);
@@ -68,6 +70,7 @@ void Arena::AddRobot(RobotType rt) {
   RegisterLightSensorObserver(left);
   RegisterFoodSensorObserver(left_foodsensor);
   RegisterFoodSensorObserver(right_foodsensor);
+  }
 }
 
 void Arena::AddEntity(EntityType type, int quantity) {
@@ -247,10 +250,25 @@ void Arena::AcceptCommand(Communication com) {
     case(kPause):
     case(kReset):
     Reset();
+    //AddRobot(kCoward,1);
     break;
     case(kNone):
     default: break;
   }
 } /* AcceptCommand */
+void Arena::ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum){
+  entities_.clear();
+  light_entities_.clear();
+  food_entities_.clear();
+  mobile_entities_.clear();
+  lightsensor_observers_.clear();
+  foodsensor_observers_.clear();
+  int cowardnum = int(robotnum*coward_percent);
+  int explorenum = robotnum - cowardnum;
+  AddRobot(kCoward,cowardnum);
+  AddRobot(kExplore,explorenum);
+  AddEntity(kFood, foodnum);
+  AddEntity(kLight, lightnum);
+}
 
 NAMESPACE_END(csci3081);
