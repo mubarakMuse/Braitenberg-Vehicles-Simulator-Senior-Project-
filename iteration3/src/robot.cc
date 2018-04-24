@@ -61,10 +61,7 @@ Robot::Robot(RobotType rt) :
   right_food_sensor_ = new FoodSensor(this);
 
   // positiong the sensors on the left & right of the robot at a 65 angle
-  left_light_sensor_->sensor_robot_location(65*M_PI/180);
-  right_light_sensor_->sensor_robot_location(-65*M_PI/180);
-  left_food_sensor_->sensor_robot_location(65*M_PI/180);
-  right_food_sensor_->sensor_robot_location(-65*M_PI/180);
+  UpdateSensorPoses();
 }
 /*******************************************************************************
  * Member Functions
@@ -108,10 +105,7 @@ void Robot::TimestepUpdate(unsigned int dt) {
   motion_behavior_.UpdatePose(dt, motion_handler_->get_velocity());
 
   // update the psoe of the sesnors
-  left_light_sensor_->sensor_robot_location(65*M_PI/180);
-  right_light_sensor_->sensor_robot_location(-65*M_PI/180);
-  left_food_sensor_->sensor_robot_location(65*M_PI/180);
-  right_food_sensor_->sensor_robot_location(-65*M_PI/180);
+  UpdateSensorPoses();
 
   // Reset Sensor for next cycle
   sensor_touch_->Reset();
@@ -139,6 +133,12 @@ void Robot::HandleCollision(EntityType object_type, ArenaEntity * object) {
   }
 }
 
+void Robot::UpdateSensorPoses(){
+  left_light_sensor_->sensor_robot_location(65*M_PI/180);
+  right_light_sensor_->sensor_robot_location(-65*M_PI/180);
+  left_food_sensor_->sensor_robot_location(65*M_PI/180);
+  right_food_sensor_->sensor_robot_location(-65*M_PI/180);
+}
 
 void Robot::IncreaseSpeed() {
   motion_handler_->IncreaseSpeed();

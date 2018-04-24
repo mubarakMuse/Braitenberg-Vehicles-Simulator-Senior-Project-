@@ -163,6 +163,7 @@ class Robot : public ArenaMobileEntity {
     robot_time_ = 0;
     hungry_ = false;
   }
+  void UpdateSensorPoses();
 
  private:
   // Manages pose and wheel velocities that change with time and collisions.
