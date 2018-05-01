@@ -235,10 +235,10 @@ class GraphicsArenaViewer : public GraphicsApp {
   Arena *arena_;
   bool paused_{true};
 
-  int robotnum{0};
-  double coward_percent{0};
-  int lightnum{0}; 
-  int foodnum{0};
+  int robotnum{10};
+  double coward_percent{.5};
+  int lightnum{4}; 
+  int foodnum{4};
 
   // buttons
   nanogui::Button *playing_button_{nullptr};

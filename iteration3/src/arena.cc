@@ -250,13 +250,21 @@ void Arena::AcceptCommand(Communication com) {
     case(kPause):
     case(kReset):
     Reset();
-    //AddRobot(kCoward,1);
     break;
     case(kNone):
     default: break;
   }
 } /* AcceptCommand */
 void Arena::ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum){
+  for (auto ent : entities_) {
+    delete ent;
+  } /* for(ent..) */
+    for (auto ent : lightsensor_observers_) {
+    delete ent;
+  } /* for(ent..) */
+  for (auto ent : foodsensor_observers_) {
+    delete ent;
+  } /* for(ent..) */
   entities_.clear();
   light_entities_.clear();
   food_entities_.clear();
