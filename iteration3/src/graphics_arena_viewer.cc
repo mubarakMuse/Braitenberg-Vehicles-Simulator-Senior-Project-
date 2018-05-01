@@ -62,14 +62,14 @@ GraphicsArenaViewer::GraphicsArenaViewer(
   nanogui::Slider *slider = new nanogui::Slider(panel);
   // The starting value (range is from 0 to 1)
   // Note that below the displayed value is 10* slider value.
-  slider->setValue(0.5f);
+  slider->setValue(1.0f);
   slider->setFixedWidth(100);
   
   // Display the corresponding value of the slider in this textbox
   nanogui::TextBox *textBox = new nanogui::TextBox(panel);
   textBox->setFixedSize(nanogui::Vector2i(60, 25));
   textBox->setFontSize(20);
-  textBox->setValue("5");
+  textBox->setValue("10");
 
   // This is the lambda function called while the user is moving the slider
   slider->setCallback(
@@ -91,14 +91,14 @@ GraphicsArenaViewer::GraphicsArenaViewer(
   // *************** SLIDER 2 ************************//
   new nanogui::Label(panel, "Number of Lights", "sans-bold");
   nanogui::Slider *slider2 = new nanogui::Slider(panel);
-  slider2->setValue(0.0f);
+  slider2->setValue(0.8f);
   slider2->setFixedWidth(100);
   //textBox->setUnits("%");
 
   nanogui::TextBox *textBox2 = new nanogui::TextBox(panel);
   textBox2->setFixedSize(nanogui::Vector2i(60, 25));
   textBox2->setFontSize(20);
-  textBox2->setValue("0");
+  textBox2->setValue("4");
   //textBox2->setAlignment(nanogui::TextBox::Alignment::Right);
 
   slider2->setCallback(
@@ -118,14 +118,14 @@ GraphicsArenaViewer::GraphicsArenaViewer(
   // *************** SLIDER 3 ************************//
   new nanogui::Label(panel, "Number of foods", "sans-bold");
   nanogui::Slider *slider3 = new nanogui::Slider(panel);
-  slider3->setValue(0.0f);
+  slider3->setValue(0.8f);
   slider3->setFixedWidth(100);
   //textBox->setUnits("%");
 
   nanogui::TextBox *textBox3 = new nanogui::TextBox(panel);
   textBox3->setFixedSize(nanogui::Vector2i(60, 25));
   textBox3->setFontSize(20);
-  textBox3->setValue("0");
+  textBox3->setValue("4");
   //textBox2->setAlignment(nanogui::TextBox::Alignment::Right);
 
   slider3->setCallback(
@@ -145,14 +145,14 @@ GraphicsArenaViewer::GraphicsArenaViewer(
   // *************** SLIDER 4 ************************//
   new nanogui::Label(panel, "percent of Coward robots", "sans-bold");
   nanogui::Slider *slider4 = new nanogui::Slider(panel);
-  slider4->setValue(0.0f);
+  slider4->setValue(0.5f);
   slider4->setFixedWidth(100);
   
 
   nanogui::TextBox *textBox4 = new nanogui::TextBox(panel);
   textBox4->setFixedSize(nanogui::Vector2i(60, 25));
   textBox4->setFontSize(20);
-  textBox4->setValue("0");
+  textBox4->setValue("50");
   textBox4->setUnits("%");
   //textBox2->setAlignment(nanogui::TextBox::Alignment::Right);
 

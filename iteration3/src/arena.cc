@@ -44,7 +44,7 @@ Arena::Arena(const struct arena_params *const params)
   // AddRobot(kExplore,1);
   // AddEntity(kFood, 4);  // 4 foods
   // AddEntity(kLight, 4);   // changed the params to 4
-    ConfigArena(8,.5,4,4);
+    ConfigArena(10,.5,4,4);
 }
 
 Arena::~Arena() {
