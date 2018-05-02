@@ -169,6 +169,32 @@ GraphicsArenaViewer::GraphicsArenaViewer(
       // std::cout << " number of foods" << foodnum << std::endl;
     }
   );
+    // *************** SLIDER 5 ************************//
+  new nanogui::Label(panel, "light sensor sensitivty", "sans-bold");
+  nanogui::Slider *slider5 = new nanogui::Slider(panel);
+  slider5->setValue(.2f);
+  slider5->setFixedWidth(100);
+  
+
+  nanogui::TextBox *textBox5 = new nanogui::TextBox(panel);
+  textBox5->setFixedSize(nanogui::Vector2i(60, 25));
+  textBox5->setFontSize(20);
+  textBox5->setValue("1.2");
+  //textBox2->setAlignment(nanogui::TextBox::Alignment::Right);
+
+  slider5->setCallback(
+    [textBox5](float value) {
+      textBox5->setValue(std::to_string(value));
+    }
+  );
+
+  slider5->setFinalCallback(
+    [&](float value) {
+      sensitivity = value+1;
+      std::cout << "Final slider5 value: " << value+1;
+      // std::cout << " number of foods" << foodnum << std::endl;
+    }
+  );
   // Lays out all the components with "15" units of inbetween spacing
   panel->setLayout(new nanogui::BoxLayout(nanogui::Orientation::Vertical, nanogui::Alignment::Middle, 0, 15));
 
@@ -208,7 +234,7 @@ void GraphicsArenaViewer::NewGameBtnPressed() {
   // handles the newgame which communicates to the arena to reset.
   paused_ = true;
   playing_button_->setCaption("Play");
-  controller_->ConfigArena(robotnum, coward_percent, lightnum, foodnum);
+  controller_->ConfigArena(robotnum, coward_percent, lightnum, foodnum, sensitivity);
   //controller_->AcceptCommunication(kNewGame);
   
 

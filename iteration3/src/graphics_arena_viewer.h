@@ -239,6 +239,7 @@ class GraphicsArenaViewer : public GraphicsApp {
   double coward_percent{.5};
   int lightnum{4}; 
   int foodnum{4};
+  double sensitivity{1.02};
 
   // buttons
   nanogui::Button *playing_button_{nullptr};

@@ -44,7 +44,7 @@ Arena::Arena(const struct arena_params *const params)
   // AddRobot(kExplore,1);
   // AddEntity(kFood, 4);  // 4 foods
   // AddEntity(kLight, 4);   // changed the params to 4
-    ConfigArena(10,.5,4,4);
+    ConfigArena(10,.5,4,4,1.02);
 }
 
 Arena::~Arena() {
@@ -255,15 +255,15 @@ void Arena::AcceptCommand(Communication com) {
     default: break;
   }
 } /* AcceptCommand */
-void Arena::ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum){
+void Arena::ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum, double sensitivity){
   for (auto ent : entities_) {
     delete ent;
   } /* for(ent..) */
-    for (auto ent : lightsensor_observers_) {
-    delete ent;
+    for (auto obs : lightsensor_observers_) {
+    delete obs;
   } /* for(ent..) */
-  for (auto ent : foodsensor_observers_) {
-    delete ent;
+  for (auto obs : foodsensor_observers_) {
+    delete obs;
   } /* for(ent..) */
   entities_.clear();
   light_entities_.clear();
@@ -277,6 +277,10 @@ void Arena::ConfigArena(int robotnum, double coward_percent, int lightnum, int f
   AddRobot(kExplore,explorenum);
   AddEntity(kFood, foodnum);
   AddEntity(kLight, lightnum);
+
+  for (auto obs : lightsensor_observers_) {
+    obs->change_sensor_sensitivity(sensitivity);
+  } /* for(ent..) */
 }
 
 NAMESPACE_END(csci3081);
