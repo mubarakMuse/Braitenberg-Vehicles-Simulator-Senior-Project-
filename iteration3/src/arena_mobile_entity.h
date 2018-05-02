@@ -63,8 +63,18 @@ class ArenaMobileEntity : public ArenaEntity {
   */
   SensorTouch * get_touch_sensor() { return sensor_touch_; }
 
+  bool foodon(){
+    return food_on;
+  }
+  void set_foodBtn(bool fbtn){
+    food_on = fbtn;
+  }
+
  private:
   double speed_;
+
+  bool food_on{true};
+
 
  protected:
   // Using protected allows for direct access to sensor within entity.

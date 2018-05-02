@@ -72,8 +72,8 @@ class Controller {
   */
   Communication ConvertComm(Communication com);
 
-  void ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum, double sensitivity){
-    arena_->ConfigArena(robotnum, coward_percent, lightnum, foodnum, sensitivity);
+  void ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum, double sensitivity, bool food_on_){
+    arena_->ConfigArena(robotnum, coward_percent, lightnum, foodnum, sensitivity,food_on_);
   }
 
 

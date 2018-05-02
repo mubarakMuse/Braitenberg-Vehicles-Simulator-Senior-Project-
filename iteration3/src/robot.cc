@@ -68,7 +68,7 @@ Robot::Robot(RobotType rt) :
  ******************************************************************************/
 void Robot::TimestepUpdate(unsigned int dt) {
   IncrementRobotTime();
-  if (get_hunger()) {  // change to aggressive if its hungry
+  if (get_hunger() && foodon()) {  // change to aggressive if its hungry
     motion_handler_ = new MotionHandlerRobotAggressive(this);
   } else {  // switch back to the correct behavior when not hungry
     switch (get_robot_type()) {
@@ -87,7 +87,7 @@ void Robot::TimestepUpdate(unsigned int dt) {
     default: break;
     }
   }
-  if (get_robot_time() > 3000) {  // 2 minutes
+  if (get_robot_time() > 3000 && foodon()) {  // 2 minutes
     // ignore light when starves
     motion_handler_->set_lightsensor_reading(0, 0);
     motion_handler_->set_foodsensor_reading(left_food_sensor_->get_reading(),

@@ -239,7 +239,7 @@ void GraphicsArenaViewer::NewGameBtnPressed() {
   // handles the newgame which communicates to the arena to reset.
   paused_ = true;
   playing_button_->setCaption("Play");
-  controller_->ConfigArena(robotnum, coward_percent, lightnum, foodnum, sensitivity);
+  controller_->ConfigArena(robotnum, coward_percent, lightnum, foodnum, sensitivity,food_on_);
   //controller_->AcceptCommunication(kNewGame);
   
 
