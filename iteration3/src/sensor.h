@@ -91,6 +91,9 @@ class Sensor {
   void RelativeChangeHeading(const double delta) {
     sensorpose_.theta += delta;
   }
+  void change_sensor_sensitivity(double ss){
+    sensor_sensitivity = ss;
+  }
 
  private:
   int reading_{0};
@@ -99,6 +102,7 @@ class Sensor {
 
  protected:
   ArenaMobileEntity * entity_;
+  double sensor_sensitivity{1.02};
 };
 
 NAMESPACE_END(csci3081);

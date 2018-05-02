@@ -31,7 +31,7 @@ int FoodSensor::CalculateReading(Food *ent) {
   double deltaX = mypose.x - ent->get_pose().x;
   double deltaY = mypose.y - ent->get_pose().y;
   double distance = (pow(deltaX*deltaX + deltaY*deltaY, 0.5) - 16);
-  reading = 1200/(pow(1.02, distance));
+  reading = 1200/(pow(sensor_sensitivity, distance));
   return reading;
 }
 
