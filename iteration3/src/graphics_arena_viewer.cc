@@ -195,6 +195,11 @@ GraphicsArenaViewer::GraphicsArenaViewer(
       // std::cout << " number of foods" << foodnum << std::endl;
     }
   );
+  foodOnOff_button_ =
+    gui->addButton(
+      "Food On",
+      std::bind(&GraphicsArenaViewer::foodOnOffBtnPressed, this));
+    foodOnOff_button_->setFixedWidth(100);
   // Lays out all the components with "15" units of inbetween spacing
   panel->setLayout(new nanogui::BoxLayout(nanogui::Orientation::Vertical, nanogui::Alignment::Middle, 0, 15));
 
@@ -236,6 +241,19 @@ void GraphicsArenaViewer::NewGameBtnPressed() {
   playing_button_->setCaption("Play");
   controller_->ConfigArena(robotnum, coward_percent, lightnum, foodnum, sensitivity);
   //controller_->AcceptCommunication(kNewGame);
+  
+
+}
+void GraphicsArenaViewer::foodOnOffBtnPressed() {
+  if (food_on_){
+    food_on_ = false;
+    foodOnOff_button_->setCaption("Food Off");
+  }
+  else{
+    food_on_ = true;
+    foodOnOff_button_->setCaption("Food On");
+  }
+  
   
 
 }

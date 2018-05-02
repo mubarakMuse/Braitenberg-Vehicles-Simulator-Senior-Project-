@@ -103,6 +103,9 @@ class GraphicsArenaViewer : public GraphicsApp {
    * @param[in] pos The position of the release.
    * @param[in] delta How far the mouse has moved.
    */
+
+  void foodOnOffBtnPressed();
+
   void OnMouseMove(__unused const Point2& pos,
                    __unused const Vector2& delta) override {};
 
@@ -240,10 +243,13 @@ class GraphicsArenaViewer : public GraphicsApp {
   int lightnum{4}; 
   int foodnum{4};
   double sensitivity{1.02};
+  bool food_on_{true};
 
   // buttons
   nanogui::Button *playing_button_{nullptr};
   nanogui::Button *NewGame_button_{nullptr};
+  nanogui::Button *foodOnOff_button_{nullptr};
+  
 };
 
 NAMESPACE_END(csci3081);
