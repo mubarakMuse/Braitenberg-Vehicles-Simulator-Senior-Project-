@@ -179,7 +179,7 @@ GraphicsArenaViewer::GraphicsArenaViewer(
   nanogui::TextBox *textBox5 = new nanogui::TextBox(panel);
   textBox5->setFixedSize(nanogui::Vector2i(60, 25));
   textBox5->setFontSize(20);
-  textBox5->setValue("1.2");
+  textBox5->setValue(".2");
   //textBox2->setAlignment(nanogui::TextBox::Alignment::Right);
 
   slider5->setCallback(

@@ -1,0 +1,30 @@
+\hypertarget{class_food_sensor}{}\section{Food\+Sensor Class Reference}
+\label{class_food_sensor}\index{Food\+Sensor@{Food\+Sensor}}
+Inheritance diagram for Food\+Sensor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_food_sensor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_food_sensor_a69a35d7061b547ef3140aa03d889b749}\label{class_food_sensor_a69a35d7061b547ef3140aa03d889b749}} 
+\mbox{\hyperlink{class_food_sensor_a69a35d7061b547ef3140aa03d889b749}{Food\+Sensor}} (\mbox{\hyperlink{class_arena_mobile_entity}{Arena\+Mobile\+Entity}} $\ast$ent)
+\begin{DoxyCompactList}\small\item\em food sesnor that inherits from the parent sesnor class \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_food_sensor_a76e0a85b68b3fb3983d25c43673f37b7}\label{class_food_sensor_a76e0a85b68b3fb3983d25c43673f37b7}} 
+int \mbox{\hyperlink{class_food_sensor_a76e0a85b68b3fb3983d25c43673f37b7}{Calculate\+Reading}} (\mbox{\hyperlink{class_food}{Food}} $\ast$ent)
+\begin{DoxyCompactList}\small\item\em calaculates the reading using the expontial function \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_food_sensor_a1b60ca32e66f68f2ca7ddd1d6d709764}\label{class_food_sensor_a1b60ca32e66f68f2ca7ddd1d6d709764}} 
+void \mbox{\hyperlink{class_food_sensor_a1b60ca32e66f68f2ca7ddd1d6d709764}{Reset}} () override
+\begin{DoxyCompactList}\small\item\em resets the sensors reading \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_food_sensor_a06e24339037730b4aea6d37cf15cf0b9}\label{class_food_sensor_a06e24339037730b4aea6d37cf15cf0b9}} 
+void \mbox{\hyperlink{class_food_sensor_a06e24339037730b4aea6d37cf15cf0b9}{update}} (std\+::vector$<$ class \mbox{\hyperlink{class_arena_entity}{Arena\+Entity}} $\ast$$>$ stimili) override
+\begin{DoxyCompactList}\small\item\em accumalates the reading by calling the Calculate\+Reading for each food in the arena \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{food__sensor_8h}{food\+\_\+sensor.\+h}}\item 
+src/\mbox{\hyperlink{food__sensor_8cc}{food\+\_\+sensor.\+cc}}\end{DoxyCompactItemize}

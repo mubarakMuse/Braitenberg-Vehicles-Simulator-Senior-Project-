@@ -63,7 +63,7 @@ class Sensor {
   void sensor_robot_location(double angle) {
     double theta = entity_->get_pose().theta + angle;
     double x = entity_->get_radius() * cos(theta)+ entity_->get_pose().x;
-    double y = entity_->get_radius() * cos(theta)+ entity_->get_pose().y;
+    double y = entity_->get_radius() * sin(theta)+ entity_->get_pose().y;
     set_position(x, y);
   }
 

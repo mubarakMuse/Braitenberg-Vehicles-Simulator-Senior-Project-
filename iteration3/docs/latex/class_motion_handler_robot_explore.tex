@@ -1,0 +1,57 @@
+\hypertarget{class_motion_handler_robot_explore}{}\section{Motion\+Handler\+Robot\+Explore Class Reference}
+\label{class_motion_handler_robot_explore}\index{Motion\+Handler\+Robot\+Explore@{Motion\+Handler\+Robot\+Explore}}
+
+
+Class managing a \mbox{\hyperlink{class_robot}{Robot}}\textquotesingle{}s and \mbox{\hyperlink{class_light}{Light}}\textquotesingle{}s speed and heading angle based on the explore sensor readings.  
+
+
+
+
+{\ttfamily \#include $<$motion\+\_\+handler\+\_\+robot\+\_\+explore.\+h$>$}
+
+Inheritance diagram for Motion\+Handler\+Robot\+Explore\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_motion_handler_robot_explore}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_a5d62df9b7ffd800d4b35859ba1a72f3e}\label{class_motion_handler_robot_explore_a5d62df9b7ffd800d4b35859ba1a72f3e}} 
+{\bfseries Motion\+Handler\+Robot\+Explore} (\mbox{\hyperlink{class_arena_mobile_entity}{Arena\+Mobile\+Entity}} $\ast$ent)
+\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_ae82ba22271a4cf497d68f4bcd8c4b4e4}\label{class_motion_handler_robot_explore_ae82ba22271a4cf497d68f4bcd8c4b4e4}} 
+{\bfseries Motion\+Handler\+Robot\+Explore} (const \mbox{\hyperlink{class_motion_handler_robot_explore}{Motion\+Handler\+Robot\+Explore}} \&other)=default
+\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_a4ee07340d788ea4fdc7de86b5f51da02}\label{class_motion_handler_robot_explore_a4ee07340d788ea4fdc7de86b5f51da02}} 
+\mbox{\hyperlink{class_motion_handler_robot_explore}{Motion\+Handler\+Robot\+Explore}} \& {\bfseries operator=} (const \mbox{\hyperlink{class_motion_handler_robot_explore}{Motion\+Handler\+Robot\+Explore}} \&other)=default
+\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_a88d0b13f1082475630d1955258aaa174}\label{class_motion_handler_robot_explore_a88d0b13f1082475630d1955258aaa174}} 
+void \mbox{\hyperlink{class_motion_handler_robot_explore_a88d0b13f1082475630d1955258aaa174}{Update\+Velocity}} () override
+\begin{DoxyCompactList}\small\item\em Update the speed and the pose angle according to the explore sensor readings.. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_aa52a668bd64c17b56dbd0be199cddc2c}\label{class_motion_handler_robot_explore_aa52a668bd64c17b56dbd0be199cddc2c}} 
+void \mbox{\hyperlink{class_motion_handler_robot_explore_aa52a668bd64c17b56dbd0be199cddc2c}{Increase\+Speed}} () override
+\begin{DoxyCompactList}\small\item\em Increase the overall speed of the entity by speed\+\_\+delta. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_a8898051b46761b8ba64468a3afa1bbca}\label{class_motion_handler_robot_explore_a8898051b46761b8ba64468a3afa1bbca}} 
+void \mbox{\hyperlink{class_motion_handler_robot_explore_a8898051b46761b8ba64468a3afa1bbca}{Decrease\+Speed}} () override
+\begin{DoxyCompactList}\small\item\em Decrease the overall speed of the entity by speed\+\_\+delta. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_a2641f1d587f28f454f0455f6ccc98c3f}\label{class_motion_handler_robot_explore_a2641f1d587f28f454f0455f6ccc98c3f}} 
+void \mbox{\hyperlink{class_motion_handler_robot_explore_a2641f1d587f28f454f0455f6ccc98c3f}{Turn\+Right}} () override
+\begin{DoxyCompactList}\small\item\em Turn the entity to the right by angle\+\_\+delta (in degrees?) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_a4abe8735e4f4d22757a544d075885402}\label{class_motion_handler_robot_explore_a4abe8735e4f4d22757a544d075885402}} 
+void \mbox{\hyperlink{class_motion_handler_robot_explore_a4abe8735e4f4d22757a544d075885402}{Turn\+Left}} () override
+\begin{DoxyCompactList}\small\item\em Turn the entity to the left by angle\+\_\+delta (in degrees?) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_motion_handler_robot_explore_a975326a8f0719b6feb48a7aa24afe4ea}\label{class_motion_handler_robot_explore_a975326a8f0719b6feb48a7aa24afe4ea}} 
+void \mbox{\hyperlink{class_motion_handler_robot_explore_a975326a8f0719b6feb48a7aa24afe4ea}{Stop}} () override
+\begin{DoxyCompactList}\small\item\em stop the entity to be at zero velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class managing a \mbox{\hyperlink{class_robot}{Robot}}\textquotesingle{}s and \mbox{\hyperlink{class_light}{Light}}\textquotesingle{}s speed and heading angle based on the explore sensor readings. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{motion__handler__robot__explore_8h}{motion\+\_\+handler\+\_\+robot\+\_\+explore.\+h}}\item 
+src/\mbox{\hyperlink{motion__handler__robot__explore_8cc}{motion\+\_\+handler\+\_\+robot\+\_\+explore.\+cc}}\end{DoxyCompactItemize}
