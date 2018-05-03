@@ -27,12 +27,12 @@ class LightSensorTest : public ::testing::Test {
  protected:
   virtual void SetUp() {
     robot = new csci3081::Robot(csci3081::kUndefinedRT);
-    robot.set_radius(10);
-    // csci3081::Pose pose1 = { 500, 500 , 0};
-    // robot->set_pose(pose1);
-    robot.set_pose(100,100,0);
+    robot->set_radius(16);
+    csci3081::Pose pose1 = { 100, 100, 0};
+    robot->set_pose(pose1);
+    //robot->set_pose(100,100,0);
   }
-  csci3081::Robot robot = new csci3081::Robot(csci3081::kUndefinedRT);
+  csci3081::Robot * robot = new csci3081::Robot(csci3081::kUndefinedRT);
   std::vector<class ArenaEntity *> light_entities_;
 };
 
@@ -40,15 +40,23 @@ class LightSensorTest : public ::testing::Test {
  * Test Cases
  ******************************************************************************/
 
+
+// void sensor_robot_location(double angle) {
+//     double theta = entity_->get_pose().theta + angle;
+//     double x = entity_->get_radius() * cos(theta)+ entity_->get_pose().x;
+//     double y = entity_->get_radius() * cos(theta)+ entity_->get_pose().y;
+//     set_position(x, y);
+//   }
 TEST_F(LightSensorTest,UpdatePositionHeading0) {
   // boundary: robot heading at 0
-  // csci3081::Pose pose1 = { 500, 500 , 0};
-  // robot->set_pose(Pose(100,100,0));
-  // robot->get_right_light_sensor()->sensor_robot_location(65*M_PI/180);
-  // robot->get_left_light_sensor()->sensor_robot_location(-65*M_PI/180);
-  // csci3081::Pose poseR = { 500, 500 , 0};
-  // csci3081::Pose poseL = { 500, 500 , 0};
-  //EXPECT_EQ(robot->get_pose(),poseR);
+  csci3081::Pose pose1 = { 100, 100, 0};
+  robot->set_pose(pose1);
+  robot->get_right_light_sensor()->sensor_robot_location(65*M_PI/180);
+  robot->get_left_light_sensor()->sensor_robot_location(-65*M_PI/180);
+  csci3081::Pose poseR = { 106.762, 106.762 , 0};
+  csci3081::Pose poseL = { 100, 100 , 0};
+  EXPECT_EQ(robot->get_right_light_sensor()->get_pose().x,poseR.x);
+  EXPECT_EQ(robot->get_right_light_sensor()->get_pose().y,poseR.y);
   //EXPECT_EQ(robot->get_pose(),poseL);
  }
 
