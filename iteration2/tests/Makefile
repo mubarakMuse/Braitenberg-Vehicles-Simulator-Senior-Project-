@@ -32,10 +32,9 @@ CS3081DIR = /classes/csel-s18c3081
 # build and run the unittest executable.
 # DEFINES += -DMY_ARENA_TESTS
 
-DEFINES += -DARENA_TESTS
-DEFINES += -DROBOT_TESTS
-DEFINES += -DBASE_TESTS
-DEFINES += -DINTEGRATION_TESTS
+DEFINES += -DMOTIONHANDLER_TESTS
+DEFINES += -DLIGHTSENSOR_TESTS
+
 
 # Directory of source files for the project we wish to test
 PROJROOTDIR = ..
