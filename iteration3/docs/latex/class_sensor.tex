@@ -1,0 +1,91 @@
+\hypertarget{class_sensor}{}\section{Sensor Class Reference}
+\label{class_sensor}\index{Sensor@{Sensor}}
+Inheritance diagram for Sensor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sensor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Sensor} (\hyperlink{class_arena_mobile_entity}{Arena\+Mobile\+Entity} $\ast$ent)\hypertarget{class_sensor_a13c4b3a00db6e21e2ac33647440fdc37}{}\label{class_sensor_a13c4b3a00db6e21e2ac33647440fdc37}
+
+\item 
+{\bfseries Sensor} (const \hyperlink{class_sensor}{Sensor} \&)=default\hypertarget{class_sensor_ac1d81bc5c639eeafed38d69e40dc07b8}{}\label{class_sensor_ac1d81bc5c639eeafed38d69e40dc07b8}
+
+\item 
+\hyperlink{class_sensor}{Sensor} \& {\bfseries operator=} (const \hyperlink{class_sensor}{Sensor} \&other)=default\hypertarget{class_sensor_a48b21cd29fa3f183a2fb9e6447de2219}{}\label{class_sensor_a48b21cd29fa3f183a2fb9e6447de2219}
+
+\item 
+virtual void {\bfseries update} (\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused} std\+::vector$<$ class \hyperlink{class_arena_entity}{Arena\+Entity} $\ast$ $>$ stimili)\hypertarget{class_sensor_a152c11dc8df6982d0fad5b2082055e78}{}\label{class_sensor_a152c11dc8df6982d0fad5b2082055e78}
+
+\item 
+virtual void {\bfseries Reset} ()\hypertarget{class_sensor_a5e6ad1aa7b2c48e59851e03404dacbde}{}\label{class_sensor_a5e6ad1aa7b2c48e59851e03404dacbde}
+
+\item 
+void {\bfseries set\+\_\+reading} (int num)\hypertarget{class_sensor_a3ee42616cfe5e55c1efa2a4fd6761a44}{}\label{class_sensor_a3ee42616cfe5e55c1efa2a4fd6761a44}
+
+\item 
+int {\bfseries get\+\_\+reading} ()\hypertarget{class_sensor_ae574c5b7e58bdbbc47c0d83a7561fa19}{}\label{class_sensor_ae574c5b7e58bdbbc47c0d83a7561fa19}
+
+\item 
+void {\bfseries set\+\_\+pose} (\hyperlink{struct_pose}{Pose} p)\hypertarget{class_sensor_a877b65abc60821f62fe16771923fba38}{}\label{class_sensor_a877b65abc60821f62fe16771923fba38}
+
+\item 
+\hyperlink{struct_pose}{Pose} {\bfseries get\+\_\+pose} ()\hypertarget{class_sensor_afa533b8d8bb5f3787682ffc5ab8c989c}{}\label{class_sensor_afa533b8d8bb5f3787682ffc5ab8c989c}
+
+\item 
+void {\bfseries sensor\+\_\+robot\+\_\+location} (double angle)\hypertarget{class_sensor_a97e17a4d4b5fb30bf81d4ad6ee363715}{}\label{class_sensor_a97e17a4d4b5fb30bf81d4ad6ee363715}
+
+\item 
+const \hyperlink{struct_rgb_color}{Rgb\+Color} \& {\bfseries get\+\_\+color} () const \hypertarget{class_sensor_af5c275ceac411cfcc0903d6d837ed3e7}{}\label{class_sensor_af5c275ceac411cfcc0903d6d837ed3e7}
+
+\item 
+void {\bfseries set\+\_\+color} (const \hyperlink{struct_rgb_color}{Rgb\+Color} \&color)\hypertarget{class_sensor_a4c7c83edd18efc4a93d3fda798dbceec}{}\label{class_sensor_a4c7c83edd18efc4a93d3fda798dbceec}
+
+\item 
+void \hyperlink{class_sensor_aa38343db9a4da55dde95cb2579204b06}{set\+\_\+position} (const double inx, const double iny)\hypertarget{class_sensor_aa38343db9a4da55dde95cb2579204b06}{}\label{class_sensor_aa38343db9a4da55dde95cb2579204b06}
+
+\begin{DoxyCompactList}\small\item\em Setter method for position within entity pose variable. \end{DoxyCompactList}\item 
+void {\bfseries set\+\_\+heading} (const double t)\hypertarget{class_sensor_a95e911a62cef5adfbb0a8ee395cfa881}{}\label{class_sensor_a95e911a62cef5adfbb0a8ee395cfa881}
+
+\item 
+void \hyperlink{class_sensor_ad93b67ee775232e4b6e939fd043f0b84}{Relative\+Change\+Heading} (const double delta)
+\begin{DoxyCompactList}\small\item\em Setter for heading within pose, but change is relative to current value. \end{DoxyCompactList}\item 
+void {\bfseries change\+\_\+sensor\+\_\+sensitivity} (double ss)\hypertarget{class_sensor_a52e3dc66b6aeee78893d08a9d4511fae}{}\label{class_sensor_a52e3dc66b6aeee78893d08a9d4511fae}
+
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_arena_mobile_entity}{Arena\+Mobile\+Entity} $\ast$ {\bfseries entity\+\_\+}\hypertarget{class_sensor_a03559676893c5d485ba8122d5aeb9bd4}{}\label{class_sensor_a03559676893c5d485ba8122d5aeb9bd4}
+
+\item 
+double {\bfseries sensor\+\_\+sensitivity} \{1.\+02\}\hypertarget{class_sensor_a090df848b7270a17ea41a0a28816515b}{}\label{class_sensor_a090df848b7270a17ea41a0a28816515b}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\index{Sensor@{Sensor}!Relative\+Change\+Heading@{Relative\+Change\+Heading}}
+\index{Relative\+Change\+Heading@{Relative\+Change\+Heading}!Sensor@{Sensor}}
+\subsubsection[{\texorpdfstring{Relative\+Change\+Heading(const double delta)}{RelativeChangeHeading(const double delta)}}]{\setlength{\rightskip}{0pt plus 5cm}void Sensor\+::\+Relative\+Change\+Heading (
+\begin{DoxyParamCaption}
+\item[{const double}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_sensor_ad93b67ee775232e4b6e939fd043f0b84}{}\label{class_sensor_ad93b67ee775232e4b6e939fd043f0b84}
+
+
+Setter for heading within pose, but change is relative to current value. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em delta} & by which to modify current heading. Can be positive or negative. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{sensor_8h}{sensor.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,57 @@
+\hypertarget{class_motion_handler_robot_coward}{}\section{Motion\+Handler\+Robot\+Coward Class Reference}
+\label{class_motion_handler_robot_coward}\index{Motion\+Handler\+Robot\+Coward@{Motion\+Handler\+Robot\+Coward}}
+
+
+Class managing a \hyperlink{class_robot}{Robot}\textquotesingle{}s and \hyperlink{class_light}{Light}\textquotesingle{}s speed and heading angle based on coward sesnor reading.  
+
+
+
+
+{\ttfamily \#include $<$motion\+\_\+handler\+\_\+robot\+\_\+coward.\+h$>$}
+
+Inheritance diagram for Motion\+Handler\+Robot\+Coward\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_motion_handler_robot_coward}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Motion\+Handler\+Robot\+Coward} (\hyperlink{class_arena_mobile_entity}{Arena\+Mobile\+Entity} $\ast$ent)\hypertarget{class_motion_handler_robot_coward_a51242788c5a3ca3dc46530a14ab8e301}{}\label{class_motion_handler_robot_coward_a51242788c5a3ca3dc46530a14ab8e301}
+
+\item 
+{\bfseries Motion\+Handler\+Robot\+Coward} (const \hyperlink{class_motion_handler_robot_coward}{Motion\+Handler\+Robot\+Coward} \&other)=default\hypertarget{class_motion_handler_robot_coward_ae650416cd316871701127a288eed709a}{}\label{class_motion_handler_robot_coward_ae650416cd316871701127a288eed709a}
+
+\item 
+\hyperlink{class_motion_handler_robot_coward}{Motion\+Handler\+Robot\+Coward} \& {\bfseries operator=} (const \hyperlink{class_motion_handler_robot_coward}{Motion\+Handler\+Robot\+Coward} \&other)=default\hypertarget{class_motion_handler_robot_coward_a3bcc3dd802154daf29fa2740bd6c31ae}{}\label{class_motion_handler_robot_coward_a3bcc3dd802154daf29fa2740bd6c31ae}
+
+\item 
+void \hyperlink{class_motion_handler_robot_coward_a5f4f03d6128a7d19b2c36af433a17cfd}{Update\+Velocity} () override\hypertarget{class_motion_handler_robot_coward_a5f4f03d6128a7d19b2c36af433a17cfd}{}\label{class_motion_handler_robot_coward_a5f4f03d6128a7d19b2c36af433a17cfd}
+
+\begin{DoxyCompactList}\small\item\em Update the speed and the pose angle according to the sensor readings. \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_coward_a22416ce3267987817dc3aba02bfb5d7b}{Increase\+Speed} () override\hypertarget{class_motion_handler_robot_coward_a22416ce3267987817dc3aba02bfb5d7b}{}\label{class_motion_handler_robot_coward_a22416ce3267987817dc3aba02bfb5d7b}
+
+\begin{DoxyCompactList}\small\item\em Increase the overall speed of the entity by speed\+\_\+delta. \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_coward_ad8280dc0f2bcdaf93b68ae87447cdef4}{Decrease\+Speed} () override\hypertarget{class_motion_handler_robot_coward_ad8280dc0f2bcdaf93b68ae87447cdef4}{}\label{class_motion_handler_robot_coward_ad8280dc0f2bcdaf93b68ae87447cdef4}
+
+\begin{DoxyCompactList}\small\item\em Decrease the overall speed of the entity by speed\+\_\+delta. \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_coward_ad1244c83f6c9f81d28f1080dbe955e89}{Turn\+Right} () override\hypertarget{class_motion_handler_robot_coward_ad1244c83f6c9f81d28f1080dbe955e89}{}\label{class_motion_handler_robot_coward_ad1244c83f6c9f81d28f1080dbe955e89}
+
+\begin{DoxyCompactList}\small\item\em Turn the entity to the right by angle\+\_\+delta (in degrees?) \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_coward_af0f39f6289c90aa5d8e1db3fee3bf6f0}{Turn\+Left} () override\hypertarget{class_motion_handler_robot_coward_af0f39f6289c90aa5d8e1db3fee3bf6f0}{}\label{class_motion_handler_robot_coward_af0f39f6289c90aa5d8e1db3fee3bf6f0}
+
+\begin{DoxyCompactList}\small\item\em Turn the entity to the left by angle\+\_\+delta (in degrees?) \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_coward_a532bf275aa6bd551378c581a890ba54f}{Stop} () override\hypertarget{class_motion_handler_robot_coward_a532bf275aa6bd551378c581a890ba54f}{}\label{class_motion_handler_robot_coward_a532bf275aa6bd551378c581a890ba54f}
+
+\begin{DoxyCompactList}\small\item\em stop the entity to be at zero velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class managing a \hyperlink{class_robot}{Robot}\textquotesingle{}s and \hyperlink{class_light}{Light}\textquotesingle{}s speed and heading angle based on coward sesnor reading. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{motion__handler__robot__coward_8h}{motion\+\_\+handler\+\_\+robot\+\_\+coward.\+h}\item 
+src/\hyperlink{motion__handler__robot__coward_8cc}{motion\+\_\+handler\+\_\+robot\+\_\+coward.\+cc}\end{DoxyCompactItemize}

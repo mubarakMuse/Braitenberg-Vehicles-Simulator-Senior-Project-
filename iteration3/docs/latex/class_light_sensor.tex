@@ -1,0 +1,30 @@
+\hypertarget{class_light_sensor}{}\section{Light\+Sensor Class Reference}
+\label{class_light_sensor}\index{Light\+Sensor@{Light\+Sensor}}
+Inheritance diagram for Light\+Sensor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_light_sensor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_light_sensor_ac99ce134fee5ee22775a8d5a6531d02b}{Light\+Sensor} (\hyperlink{class_arena_mobile_entity}{Arena\+Mobile\+Entity} $\ast$ent)\hypertarget{class_light_sensor_ac99ce134fee5ee22775a8d5a6531d02b}{}\label{class_light_sensor_ac99ce134fee5ee22775a8d5a6531d02b}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_arena_entity}{Arena\+Entity} constructor initialized with default values from \hyperlink{params_8h}{params.\+h}. \end{DoxyCompactList}\item 
+int \hyperlink{class_light_sensor_abcd9b14b4c09ed48d09eddd72943f898}{Calculate\+Reading} (\hyperlink{class_light}{Light} $\ast$ent)\hypertarget{class_light_sensor_abcd9b14b4c09ed48d09eddd72943f898}{}\label{class_light_sensor_abcd9b14b4c09ed48d09eddd72943f898}
+
+\begin{DoxyCompactList}\small\item\em calaculates the reading using the expontial function \end{DoxyCompactList}\item 
+void \hyperlink{class_light_sensor_a8b8643f10dc619dd8f31ab87034a04f6}{Reset} () override\hypertarget{class_light_sensor_a8b8643f10dc619dd8f31ab87034a04f6}{}\label{class_light_sensor_a8b8643f10dc619dd8f31ab87034a04f6}
+
+\begin{DoxyCompactList}\small\item\em resets the sensors reading \end{DoxyCompactList}\item 
+void \hyperlink{class_light_sensor_acf1befd5d67f95bebf3a12f9e3abe93a}{update} (std\+::vector$<$ class \hyperlink{class_arena_entity}{Arena\+Entity} $\ast$ $>$ stimili) override\hypertarget{class_light_sensor_acf1befd5d67f95bebf3a12f9e3abe93a}{}\label{class_light_sensor_acf1befd5d67f95bebf3a12f9e3abe93a}
+
+\begin{DoxyCompactList}\small\item\em accumalates the reading by calling the Calculate\+Reading for each light in the arena \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{light__sensor_8h}{light\+\_\+sensor.\+h}\item 
+src/\hyperlink{light__sensor_8cc}{light\+\_\+sensor.\+cc}\end{DoxyCompactItemize}

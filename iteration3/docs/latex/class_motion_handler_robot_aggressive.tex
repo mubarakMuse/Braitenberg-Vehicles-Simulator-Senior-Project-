@@ -1,0 +1,57 @@
+\hypertarget{class_motion_handler_robot_aggressive}{}\section{Motion\+Handler\+Robot\+Aggressive Class Reference}
+\label{class_motion_handler_robot_aggressive}\index{Motion\+Handler\+Robot\+Aggressive@{Motion\+Handler\+Robot\+Aggressive}}
+
+
+Class managing a \hyperlink{class_robot}{Robot}\textquotesingle{}s and \hyperlink{class_light}{Light}\textquotesingle{}s speed and heading angle based on aggressive sensor readings.  
+
+
+
+
+{\ttfamily \#include $<$motion\+\_\+handler\+\_\+robot\+\_\+aggressive.\+h$>$}
+
+Inheritance diagram for Motion\+Handler\+Robot\+Aggressive\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_motion_handler_robot_aggressive}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Motion\+Handler\+Robot\+Aggressive} (\hyperlink{class_arena_mobile_entity}{Arena\+Mobile\+Entity} $\ast$ent)\hypertarget{class_motion_handler_robot_aggressive_acf648d0f2f208acae95758437a426299}{}\label{class_motion_handler_robot_aggressive_acf648d0f2f208acae95758437a426299}
+
+\item 
+{\bfseries Motion\+Handler\+Robot\+Aggressive} (const \hyperlink{class_motion_handler_robot_aggressive}{Motion\+Handler\+Robot\+Aggressive} \&other)=default\hypertarget{class_motion_handler_robot_aggressive_a044bb32eea5f808939acd90964b4e1c4}{}\label{class_motion_handler_robot_aggressive_a044bb32eea5f808939acd90964b4e1c4}
+
+\item 
+\hyperlink{class_motion_handler_robot_aggressive}{Motion\+Handler\+Robot\+Aggressive} \& {\bfseries operator=} (const \hyperlink{class_motion_handler_robot_aggressive}{Motion\+Handler\+Robot\+Aggressive} \&o)=default\hypertarget{class_motion_handler_robot_aggressive_a7fc4c7bc46c31da2cd51b3cbce16d1d9}{}\label{class_motion_handler_robot_aggressive_a7fc4c7bc46c31da2cd51b3cbce16d1d9}
+
+\item 
+void \hyperlink{class_motion_handler_robot_aggressive_ac8bee64034c5fbf46dfce6de36b61dbe}{Update\+Velocity} () override\hypertarget{class_motion_handler_robot_aggressive_ac8bee64034c5fbf46dfce6de36b61dbe}{}\label{class_motion_handler_robot_aggressive_ac8bee64034c5fbf46dfce6de36b61dbe}
+
+\begin{DoxyCompactList}\small\item\em Update the speed and the pose angle according to the aggressive sensor readings. \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_aggressive_afb955c958c2b1670e023cf7b6587cce6}{Increase\+Speed} () override\hypertarget{class_motion_handler_robot_aggressive_afb955c958c2b1670e023cf7b6587cce6}{}\label{class_motion_handler_robot_aggressive_afb955c958c2b1670e023cf7b6587cce6}
+
+\begin{DoxyCompactList}\small\item\em Increase the overall speed of the entity by speed\+\_\+delta. \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_aggressive_a3f356f4caa6bdbed06c951f27a5cad76}{Decrease\+Speed} () override\hypertarget{class_motion_handler_robot_aggressive_a3f356f4caa6bdbed06c951f27a5cad76}{}\label{class_motion_handler_robot_aggressive_a3f356f4caa6bdbed06c951f27a5cad76}
+
+\begin{DoxyCompactList}\small\item\em Decrease the overall speed of the entity by speed\+\_\+delta. \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_aggressive_a848029187d0e50d64a2a1b91a0f7c541}{Turn\+Right} () override\hypertarget{class_motion_handler_robot_aggressive_a848029187d0e50d64a2a1b91a0f7c541}{}\label{class_motion_handler_robot_aggressive_a848029187d0e50d64a2a1b91a0f7c541}
+
+\begin{DoxyCompactList}\small\item\em Turn the entity to the right by angle\+\_\+delta (in degrees?) \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_aggressive_a67f0e31a85f979273896433ddfb38a61}{Turn\+Left} () override\hypertarget{class_motion_handler_robot_aggressive_a67f0e31a85f979273896433ddfb38a61}{}\label{class_motion_handler_robot_aggressive_a67f0e31a85f979273896433ddfb38a61}
+
+\begin{DoxyCompactList}\small\item\em Turn the entity to the left by angle\+\_\+delta (in degrees?) \end{DoxyCompactList}\item 
+void \hyperlink{class_motion_handler_robot_aggressive_a8c4e7489817fb53fda12a17bc044d76b}{Stop} () override\hypertarget{class_motion_handler_robot_aggressive_a8c4e7489817fb53fda12a17bc044d76b}{}\label{class_motion_handler_robot_aggressive_a8c4e7489817fb53fda12a17bc044d76b}
+
+\begin{DoxyCompactList}\small\item\em stop the entity to be at zero velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class managing a \hyperlink{class_robot}{Robot}\textquotesingle{}s and \hyperlink{class_light}{Light}\textquotesingle{}s speed and heading angle based on aggressive sensor readings. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{motion__handler__robot__aggressive_8h}{motion\+\_\+handler\+\_\+robot\+\_\+aggressive.\+h}\item 
+src/\hyperlink{motion__handler__robot__aggressive_8cc}{motion\+\_\+handler\+\_\+robot\+\_\+aggressive.\+cc}\end{DoxyCompactItemize}
