@@ -87,8 +87,8 @@ For the table below, please identify which aspects were fixed. You should put an
 
 ### Documentation
 
-- [ ] The UML document &lt;username&gt;_UML.pdf file for the iteration 3 exists in _docs_.
-- [ ] The UML document reflects the requirements of iteration 3.
+- [ x] The UML document &lt;username&gt;_UML.pdf file for the iteration 3 exists in _docs_.
+- [x ] The UML document reflects the requirements of iteration 3.
 - [x ] _mainpage.h_ or _mainpage.md_ is in the /src folder.
 - [x ] I have compiled doxygen and looked at the generated mainpage.
 - [x ] The mainpage includes a user guide for technical users.
