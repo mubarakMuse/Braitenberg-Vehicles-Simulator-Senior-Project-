@@ -1,0 +1,69 @@
+\hypertarget{classMotionHandlerRobotLove}{}\section{Motion\+Handler\+Robot\+Love Class Reference}
+\label{classMotionHandlerRobotLove}\index{Motion\+Handler\+Robot\+Love@{Motion\+Handler\+Robot\+Love}}
+
+
+Class managing a \hyperlink{classRobot}{Robot}\textquotesingle{}s and \hyperlink{classLight}{Light}\textquotesingle{}s speed and heading angle based on the love sensor readings.  
+
+
+
+
+{\ttfamily \#include $<$motion\+\_\+handler\+\_\+robot\+\_\+love.\+h$>$}
+
+
+
+Inheritance diagram for Motion\+Handler\+Robot\+Love\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classMotionHandlerRobotLove__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Motion\+Handler\+Robot\+Love\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=250pt]{classMotionHandlerRobotLove__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Motion\+Handler\+Robot\+Love} (\hyperlink{classArenaMobileEntity}{Arena\+Mobile\+Entity} $\ast$ent)\hypertarget{classMotionHandlerRobotLove_aa2e0d7f03281a230f095d825ab2b35c6}{}\label{classMotionHandlerRobotLove_aa2e0d7f03281a230f095d825ab2b35c6}
+
+\item 
+{\bfseries Motion\+Handler\+Robot\+Love} (const \hyperlink{classMotionHandlerRobotLove}{Motion\+Handler\+Robot\+Love} \&other)=default\hypertarget{classMotionHandlerRobotLove_a547d8a567954d2b82ef8e5f30f1c9515}{}\label{classMotionHandlerRobotLove_a547d8a567954d2b82ef8e5f30f1c9515}
+
+\item 
+\hyperlink{classMotionHandlerRobotLove}{Motion\+Handler\+Robot\+Love} \& {\bfseries operator=} (const \hyperlink{classMotionHandlerRobotLove}{Motion\+Handler\+Robot\+Love} \&other)=default\hypertarget{classMotionHandlerRobotLove_a5a281795ebc5df70d5529fc012bc4aa5}{}\label{classMotionHandlerRobotLove_a5a281795ebc5df70d5529fc012bc4aa5}
+
+\item 
+void \hyperlink{classMotionHandlerRobotLove_a3d4030e29ee33bbd4cddfc9850543615}{Update\+Velocity} () override\hypertarget{classMotionHandlerRobotLove_a3d4030e29ee33bbd4cddfc9850543615}{}\label{classMotionHandlerRobotLove_a3d4030e29ee33bbd4cddfc9850543615}
+
+\begin{DoxyCompactList}\small\item\em Update the speed and the pose angle according to the sensor readings. \end{DoxyCompactList}\item 
+void \hyperlink{classMotionHandlerRobotLove_ac4b0287075f1ec75e9b1bb776eb428f6}{Increase\+Speed} () override\hypertarget{classMotionHandlerRobotLove_ac4b0287075f1ec75e9b1bb776eb428f6}{}\label{classMotionHandlerRobotLove_ac4b0287075f1ec75e9b1bb776eb428f6}
+
+\begin{DoxyCompactList}\small\item\em Increase the overall speed of the entity by speed\+\_\+delta. \end{DoxyCompactList}\item 
+void \hyperlink{classMotionHandlerRobotLove_af64d850f198beaccdc9dad1a519c387c}{Decrease\+Speed} () override\hypertarget{classMotionHandlerRobotLove_af64d850f198beaccdc9dad1a519c387c}{}\label{classMotionHandlerRobotLove_af64d850f198beaccdc9dad1a519c387c}
+
+\begin{DoxyCompactList}\small\item\em Decrease the overall speed of the entity by speed\+\_\+delta. \end{DoxyCompactList}\item 
+void \hyperlink{classMotionHandlerRobotLove_aeff4a675940af2d42c6a8fd2a4519d66}{Turn\+Right} () override\hypertarget{classMotionHandlerRobotLove_aeff4a675940af2d42c6a8fd2a4519d66}{}\label{classMotionHandlerRobotLove_aeff4a675940af2d42c6a8fd2a4519d66}
+
+\begin{DoxyCompactList}\small\item\em Turn the entity to the right by angle\+\_\+delta (in degrees?) \end{DoxyCompactList}\item 
+void \hyperlink{classMotionHandlerRobotLove_a26b07483889261be22d5df90d2bdf81c}{Turn\+Left} () override\hypertarget{classMotionHandlerRobotLove_a26b07483889261be22d5df90d2bdf81c}{}\label{classMotionHandlerRobotLove_a26b07483889261be22d5df90d2bdf81c}
+
+\begin{DoxyCompactList}\small\item\em Turn the entity to the left by angle\+\_\+delta (in degrees?) \end{DoxyCompactList}\item 
+void \hyperlink{classMotionHandlerRobotLove_aaff39b4c62e5c46743bc65af94e9a09a}{Stop} () override\hypertarget{classMotionHandlerRobotLove_aaff39b4c62e5c46743bc65af94e9a09a}{}\label{classMotionHandlerRobotLove_aaff39b4c62e5c46743bc65af94e9a09a}
+
+\begin{DoxyCompactList}\small\item\em stop the entity to be at zero velocity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+Class managing a \hyperlink{classRobot}{Robot}\textquotesingle{}s and \hyperlink{classLight}{Light}\textquotesingle{}s speed and heading angle based on the love sensor readings. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/musex025/\+Desktop/project-\/musex025/iteration2/src/\hyperlink{motion__handler__robot__love_8h}{motion\+\_\+handler\+\_\+robot\+\_\+love.\+h}\item 
+/home/musex025/\+Desktop/project-\/musex025/iteration2/src/\hyperlink{motion__handler__robot__love_8cc}{motion\+\_\+handler\+\_\+robot\+\_\+love.\+cc}\end{DoxyCompactItemize}

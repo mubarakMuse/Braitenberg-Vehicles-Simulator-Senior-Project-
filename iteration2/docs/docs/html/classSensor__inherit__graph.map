@@ -1,0 +1,4 @@
+<map id="Sensor" name="Sensor">
+<area shape="rect" id="node2" href="$classFoodSensor.html" title="FoodSensor" alt="" coords="5,80,97,107"/>
+<area shape="rect" id="node3" href="$classLightSensor.html" title="LightSensor" alt="" coords="122,80,213,107"/>
+</map>
