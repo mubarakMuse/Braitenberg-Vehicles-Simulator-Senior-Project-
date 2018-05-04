@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classSensor.html" title="Sensor" alt="" coords="5,31,68,57"/>
+<area shape="rect" id="node2" href="$classFoodSensor.html" title="FoodSensor" alt="" coords="116,5,208,32"/>
+<area shape="rect" id="node3" href="$classLightSensor.html" title="LightSensor" alt="" coords="117,56,207,83"/>
+</map>

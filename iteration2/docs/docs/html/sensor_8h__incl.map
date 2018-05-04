@@ -1,0 +1,18 @@
+<map id="/home/musex025/Desktop/project&#45;musex025/iteration2/src/sensor.h" name="/home/musex025/Desktop/project&#45;musex025/iteration2/src/sensor.h">
+<area shape="rect" id="node5" href="$common_8h.html" title="src/common.h" alt="" coords="1249,647,1355,673"/>
+<area shape="rect" id="node7" href="$pose_8h.html" title="src/pose.h" alt="" coords="775,572,858,599"/>
+<area shape="rect" id="node8" href="$arena__entity_8h.html" title="src/arena_entity.h" alt="" coords="805,497,932,524"/>
+<area shape="rect" id="node11" href="$rgb__color_8h.html" title="src/rgb_color.h" alt="" coords="375,572,483,599"/>
+<area shape="rect" id="node14" href="$arena__mobile__entity_8h.html" title="src/arena_mobile_entity.h" alt="" coords="909,348,1079,375"/>
+<area shape="rect" id="node19" href="$light_8h.html" title="src/light.h" alt="" coords="599,109,677,136"/>
+<area shape="rect" id="node9" href="$entity__type_8h.html" title="src/entity_type.h" alt="" coords="507,572,625,599"/>
+<area shape="rect" id="node10" href="$params_8h.html" title="src/params.h" alt="" coords="1210,572,1309,599"/>
+<area shape="rect" id="node13" href="$robot__type_8h.html" title="src/robot_type.h" alt="" coords="1013,572,1129,599"/>
+<area shape="rect" id="node16" href="$sensor__touch_8h.html" title="src/sensor_touch.h" alt="" coords="573,423,706,449"/>
+<area shape="rect" id="node20" href="$motion__handler__robot_8h.html" title="src/motion_handler\l_robot.h" alt="" coords="739,184,871,225"/>
+<area shape="rect" id="node25" href="$motion__behavior__differential_8h.html" title="src/motion_behavior\l_differential.h" alt="" coords="1418,184,1557,225"/>
+<area shape="rect" id="node22" href="$motion__handler_8h.html" title="src/motion_handler.h" alt="" coords="1067,273,1209,300"/>
+<area shape="rect" id="node24" href="$communication_8h.html" title="src/communication.h" alt="" coords="1256,348,1399,375"/>
+<area shape="rect" id="node23" href="$wheel__velocity_8h.html" title="src/wheel_velocity.h" alt="" coords="1422,348,1563,375"/>
+<area shape="rect" id="node26" href="$motion__behavior_8h.html" title="src/motion_behavior.h" alt="" coords="1412,273,1563,300"/>
+</map>

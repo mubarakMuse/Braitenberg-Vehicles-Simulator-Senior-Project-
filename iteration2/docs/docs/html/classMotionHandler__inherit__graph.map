@@ -1,0 +1,7 @@
+<map id="MotionHandler" name="MotionHandler">
+<area shape="rect" id="node2" href="$classMotionHandlerRobot.html" title="Class managing a Robot&#39;s and Light&#39;s speed and heading angle based on collisions and user inputs..." alt="" coords="193,5,334,32"/>
+<area shape="rect" id="node3" href="$classMotionHandlerRobotAggressive.html" title="Class managing a Robot&#39;s and Light&#39;s speed and heading angle based on aggressive sensor readings..." alt="" coords="160,56,367,83"/>
+<area shape="rect" id="node4" href="$classMotionHandlerRobotCoward.html" title="Class managing a Robot&#39;s and Light&#39;s speed and heading angle based on coward sesnor reading..." alt="" coords="170,107,357,133"/>
+<area shape="rect" id="node5" href="$classMotionHandlerRobotExplore.html" title="Class managing a Robot&#39;s and Light&#39;s speed and heading angle based on the explore sensor readings..." alt="" coords="171,157,356,184"/>
+<area shape="rect" id="node6" href="$classMotionHandlerRobotLove.html" title="Class managing a Robot&#39;s and Light&#39;s speed and heading angle based on the love sensor readings..." alt="" coords="179,208,348,235"/>
+</map>
