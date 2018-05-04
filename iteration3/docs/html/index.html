@@ -67,24 +67,75 @@ $(function() {
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="intro_sec"></a>
 Introduction</h1>
-<p>This is the introduction.</p>
-<h1><a class="anchor" id="Progam_Description"></a>
-Progam_Description</h1>
-<p>The Progam is a video game in which a user controls the robot with the arrow keys. The objective of the game is to touch all of the bases without running into Lights or walls. The robot is given a fixed number of nine lives at the beginning of the game, but it will lose a life with every collision (except for when colliding with a base).</p>
-<h1><a class="anchor" id="Win_loss"></a>
-Win_loss</h1>
-<p>The Program determines is the robot has won or losses, it calls a function after each collision to see whether all the bases have been captured or if the lives of the robot are zero or less. If one of those is true and then changes the game status accordingly. the game has been won all entites turn red and if the robot looses than it all turns purple. <em>It should provide a brief overview/introduction to the software</em></p>
-<p>This is a program that simulates the brainteberg model. the different robots in my program represent different behaviors which react to two types of stimuli , food and light.</p>
-<p>The light in my system is mobile and moves around at a constant speed of 5,</p>
-<p>While the food in my system are immobile.</p>
-<p><em>then discuss specifics in the design and implementation that will assist any programmer who will be a new contributor to the code,</em></p>
-<p>Observer Design Pattern implementation:</p>
-<p>My implementation of the observer design strategy takes advantage of the arena and it knowledge of all the entities that are in our simulation. I realized that the arena would be the best candidate to be the subject in my implementation of the observer strategy. I modified my arena to be my subject by creating several new pointer vectors that would keep track of the robot sensors and light and food entities. Therefore, when it comes time to notify and update the observers it would have all the info about those entities and can pass them along to its observers.</p>
-<p>My choice for the observers of the arena was a bit tricky at first. It was a choice between making the robots observer or the sensors of each robot directly the observers of the arena. I end up implementing the strategy with the sensors as the observers of the arena because first it would mean less methods being called since if the robot it self was the observer it would then need update it sensor whenever it was updated itself. When the arena is creating robots it also registers the pointers to the sensor of that robot. Then the notify function is called at each times stamp update and that updates all the sensor with a vector all the entities its tracking.</p>
-<p>I implemented the strategy pattern in the way that robots exhibit different behaviors towards entities with the arena. I created different motion handler classes that inherit from the parent class. In particular, I have 4 different motion handler child classes that represents the four different behaviors robots exhibit (fear, love, explore, and aggression). Each of the classes then implement the update velocity function and thereby allowing it to implemented it with respect to the behaviors that class is representing.</p>
+<p>This is a program that simulates the Braitenberg Vehicles Braitenberg Vehicles are the thought experiments of Valentino Braitenberg, who imagined complex behavior from simple design. His vehicles exhibit aggression, fear, exploration, and love through simple sensor-motor connections. In my program, the robots play the role of the vehicles and inhibit those four different behaviors. Robots exhibits those behaviors towards 2 arena entities, food and lights.</p>
+<h1><a class="anchor" id="Technical_Guide"></a>
+Technical_Guide</h1>
+<p><a class="el" href="class_food.html" title="Class representing a immobile Food within the Arena. ">Food</a></p>
+<p>Foods objects in my arena are immobile arena entities which inherits from arena entitles. When the simulation begins, foods, with a fixed radius, are randomly placed around the arena and are colored red.</p>
+<p><a class="el" href="class_light.html" title="Class representing an mobile Light within the Arena. ">Light</a></p>
+<p>Lights objects in my arena are mobile arena entities, which also inherits from the arena entities. At the start of the simulation, lights began moving a velocity of 5 for both wheels and are colored white. lights&amp;#39; motion is handled by motion handler robot class. It updates it velocity. It also changes the heading again by 180 degrees.</p>
+<p><a class="el" href="class_sensor.html">Sensor</a> (<a class="el" href="class_light.html" title="Class representing an mobile Light within the Arena. ">Light</a> Sensor/ <a class="el" href="class_food.html" title="Class representing a immobile Food within the Arena. ">Food</a> <a class="el" href="class_sensor.html">Sensor</a>)</p>
+<p>Sensors in my program are not arena entity but a stand alone class. Both the light and food sensor inherit from this class. The main function of the sensor class is to serve as an interface for those two sensors. The sensors essentially calculate reading based on the distance it is to either food or light, respectively. The update function of both types of sensors takes in a vector of arena entities as argument, which ever it sensing, and then from there calculates the total reading be accumulating the separate individual readings.</p>
+<p><a class="el" href="class_robot.html" title="Class representing a robot within the arena. ">Robot</a></p>
+<p>Robots are also mobile arena entities in my arena. When a robot object is created it begins off by having the generic motion handler robot class handle it motion. Every robot has a type which is assigned to through its constructer. The constructer takes in one of the four behaviors as an argument and based of that assigns that robot the appropriate behavior (we will dive deeper into how that works in the Strategy pattern implementation section below). At the start of the simulation, a robot is placed randomly in the arena, is stationary and is colored blue. Every robot has four sensors, one right food and one light sensor at an offset angle of -65 degrees of the robot&amp;#39;s position, and one left light sensor and one food sensor at an offset angle of 65 degree of the robot&amp;#39;s position.</p>
+<p>Key tasks that are done within the robot class (TimeStepUpdate method):</p>
 <ul>
-<li><em>and finally provide a user guide for non-technical users to be able to download, configure, and operate the simulator. If the text were on an 8.5x11 piece of paper, it should be 3-4 pages.</em> </li>
+<li>Initializing the four sensors (food and light sensors)</li>
+<li>Assigning the appropriate motion handler based on the robot type/behavior</li>
+<li>Keeping track of the the hunger of the robot and handling the transition to the aggressive behavior towards food.</li>
+<li>Update the sensor position based of the position of its position.</li>
+<li>Strategy Pattern<ul>
+<li>in the way that robots exhibit different behaviors towards entities with the arena. I created different motion handler classes that inherit from the parent class. In particular, I have 4 different motion handler child classes that represents the four different behaviors robots exhibit (fear, love, explore, and aggression). Each of the classes then implement the update velocity function and thereby allowing it to implemented it with respect to the behaviors that class is representing.</li>
 </ul>
+</li>
+</ul>
+<p><a class="el" href="class_arena.html" title="The main class for the simulation of a 2D world with many entities running around. ">Arena</a></p>
+<p><a class="el" href="class_arena.html" title="The main class for the simulation of a 2D world with many entities running around. ">Arena</a> is the main class within the program, Its the model for my program in the MVC model. The arena class is where all the entitles interact with each other.</p>
+<p>Some of the key tasks that the are handled are:</p>
+<ul>
+<li>Adding Robots and Entities</li>
+<li>Observer Design Pattern implementation:<ul>
+<li>My implementation of the observer design strategy takes advantage of the arena and it knowledge of all the entities that are in our simulation. I realized that the arena would be the best candidate to be the subject in my implementation of the observer strategy. I modified my arena to be my subject by creating several new pointer vectors that would keep track of the robot sensors and light and food entities. Therefore, when it comes time to notify and update the observers it would have all the info about those entities and can pass them along to its observers. My choice for the observers of the arena was a bit tricky at first. It was a choice between making the robots observer or the sensors of each robot directly the observers of the arena. I end up implementing the strategy with the sensors as the observers of the arena because first it would mean less methods being called since if the robot it self was the observer it would then need update it sensor whenever it was updated itself. When the arena is creating robots it also registers the pointers to the sensor of that robot. Then the notify function is called at each times stamp update and that updates all the sensor with a vector all the entities its tracking.</li>
+</ul>
+</li>
+<li>Collision Handling:<ul>
+<li>Collisions are only handled either if the entities are of the same types or if an arena entity collides with a wall or a robot collides with a food object. Generally, collisions are in the arena by calling on the individual collision handling methods of those entities. For the most part, that method just add 180 degrees to the heading, which creates a bouncing off effect.</li>
+</ul>
+</li>
+</ul>
+<p>Graphics <a class="el" href="class_arena.html" title="The main class for the simulation of a 2D world with many entities running around. ">Arena</a> Viewer:</p>
+<p>The graphics arena viewer serves as the viewer for my program in the MVC model. This class&amp;#39;s 2 main function is to display my program on to the arena and to provide the GUI functionality for the user to configure my simulation.</p>
+<ul>
+<li>GUI:<ul>
+<li>The GUI panel consists of the three buttons and and 5 slider</li>
+<li>Play and Pause button: This button is linked to a function that alternates the setting of the truth value of a class variable called paused. The variable is a condition to whether the time is advanced.</li>
+<li>New game Button: this button pauses the simulation and then looks for any changes in the GUI provided to the user and calls the config_arena function. This function is a pass through function pass along the settings of the GUI to the controller which then passes along to the arena and then arena then use those new setting to reset and reconfigure the arena to match the GUI.</li>
+<li><a class="el" href="class_food.html" title="Class representing a immobile Food within the Arena. ">Food</a> on and off button: linked to a bool variable that it set accordingly, to be passed along to the arena as one of the arguments of the Pass thru function, config_arena.</li>
+<li>The remaining five sliders all have variables that the slider sets and is also then passed a long to the arena as arguments to the pass thru function, Config_Arena. Those five sliders set the amount of robots, the ratio of coward to explore robots, the number of foods, the number of lights and the sensitivity of the light sensor in sensing the lights around it.</li>
+</ul>
+</li>
+<li>Displaying <a class="el" href="class_arena.html" title="The main class for the simulation of a 2D world with many entities running around. ">Arena</a> Entities:<ul>
+<li>The class utilized the NanoVG library to draw the entitles that are in the arena the class is linked to via a pointer.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="User_Guide"></a>
+User_Guide</h1>
+<p>The start of the game:</p>
+<p>When the game begins, the arena has 10 robots, 5 which exhibit explore behavior and 5 which exhibit coward behavior towards the light. There also 4 food items which are colored red and 4 light items that are colored white. The lights are the only things that should be moving initially then slowly the robot began to move as a reaction to the lights.</p>
+<p>Configuring the simulation:</p>
+<p>As a user, via the GUI panel in the upper right corner of the window, are allowed to:</p>
+<ul>
+<li>Pause and play the game - play button</li>
+<li>Start a new game- new game button</li>
+<li>Turn of food (no food in the simulation at all) – FoodOn button</li>
+<li>Choose the amount of robots in the simulation (1-10) - 1st Slider</li>
+<li>Choose the amount of light in the simulation (1-5) - 2nd slider</li>
+<li>Choose the amount of food in the simulation (1-5) - 3rd slider</li>
+<li>Choose the ratio of explore robots to coward robots (1%-100%) – 4th slider</li>
+<li>Choose the sensitivity of the light sensor (0-1) – 5th slider</li>
+</ul>
+<p>All change to GUI go into effect after a new game has been started. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
