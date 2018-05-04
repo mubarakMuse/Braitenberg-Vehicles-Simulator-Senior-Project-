@@ -240,7 +240,7 @@ class GraphicsArenaViewer : public GraphicsApp {
 
   int robotnum{10};
   double coward_percent{.5};
-  int lightnum{4}; 
+  int lightnum{4};
   int foodnum{4};
   double sensitivity{1.02};
   bool food_on_{true};
@@ -249,7 +249,6 @@ class GraphicsArenaViewer : public GraphicsApp {
   nanogui::Button *playing_button_{nullptr};
   nanogui::Button *NewGame_button_{nullptr};
   nanogui::Button *foodOnOff_button_{nullptr};
-  
 };
 
 NAMESPACE_END(csci3081);

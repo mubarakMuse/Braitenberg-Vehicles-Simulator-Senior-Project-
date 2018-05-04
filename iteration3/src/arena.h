@@ -199,7 +199,8 @@ class Arena {
    */
   void UpdateGameStatus();
 
-  void ConfigArena(int robotnum, double coward_percent, int lightnum, int foodnum, double sensitivity, bool food_on_);
+  void ConfigArena(int robotnum, double coward_percent,
+    int lightnum, int foodnum, double sensitivity, bool food_on_);
 
 
   std::vector<class ArenaEntity *> get_entities() const { return entities_; }

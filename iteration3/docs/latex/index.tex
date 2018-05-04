@@ -1,18 +1,18 @@
 \hypertarget{index_intro_sec}{}\section{Introduction}\label{index_intro_sec}
 This is a program that simulates the Braitenberg Vehicles which are the thought experiments of Valentino Braitenberg, who imagined complex behavior from simple design. His vehicles exhibit aggression, fear, exploration, and love through simple sensor-\/motor connections. In my program, the robots play the role of the vehicles and inhibit those four different behaviors and they exhibit the behaviors towards 2 arena entities which are food and light. \hypertarget{index_Technical_Guide}{}\section{Technical\+\_\+\+Guide}\label{index_Technical_Guide}
-\mbox{\hyperlink{class_food}{Food}}
+\hyperlink{class_food}{Food}
 
-\mbox{\hyperlink{class_food}{Food}} objects in my arena are immobile arena entities which inherits from arena entities. When the simulation begins, foods, with a fixed radius, are randomly placed around the arena and are colored red.
+\hyperlink{class_food}{Food} objects in my arena are immobile arena entities which inherits from arena entities. When the simulation begins, foods, with a fixed radius, are randomly placed around the arena and are colored red.
 
-\mbox{\hyperlink{class_light}{Light}}
+\hyperlink{class_light}{Light}
 
-\mbox{\hyperlink{class_light}{Light}} objects in my arena are mobile arena entities, which also inherits from the arena entities. At the start of the simulation, lights begin moving at a velocity of 5 for both wheels and are colored white. The lights\&\#39; motion is handled by a motion handler robot class. It updates it velocity and also changes the heading again by 180 degrees.
+\hyperlink{class_light}{Light} objects in my arena are mobile arena entities, which also inherits from the arena entities. At the start of the simulation, lights begin moving at a velocity of 5 for both wheels and are colored white. The lights\&\#39; motion is handled by a motion handler robot class. It updates it velocity and also changes the heading again by 180 degrees.
 
-\mbox{\hyperlink{class_sensor}{Sensor}} (\mbox{\hyperlink{class_light}{Light}} Sensor/\+Food \mbox{\hyperlink{class_sensor}{Sensor}})\+:
+\hyperlink{class_sensor}{Sensor} (\hyperlink{class_light}{Light} Sensor/\+Food \hyperlink{class_sensor}{Sensor})\+:
 
 Sensors in my program are not an arena entity but rather, a stand-\/alone class and both the light and food sensors inherit from this class. The main function of the sensor class is to serve as an interface for those two sensors. The sensors essentially calculate reading based on the distance it is to either food or light, respectively. The update function of both types of sensors takes in a vector of arena entities as an argument, whichever it is sensing, and then from there calculates the total reading by accumulating the separate individual readings.
 
-\mbox{\hyperlink{class_robot}{Robot}}
+\hyperlink{class_robot}{Robot}
 
 Robots are also classified as mobile arena entities in my arena. When a robot object is created it starts by having the generic motion handler robot class handle its motion. Every robot has a type which is assigned through its constructer. The constructer takes in one of the four behaviors as an argument and based off of that assigns that robot its appropriate behavior (we will dive deeper into how that works in the Strategy Pattern Implementation section below). At the start of the simulation, a robot is placed randomly in the arena, it is stationary and is colored blue. Every robot has four sensors, one right food sensor and one light sensor at an offset angle of -\/65 degrees of the robot\&\#39;s position, and one left light sensor and one food sensor at an offset angle of 65 degrees of the robot\&\#39;s position.
 
@@ -30,9 +30,9 @@ Key tasks that are done within the robot class (Time\+Step\+Update method)\+:
 \end{DoxyItemize}
 \end{DoxyItemize}
 
-\mbox{\hyperlink{class_arena}{Arena}}
+\hyperlink{class_arena}{Arena}
 
-\mbox{\hyperlink{class_arena}{Arena}} is the main class within the program, and it is the model for my program in the M\+VC model. The arena class is where all the entities interact with each other.
+\hyperlink{class_arena}{Arena} is the main class within the program, and it is the model for my program in the M\+VC model. The arena class is where all the entities interact with each other.
 
 Some of the key tasks that are handled within the arena class are\+:
 
@@ -49,7 +49,7 @@ Some of the key tasks that are handled within the arena class are\+:
 \end{DoxyItemize}
 \end{DoxyItemize}
 
-Graphics \mbox{\hyperlink{class_arena}{Arena}} Viewer\+:
+Graphics \hyperlink{class_arena}{Arena} Viewer\+:
 
 The graphics arena viewer serves as the viewer for my program in the M\+VC model. This class\&\#39;s 2 main functions are to display the program onto the arena and to provide the G\+UI functionality for the user to configure my simulation.
 
@@ -60,10 +60,10 @@ The graphics arena viewer serves as the viewer for my program in the M\+VC model
 \item The G\+UI panel consists of the three buttons and 5 sliders.
 \item Play and Pause button\+: This button is linked to a function that alternates the setting of the truth value of a class variable called paused. The variable is a condition to whether the time is advanced.
 \item New Game Button\+: This button pauses the simulation and then looks for any changes in the G\+UI provided to the user and calls the config\+\_\+arena function. This function is a pass-\/through function that passes along the settings of the G\+UI to the controller, which then passes it along to the arena. Then the arena uses those new settings to reset and reconfigure the arena to match the G\+UI.
-\item \mbox{\hyperlink{class_food}{Food}} on and off button\+: This button is linked to a bool variable that is set accordingly to be passed along to the arena as one of the arguments of the pass-\/through function; config\+\_\+arena.
+\item \hyperlink{class_food}{Food} on and off button\+: This button is linked to a bool variable that is set accordingly to be passed along to the arena as one of the arguments of the pass-\/through function; config\+\_\+arena.
 \item The remaining five sliders all have variables that the slider sets and is also then passed along to the arena as arguments to the pass-\/through function, Config\+\_\+\+Arena. Those five sliders set the amount of robots, the ratio of coward to explore robots, the number of foods, the number of lights and the sensitivity of the light sensor in sensing the lights around it.
 \end{DoxyItemize}
-\item Displaying \mbox{\hyperlink{class_arena}{Arena}} Entities\+:
+\item Displaying \hyperlink{class_arena}{Arena} Entities\+:
 \begin{DoxyItemize}
 \item The class utilized the Nano\+VG library to draw the entities that are in the arena and the class is linked to via a pointer.
 \end{DoxyItemize}
@@ -80,7 +80,7 @@ As a user, via the G\+UI panel in the upper right corner of the window, you are 
 \begin{DoxyItemize}
 \item Pause and play the game -\/ play button
 \item Start a new game -\/ new game button
-\item Turn of food (no food in the simulation at all) – \mbox{\hyperlink{class_food}{Food}} On button
+\item Turn of food (no food in the simulation at all) – \hyperlink{class_food}{Food} On button
 \item Choose the amount of robots in the simulation (1-\/10) -\/ 1st Slider
 \item Choose the amount of light in the simulation (1-\/5) -\/ 2nd slider
 \item Choose the amount of food in the simulation (1-\/5) -\/ 3rd slider

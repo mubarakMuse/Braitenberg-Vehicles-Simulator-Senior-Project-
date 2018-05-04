@@ -2,7 +2,7 @@
 \label{class_arena_entity}\index{Arena\+Entity@{Arena\+Entity}}
 
 
-A base class from which all \mbox{\hyperlink{class_arena}{Arena}} entities inherit.  
+A base class from which all \hyperlink{class_arena}{Arena} entities inherit.  
 
 
 
@@ -18,72 +18,72 @@ Inheritance diagram for Arena\+Entity\+:\begin{figure}[H]
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_arena_entity_a96df749814e89344a6149e4da89b4e44}\label{class_arena_entity_a96df749814e89344a6149e4da89b4e44}} 
-\mbox{\hyperlink{class_arena_entity_a96df749814e89344a6149e4da89b4e44}{Arena\+Entity}} ()
-\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_arena_entity}{Arena\+Entity}} constructor initialized with default values from \mbox{\hyperlink{params_8h}{params.\+h}}. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_arena_entity_aa7af53e5d8830d144ccf2ad07d9140da}\label{class_arena_entity_aa7af53e5d8830d144ccf2ad07d9140da}} 
-virtual \mbox{\hyperlink{class_arena_entity_aa7af53e5d8830d144ccf2ad07d9140da}{$\sim$\+Arena\+Entity}} ()=default
+\hyperlink{class_arena_entity_a96df749814e89344a6149e4da89b4e44}{Arena\+Entity} ()\hypertarget{class_arena_entity_a96df749814e89344a6149e4da89b4e44}{}\label{class_arena_entity_a96df749814e89344a6149e4da89b4e44}
+
+\begin{DoxyCompactList}\small\item\em \hyperlink{class_arena_entity}{Arena\+Entity} constructor initialized with default values from \hyperlink{params_8h}{params.\+h}. \end{DoxyCompactList}\item 
+virtual \hyperlink{class_arena_entity_aa7af53e5d8830d144ccf2ad07d9140da}{$\sim$\+Arena\+Entity} ()=default\hypertarget{class_arena_entity_aa7af53e5d8830d144ccf2ad07d9140da}{}\label{class_arena_entity_aa7af53e5d8830d144ccf2ad07d9140da}
+
 \begin{DoxyCompactList}\small\item\em Default destructor -- as defined by compiler. \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_arena_entity_a203613c40a5cecf47606b2a59adcc3bd}{Timestep\+Update}} (\mbox{\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused}} unsigned int dt)
+virtual void \hyperlink{class_arena_entity_a203613c40a5cecf47606b2a59adcc3bd}{Timestep\+Update} (\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused} unsigned int dt)
 \begin{DoxyCompactList}\small\item\em Perform whatever updates needed for a particular entity after 1 timestep (updating position, changing color, etc.). \end{DoxyCompactList}\item 
-virtual void \mbox{\hyperlink{class_arena_entity_aa9a83946e47cf824ce50325a4599eea8}{Handle\+Collision}} (\mbox{\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused}} Entity\+Type object\+\_\+type, \mbox{\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused}} \mbox{\hyperlink{class_arena_entity}{Arena\+Entity}} $\ast$object)
-\begin{DoxyCompactList}\small\item\em handle collisons for both the \mbox{\hyperlink{class_light}{Light}} and the robot, Each using it in a away appropiate to that mobile entity \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_arena_entity_abaebe6c02659e22c08579d49829c5676}\label{class_arena_entity_abaebe6c02659e22c08579d49829c5676}} 
-virtual void \mbox{\hyperlink{class_arena_entity_abaebe6c02659e22c08579d49829c5676}{Reset}} ()
+virtual void \hyperlink{class_arena_entity_aa9a83946e47cf824ce50325a4599eea8}{Handle\+Collision} (\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused} Entity\+Type object\+\_\+type, \hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused} \hyperlink{class_arena_entity}{Arena\+Entity} $\ast$object)
+\begin{DoxyCompactList}\small\item\em handle collisons for both the \hyperlink{class_light}{Light} and the robot, Each using it in a away appropiate to that mobile entity \end{DoxyCompactList}\item 
+virtual void \hyperlink{class_arena_entity_abaebe6c02659e22c08579d49829c5676}{Reset} ()\hypertarget{class_arena_entity_abaebe6c02659e22c08579d49829c5676}{}\label{class_arena_entity_abaebe6c02659e22c08579d49829c5676}
+
 \begin{DoxyCompactList}\small\item\em Reset entity to a newly constructed state. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_arena_entity_ad9d597b105a901a79c45cbf704c115d0}\label{class_arena_entity_ad9d597b105a901a79c45cbf704c115d0}} 
-\mbox{\hyperlink{struct_pose}{Pose}} \mbox{\hyperlink{class_arena_entity_ad9d597b105a901a79c45cbf704c115d0}{Set\+Pose\+Randomly}} ()
+\hyperlink{struct_pose}{Pose} \hyperlink{class_arena_entity_ad9d597b105a901a79c45cbf704c115d0}{Set\+Pose\+Randomly} ()\hypertarget{class_arena_entity_ad9d597b105a901a79c45cbf704c115d0}{}\label{class_arena_entity_ad9d597b105a901a79c45cbf704c115d0}
+
 \begin{DoxyCompactList}\small\item\em Randomly place the entity at a spot. \end{DoxyCompactList}\item 
-virtual std\+::string \mbox{\hyperlink{class_arena_entity_ad43152003033cf01ad86eeff1990b69a}{get\+\_\+name}} () const =0
+virtual std\+::string \hyperlink{class_arena_entity_ad43152003033cf01ad86eeff1990b69a}{get\+\_\+name} () const =0
 \begin{DoxyCompactList}\small\item\em Get the name of the entity for visualization and for debugging. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_arena_entity_a9a0efa995da3ed55e92f54357fd2bdae}\label{class_arena_entity_a9a0efa995da3ed55e92f54357fd2bdae}} 
-const \mbox{\hyperlink{struct_pose}{Pose}} \& {\bfseries get\+\_\+pose} () const
+const \hyperlink{struct_pose}{Pose} \& {\bfseries get\+\_\+pose} () const \hypertarget{class_arena_entity_af3cf4d62c4392bf9b34238693a0f4d9c}{}\label{class_arena_entity_af3cf4d62c4392bf9b34238693a0f4d9c}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_a6eb76e5f1b5949314c12cc512d6930ae}\label{class_arena_entity_a6eb76e5f1b5949314c12cc512d6930ae}} 
-void {\bfseries set\+\_\+pose} (const \mbox{\hyperlink{struct_pose}{Pose}} \&pose)
+void {\bfseries set\+\_\+pose} (const \hyperlink{struct_pose}{Pose} \&pose)\hypertarget{class_arena_entity_a6eb76e5f1b5949314c12cc512d6930ae}{}\label{class_arena_entity_a6eb76e5f1b5949314c12cc512d6930ae}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_a3136704edf07c24639319abf5c28dac0}\label{class_arena_entity_a3136704edf07c24639319abf5c28dac0}} 
-void \mbox{\hyperlink{class_arena_entity_a3136704edf07c24639319abf5c28dac0}{set\+\_\+position}} (const double inx, const double iny)
+void \hyperlink{class_arena_entity_a3136704edf07c24639319abf5c28dac0}{set\+\_\+position} (const double inx, const double iny)\hypertarget{class_arena_entity_a3136704edf07c24639319abf5c28dac0}{}\label{class_arena_entity_a3136704edf07c24639319abf5c28dac0}
+
 \begin{DoxyCompactList}\small\item\em Setter method for position within entity pose variable. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_arena_entity_ac1cc3c6997bc7a9573128fc5ded9eb72}\label{class_arena_entity_ac1cc3c6997bc7a9573128fc5ded9eb72}} 
-void \mbox{\hyperlink{class_arena_entity_ac1cc3c6997bc7a9573128fc5ded9eb72}{set\+\_\+heading}} (const double t)
+void \hyperlink{class_arena_entity_ac1cc3c6997bc7a9573128fc5ded9eb72}{set\+\_\+heading} (const double t)\hypertarget{class_arena_entity_ac1cc3c6997bc7a9573128fc5ded9eb72}{}\label{class_arena_entity_ac1cc3c6997bc7a9573128fc5ded9eb72}
+
 \begin{DoxyCompactList}\small\item\em Setter method for heading within entity pose variable. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_arena_entity_a4c4bd7f5ffb778979303c33cb3bc9986}{Relative\+Change\+Heading}} (const double delta)
+void \hyperlink{class_arena_entity_a4c4bd7f5ffb778979303c33cb3bc9986}{Relative\+Change\+Heading} (const double delta)
 \begin{DoxyCompactList}\small\item\em Setter for heading within pose, but change is relative to current value. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_arena_entity_a5790a5d45229aa76223a8183ac916323}\label{class_arena_entity_a5790a5d45229aa76223a8183ac916323}} 
-const \mbox{\hyperlink{struct_rgb_color}{Rgb\+Color}} \& {\bfseries get\+\_\+color} () const
+const \hyperlink{struct_rgb_color}{Rgb\+Color} \& {\bfseries get\+\_\+color} () const \hypertarget{class_arena_entity_a9ba62519f6c6294373fdc8488713b4e0}{}\label{class_arena_entity_a9ba62519f6c6294373fdc8488713b4e0}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_a1ac33beda7462ac5c7f4f71a70d3fb10}\label{class_arena_entity_a1ac33beda7462ac5c7f4f71a70d3fb10}} 
-void {\bfseries set\+\_\+color} (const \mbox{\hyperlink{struct_rgb_color}{Rgb\+Color}} \&color)
+void {\bfseries set\+\_\+color} (const \hyperlink{struct_rgb_color}{Rgb\+Color} \&color)\hypertarget{class_arena_entity_a1ac33beda7462ac5c7f4f71a70d3fb10}{}\label{class_arena_entity_a1ac33beda7462ac5c7f4f71a70d3fb10}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_a42d86d2d952b7f2a861d8a6cb46e661e}\label{class_arena_entity_a42d86d2d952b7f2a861d8a6cb46e661e}} 
-double {\bfseries get\+\_\+radius} () const
+double {\bfseries get\+\_\+radius} () const \hypertarget{class_arena_entity_a5a2b834ad654f42785c3073c25a0fea8}{}\label{class_arena_entity_a5a2b834ad654f42785c3073c25a0fea8}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_a2b0c2512fe53d143442da5e357f71505}\label{class_arena_entity_a2b0c2512fe53d143442da5e357f71505}} 
-void {\bfseries set\+\_\+radius} (double radius)
+void {\bfseries set\+\_\+radius} (double radius)\hypertarget{class_arena_entity_a2b0c2512fe53d143442da5e357f71505}{}\label{class_arena_entity_a2b0c2512fe53d143442da5e357f71505}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_a19e75df5ce971f48e9a522a343a39fb3}\label{class_arena_entity_a19e75df5ce971f48e9a522a343a39fb3}} 
-Entity\+Type {\bfseries get\+\_\+type} () const
+Entity\+Type {\bfseries get\+\_\+type} () const \hypertarget{class_arena_entity_a69a818480868f9b0417e6f9ed20dfc96}{}\label{class_arena_entity_a69a818480868f9b0417e6f9ed20dfc96}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_aa65c584906d4c22f61488fab98c3392c}\label{class_arena_entity_aa65c584906d4c22f61488fab98c3392c}} 
-void {\bfseries set\+\_\+type} (Entity\+Type et)
+void {\bfseries set\+\_\+type} (Entity\+Type et)\hypertarget{class_arena_entity_aa65c584906d4c22f61488fab98c3392c}{}\label{class_arena_entity_aa65c584906d4c22f61488fab98c3392c}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_ae50750dfde8118c27835ea8e9db8b7ef}\label{class_arena_entity_ae50750dfde8118c27835ea8e9db8b7ef}} 
-int {\bfseries get\+\_\+id} () const
+int {\bfseries get\+\_\+id} () const \hypertarget{class_arena_entity_aee353e402d9b8a7372fae30b7a0ce4a0}{}\label{class_arena_entity_aee353e402d9b8a7372fae30b7a0ce4a0}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_a67f4c0467d32eec76ee6ed033ff9ed2f}\label{class_arena_entity_a67f4c0467d32eec76ee6ed033ff9ed2f}} 
-void {\bfseries set\+\_\+id} (int id)
+void {\bfseries set\+\_\+id} (int id)\hypertarget{class_arena_entity_a67f4c0467d32eec76ee6ed033ff9ed2f}{}\label{class_arena_entity_a67f4c0467d32eec76ee6ed033ff9ed2f}
+
 \item 
-\mbox{\Hypertarget{class_arena_entity_a9cfea21220c07502abd084afde49ae65}\label{class_arena_entity_a9cfea21220c07502abd084afde49ae65}} 
-bool \mbox{\hyperlink{class_arena_entity_a9cfea21220c07502abd084afde49ae65}{is\+\_\+mobile}} (void)
+bool \hyperlink{class_arena_entity_a9cfea21220c07502abd084afde49ae65}{is\+\_\+mobile} (void)\hypertarget{class_arena_entity_a9cfea21220c07502abd084afde49ae65}{}\label{class_arena_entity_a9cfea21220c07502abd084afde49ae65}
+
 \begin{DoxyCompactList}\small\item\em Getter method for determining if entity can move or not. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{class_arena_entity_adb5d3089fec5c28cc989e5834fcdaf6c}\label{class_arena_entity_adb5d3089fec5c28cc989e5834fcdaf6c}} 
-void \mbox{\hyperlink{class_arena_entity_adb5d3089fec5c28cc989e5834fcdaf6c}{set\+\_\+mobility}} (bool value)
+void \hyperlink{class_arena_entity_adb5d3089fec5c28cc989e5834fcdaf6c}{set\+\_\+mobility} (bool value)\hypertarget{class_arena_entity_adb5d3089fec5c28cc989e5834fcdaf6c}{}\label{class_arena_entity_adb5d3089fec5c28cc989e5834fcdaf6c}
+
 \begin{DoxyCompactList}\small\item\em Setter method for indicating if entity can move or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-A base class from which all \mbox{\hyperlink{class_arena}{Arena}} entities inherit. 
+A base class from which all \hyperlink{class_arena}{Arena} entities inherit. 
 
 All entities know how to\+:
 
@@ -98,12 +98,13 @@ Please note that here use the upper-\/left coordinate, which means that the orig
 All arena entities are circular. 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{class_arena_entity_ad43152003033cf01ad86eeff1990b69a}\label{class_arena_entity_ad43152003033cf01ad86eeff1990b69a}} 
 \index{Arena\+Entity@{Arena\+Entity}!get\+\_\+name@{get\+\_\+name}}
 \index{get\+\_\+name@{get\+\_\+name}!Arena\+Entity@{Arena\+Entity}}
-\subsubsection{\texorpdfstring{get\+\_\+name()}{get\_name()}}
-{\footnotesize\ttfamily virtual std\+::string Arena\+Entity\+::get\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
-
+\subsubsection[{\texorpdfstring{get\+\_\+name() const =0}{get_name() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string Arena\+Entity\+::get\+\_\+name (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{class_arena_entity_ad43152003033cf01ad86eeff1990b69a}{}\label{class_arena_entity_ad43152003033cf01ad86eeff1990b69a}
 
 
 Get the name of the entity for visualization and for debugging. 
@@ -113,17 +114,19 @@ Name of the entity. Each entity type hard codes its name (e.\+g. \char`\"{}\+Rob
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{class_robot_a3f77c13705b8f60480d21d8d936dc39e}{Robot}}, \mbox{\hyperlink{class_food_a5c3bcd5109750a15ebb24b8a2a3cdd07}{Food}}, and \mbox{\hyperlink{class_light_a49b2e32cf8173353ac4689fdadbb95d5}{Light}}.
+Implemented in \hyperlink{class_robot_a3f77c13705b8f60480d21d8d936dc39e}{Robot}, \hyperlink{class_food_a5c3bcd5109750a15ebb24b8a2a3cdd07}{Food}, and \hyperlink{class_light_a49b2e32cf8173353ac4689fdadbb95d5}{Light}.
 
-\mbox{\Hypertarget{class_arena_entity_aa9a83946e47cf824ce50325a4599eea8}\label{class_arena_entity_aa9a83946e47cf824ce50325a4599eea8}} 
 \index{Arena\+Entity@{Arena\+Entity}!Handle\+Collision@{Handle\+Collision}}
 \index{Handle\+Collision@{Handle\+Collision}!Arena\+Entity@{Arena\+Entity}}
-\subsubsection{\texorpdfstring{Handle\+Collision()}{HandleCollision()}}
-{\footnotesize\ttfamily virtual void Arena\+Entity\+::\+Handle\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused}} Entity\+Type}]{object\+\_\+type,  }\item[{\mbox{\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused}} \mbox{\hyperlink{class_arena_entity}{Arena\+Entity}} $\ast$}]{object }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+\subsubsection[{\texorpdfstring{Handle\+Collision(\+\_\+\+\_\+unused Entity\+Type object\+\_\+type, \+\_\+\+\_\+unused Arena\+Entity $\ast$object)}{HandleCollision(__unused EntityType object_type, __unused ArenaEntity *object)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Arena\+Entity\+::\+Handle\+Collision (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+\+\_\+unused} Entity\+Type}]{object\+\_\+type, }
+\item[{{\bf \+\_\+\+\_\+unused} {\bf Arena\+Entity} $\ast$}]{object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_arena_entity_aa9a83946e47cf824ce50325a4599eea8}{}\label{class_arena_entity_aa9a83946e47cf824ce50325a4599eea8}
 
 
-
-handle collisons for both the \mbox{\hyperlink{class_light}{Light}} and the robot, Each using it in a away appropiate to that mobile entity 
+handle collisons for both the \hyperlink{class_light}{Light} and the robot, Each using it in a away appropiate to that mobile entity 
 
 
 \begin{DoxyParams}[1]{Parameters}
@@ -132,12 +135,13 @@ handle collisons for both the \mbox{\hyperlink{class_light}{Light}} and the robo
 \mbox{\tt in}  & {\em the} & actual object it collied with. Unused. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_arena_entity_a4c4bd7f5ffb778979303c33cb3bc9986}\label{class_arena_entity_a4c4bd7f5ffb778979303c33cb3bc9986}} 
 \index{Arena\+Entity@{Arena\+Entity}!Relative\+Change\+Heading@{Relative\+Change\+Heading}}
 \index{Relative\+Change\+Heading@{Relative\+Change\+Heading}!Arena\+Entity@{Arena\+Entity}}
-\subsubsection{\texorpdfstring{Relative\+Change\+Heading()}{RelativeChangeHeading()}}
-{\footnotesize\ttfamily void Arena\+Entity\+::\+Relative\+Change\+Heading (\begin{DoxyParamCaption}\item[{const double}]{delta }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
-
+\subsubsection[{\texorpdfstring{Relative\+Change\+Heading(const double delta)}{RelativeChangeHeading(const double delta)}}]{\setlength{\rightskip}{0pt plus 5cm}void Arena\+Entity\+::\+Relative\+Change\+Heading (
+\begin{DoxyParamCaption}
+\item[{const double}]{delta}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_arena_entity_a4c4bd7f5ffb778979303c33cb3bc9986}{}\label{class_arena_entity_a4c4bd7f5ffb778979303c33cb3bc9986}
 
 
 Setter for heading within pose, but change is relative to current value. 
@@ -147,12 +151,13 @@ Setter for heading within pose, but change is relative to current value.
 \mbox{\tt in}  & {\em delta} & by which to modify current heading. Can be positive or negative. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{class_arena_entity_a203613c40a5cecf47606b2a59adcc3bd}\label{class_arena_entity_a203613c40a5cecf47606b2a59adcc3bd}} 
 \index{Arena\+Entity@{Arena\+Entity}!Timestep\+Update@{Timestep\+Update}}
 \index{Timestep\+Update@{Timestep\+Update}!Arena\+Entity@{Arena\+Entity}}
-\subsubsection{\texorpdfstring{Timestep\+Update()}{TimestepUpdate()}}
-{\footnotesize\ttfamily virtual void Arena\+Entity\+::\+Timestep\+Update (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{common_8h_a2e3484535ee610c8e19e9859563abe48}{\+\_\+\+\_\+unused}} unsigned int}]{dt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
-
+\subsubsection[{\texorpdfstring{Timestep\+Update(\+\_\+\+\_\+unused unsigned int dt)}{TimestepUpdate(__unused unsigned int dt)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Arena\+Entity\+::\+Timestep\+Update (
+\begin{DoxyParamCaption}
+\item[{{\bf \+\_\+\+\_\+unused} unsigned int}]{dt}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_arena_entity_a203613c40a5cecf47606b2a59adcc3bd}{}\label{class_arena_entity_a203613c40a5cecf47606b2a59adcc3bd}
 
 
 Perform whatever updates needed for a particular entity after 1 timestep (updating position, changing color, etc.). 
@@ -166,4 +171,4 @@ Perform whatever updates needed for a particular entity after 1 timestep (updati
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-src/\mbox{\hyperlink{arena__entity_8h}{arena\+\_\+entity.\+h}}\end{DoxyCompactItemize}
+src/\hyperlink{arena__entity_8h}{arena\+\_\+entity.\+h}\end{DoxyCompactItemize}

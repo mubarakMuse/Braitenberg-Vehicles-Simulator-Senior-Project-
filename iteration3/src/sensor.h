@@ -91,7 +91,7 @@ class Sensor {
   void RelativeChangeHeading(const double delta) {
     sensorpose_.theta += delta;
   }
-  void change_sensor_sensitivity(double ss){
+  void change_sensor_sensitivity(double ss) {
     sensor_sensitivity = ss;
   }
 

@@ -8,7 +8,7 @@ var searchData=
   ['rgb_5fcolor_2ecc',['rgb_color.cc',['../rgb__color_8cc.html',1,'']]],
   ['rgb_5fcolor_2eh',['rgb_color.h',['../rgb__color_8h.html',1,'']]],
   ['rgbcolor',['RgbColor',['../struct_rgb_color.html',1,'RgbColor'],['../struct_rgb_color.html#a264da0270aca412d62197e046b71b08e',1,'RgbColor::RgbColor()'],['../struct_rgb_color.html#a61e213533bfff019aebd27f991688222',1,'RgbColor::RgbColor(int r_in, int g_in, int b_in)']]],
-  ['robot',['Robot',['../class_robot.html',1,'Robot'],['../class_arena.html#ab5399d939d79002a8794bf9b8a75d73a',1,'Arena::robot()'],['../class_robot.html#a3475f306d3a9b7090e31a12399260055',1,'Robot::Robot(RobotType rt)'],['../class_robot.html#a4fd835c7c44337d31d9fd09921d29908',1,'Robot::Robot(const Robot &amp;)=default']]],
+  ['robot',['Robot',['../class_robot.html',1,'Robot'],['../class_arena.html#af9b489317866a4541c6531acb63602c3',1,'Arena::robot()'],['../class_robot.html#a3475f306d3a9b7090e31a12399260055',1,'Robot::Robot(RobotType rt)'],['../class_robot.html#a4fd835c7c44337d31d9fd09921d29908',1,'Robot::Robot(const Robot &amp;)=default']]],
   ['robot_2ecc',['robot.cc',['../robot_8cc.html',1,'']]],
   ['robot_2eh',['robot.h',['../robot_8h.html',1,'']]],
   ['robot_5ftype_2eh',['robot_type.h',['../robot__type_8h.html',1,'']]],
